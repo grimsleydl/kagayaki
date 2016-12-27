@@ -1,0 +1,94 @@
+# Maintainer: Julien Humbert <julroy67@gmail.com>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+
+pkgname=fontconfig-kagayaki
+_basename=fontconfig
+pkgver=2.12.1
+pkgrel=1
+pkgdesc="A library for configuring and customizing font access"
+arch=(i686 x86_64)
+url='http://www.fontconfig.org/release/'
+license=('custom' 'MIT')
+groups=('kagayaki-bundle')
+depends=('expat' 'freetype2-kagayaki')
+makedepends=('python2' 'docbook2x')
+provides=('fontconfig=$pkgver' 'fontconfig-infinality-ultimate')
+conflicts=('fontconfig' 'fontconfig-infinality-ultimate')
+install=fontconfig-kagayaki.install
+source=(http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2
+	kagayaki-conf.tar.xz
+        fc-cache-kagayaki.hook
+	0001-configure.patch
+	0002-configure.ac.patch
+	0003-Makefile.in.patch
+	0004-Makefile.conf.d.patch
+	0005-Makefile.am.in.patch)
+sha1sums=('30d832b754fb10a3b70ebac750a38a0275438ad8'
+          '947727be6cda6603ae72c1e401d38c35c48b8620'
+          'de59ec72e8517d0c95b91bd3401fb0c49f4eea60'
+          'e1d553da760b214b858930a920fb328e2226e887'
+          'dc987cc9480e9f8272c1d983c649387f90e1ffcc'
+          '164c93498a2b873d28e51b670ac9a581d5597538'
+          '5dbe4998551c344f77b0cdc51e956f6b077d9a47'
+          '7646dd5d52b6b8429653f128007626fe353f71e8')
+
+
+# a nice page to test font matching:
+# http://zipcon.net/~swhite/docs/computers/browsers/fonttest.html
+# http://getemoji.com/
+
+prepare() {
+	# copy kagayaki stuff
+	cd "kagayaki-conf"
+	
+	cp -r conf.d.infinality "${srcdir}/${_basename}-${pkgver}"/conf.d.infinality
+	
+	# prepare src
+	cd "${srcdir}/${_basename}-${pkgver}"
+	
+	patch -Np1 -i ../0001-configure.patch
+	patch -Np1 -i ../0002-configure.ac.patch
+	patch -Np1 -i ../0003-Makefile.in.patch
+	patch -Np1 -i ../0004-Makefile.conf.d.patch
+	patch -Np1 -i ../0005-Makefile.am.in.patch
+	
+	aclocal
+	libtoolize -f
+	automake -afi
+}
+
+build() {
+	cd $_basename-$pkgver
+	./configure --prefix=/usr \
+		--sysconfdir=/etc \
+		--with-templatedir=/etc/fonts/conf.avail \
+		--with-templateinfdir=/etc/fonts/conf.avail.infinality \
+		--with-xmldir=/etc/fonts \
+		--localstatedir=/var \
+		--disable-static \
+		--with-default-fonts=/usr/share/fonts \
+		--with-add-fonts=/usr/share/fonts
+	make
+}
+
+check() {
+	cd $_basename-$pkgver
+	make -k check
+}
+
+package() {
+	cd $_basename-$pkgver
+	make DESTDIR="$pkgdir" install
+	
+	# Install license
+	install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+	
+	# Alpm hook
+	install -D -m 644 "${srcdir}"/fc-cache-kagayaki.hook \
+		"${pkgdir}/usr/share/libalpm/hooks/90-fc-cache-kagayaki.hook"
+	
+	# Copy documentation
+	cd "${srcdir}/kagayaki-conf"
+	install -m755 -d "${pkgdir}"/usr/share/doc/"${pkgname}"
+	cp -r doc "${pkgdir}"/usr/share/
+}
