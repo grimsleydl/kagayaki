@@ -1,0 +1,19 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=kagayaki-fonts-base
+pkgver=1
+pkgrel=1
+arch=('any')
+url="https://github.com/julroy67/kagayaki"
+license=('GPL' 'MIT')
+provides=('ibfonts-meta-base')
+replaces=('ibfonts-meta-base')
+conflicts=('ibfonts-meta-base')
+pkgdesc="kagayaki-bundle-fonts base collection package"
+depends=('ttf-dejavu-kagayaki'
+         'ttf-courier-prime-kagayaki'
+         'otf-heuristica-kagayaki'
+         'ttf-liberation-kagayaki'
+         'ttf-noto-fonts-kagayaki'
+         'ttf-noto-emoji-kagayaki'
+         'ttf-symbola-kagayaki')
