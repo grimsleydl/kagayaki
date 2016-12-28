@@ -1,0 +1,69 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: Lukas Fleischer <lfleischer@archlinux.org>
+# Contributor: Ronald van Haren <ronald.archlinux.org>
+# Contributor: Roman Kyrylych <Roman.Kyrylych@gmail.com>
+# Contributor: Andreas Zwinkau
+# Contributor: rabyte <rabyte__gmail>
+# Contributor: Stefan Husmann <stefan-husmann@t-online.de>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=ttf-liberation-kagayaki
+pkgver=2.00.1
+_narrowver=1.07.4
+pkgrel=1
+pkgdesc='Red Hats Liberation fonts'
+arch=('any')
+url="https://fedorahosted.org/liberation-fonts/"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-font-utils')
+provides=('ttf-font' 'ttf-liberation' 'ttf-liberation-ib')
+replaces=('ttf-liberation' 'ttf-liberation-ib')
+conflicts=('ttf-liberation' 'ttf-liberation-ib')
+groups=('kagayaki-bundle-fonts')
+source=("https://fedorahosted.org/releases/l/i/liberation-fonts/liberation-fonts-ttf-$pkgver.tar.gz"
+        "https://fedorahosted.org/releases/l/i/liberation-fonts/liberation-fonts-ttf-$_narrowver.tar.gz"
+        30-liberation-mono.conf
+        30-liberation-sans.conf
+        30-liberation-sans-narrow.conf
+        30-liberation-serif.conf
+        45-liberation.conf
+        90-tt-liberation.conf)
+sha1sums=('84b40d7f8bb0cd085dd70b3abed197133d761557'
+          'c36bccbf6a0e562fa5a7b4b832af7185fa7f8a4b'
+          '032b28f94d2a5d19a4339f691815f324e4f81d2d'
+          'c867c50c152b5853b8c518ad4b5fb6be39f43509'
+          '6a4c8a790024acb920ca70748f6654db29f1ff07'
+          '8a53a47004b2b441a1fc80f1d8b583fcdc2a06ff'
+          'a2dc2b031a82c6c9be2d3f6b6dbf2c5eabc5e7d2'
+          '0d9ec7b2b3523c6c22c240337969a94df1951ba6')
+package() {
+	cd "${srcdir}"/liberation-fonts-ttf-"${pkgver}"
+	
+	install -D -m644 "${srcdir}"/liberation-fonts-ttf-"${pkgver}"/LICENSE \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+	
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	
+	cd "${srcdir}"/liberation-fonts-ttf-"${_narrowver}"
+	install -m644 *Narrow-*.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	
+	cd "${srcdir}"
+	install -D -m644 30-liberation-mono.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/30-liberation-mono.conf
+	install -D -m644 30-liberation-sans.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/30-liberation-sans.conf
+	install -D -m644 30-liberation-sans-narrow.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/30-liberation-sans-narrow.conf
+	install -D -m644 30-liberation-serif.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/30-liberation-serif.conf
+	install -D -m644 45-liberation.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/45-liberation.conf
+	install -D -m644 90-tt-liberation.conf \
+	"${pkgdir}"/etc/fonts/conf.avail/90-tt-liberation.conf
+	
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/45-liberation.conf .
+	ln -s ../conf.avail/90-tt-liberation.conf .
+}

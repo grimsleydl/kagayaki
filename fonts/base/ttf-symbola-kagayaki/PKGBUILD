@@ -1,0 +1,41 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=ttf-symbola-kagayaki
+pkgver=9.00
+pkgrel=1
+pkgdesc="Symbola is a free symbol-type font"
+arch=('any')
+url="http://users.teilar.gr/~g1951d/"
+license=('custom')
+depends=('fontconfig')
+provides=('ttf-symbola' 'ttf-symbola-ib')
+replaces=('ttf-symbola' 'ttf-symbola-ib')
+conflicts=('ttf-symbola' 'ttf-symbola-ib')
+groups=('kagayaki-bundle-fonts')
+source=(http://users.teilar.gr/~g1951d/Symbola.zip
+        COPYING
+        45-symbola.conf
+        90-tt-symbola.conf)
+sha1sums=('9ec5ec364f92836a7bee1b30bd18e4bf3681986b'
+          '3964a993a97d51f019d2dd592eda7bc87817260f'
+          'bece6c5f6f1c869264d2d7d8aaf53b27970b09f7'
+          '55667eafb4db4bc51c42a2c81ffb667337bb6135')
+
+package(){
+	install -D -m644 COPYING \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+	
+	install -D -m644 Symbola_hint.ttf \
+		"${pkgdir}"/usr/share/fonts/"${pkgname}"/Symbola_hint.ttf
+	
+	install -D -m644 45-symbola.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/45-symbola.conf
+	install -D -m644 90-tt-symbola.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-tt-symbola.conf
+
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/45-symbola.conf .
+	ln -s ../conf.avail/90-tt-symbola.conf .
+}

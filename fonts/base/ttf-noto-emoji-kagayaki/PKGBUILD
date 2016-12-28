@@ -1,0 +1,60 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: Antonio Rojas <arojas@archlinux.org>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=ttf-noto-emoji-kagayaki
+_commit=f09b63d
+pkgver=1.33
+pkgrel=1
+pkgdesc="Google Noto emoji fonts."
+arch=(any)
+url="https://www.google.com/get/noto/"
+license=(Apache)
+depends=(fontconfig)
+conflicts=('noto-fonts-emoji' 'ttf-noto-fonts-emoji-ib')
+provides=('noto-fonts-emoji' 'ttf-noto-fonts-emoji-ib')
+makedepends=('cairo' 'optipng' 'python2-fonttools' 'nototools' 'imagemagick' 'zopfli' 'python2-setuptools')
+#source=("noto-emoji::git+https://github.com/googlei18n/noto-emoji.git")
+source=("https://github.com/googlei18n/noto-emoji/archive/$_commit.zip"
+        01-emoji.conf
+        45-noto-emoji.conf
+        90-tt-noto-emoji.conf)
+sha256sums=('d339dc33854c4bf23cfcc1a50861bcf6b9b4e8538369b58c2f7781786aa615bf'
+            '4d9373d39f242d14e51ccbf7fad2c79ae4ac1b00c5c10c189c6bdc46c7e869fb'
+            '43c3a516b98ae5347d10c7a8761e9d84b910747bf1910189ef18d115becc2bef'
+            'b9604db066d6647f965ced97c243da8889be272a096c4bb640fdf5e6e3e26d51')
+
+prepare() {
+	cd noto-emoji-*
+	
+	find -name '*.py' | xargs sed -e 's|/usr/bin/env python|/usr/bin/env python2|' -i
+	sed -e 's|python|python2|g' -e 's|ttx "$<"|ttx2 "$<"|g' -i Makefile
+}
+
+build() {
+	cd noto-emoji-*
+	make -j6
+}
+
+package() {
+	cd noto-emoji-*
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 NotoColorEmoji.ttf fonts/NotoEmoji-Regular.ttf \
+		"$pkgdir"/usr/share/fonts/"${pkgname}"
+	
+	cd "${srcdir}"
+	# fontconfig templates
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m644 01-emoji.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/01-emoji.conf
+	install -m644 45-noto-emoji.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/45-noto-emoji.conf
+	install -m644 90-tt-noto-emoji.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-tt-noto-emoji.conf
+	
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/01-emoji.conf .
+	ln -s ../conf.avail/45-noto-emoji.conf .
+	ln -s ../conf.avail/90-tt-noto-emoji.conf .
+}
