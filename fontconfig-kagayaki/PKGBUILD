@@ -24,7 +24,7 @@ source=(http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2
 	0004-Makefile.conf.d.patch
 	0005-Makefile.am.in.patch)
 sha1sums=('30d832b754fb10a3b70ebac750a38a0275438ad8'
-          '210e82a0d68114d7a0786b920e128acdfb8b5e29'
+          'b900c25b9b4af87dd3f8c7eb39833c12470020b2'
           'e49b1271c850db495e9f06445a34ab93068daf83'
           'e1d553da760b214b858930a920fb328e2226e887'
           'dc987cc9480e9f8272c1d983c649387f90e1ffcc'
