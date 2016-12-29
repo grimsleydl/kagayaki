@@ -1,0 +1,46 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=otf-source-code-pro-kagayaki
+pkgver=2.030ro+1.050it
+_relver=2.030R-ro/1.050R-it
+_tarver=${_relver//\//-}
+pkgrel=1
+pkgdesc="A set of OpenType fonts designed for user interfaces"
+arch=('any')
+url="http://adobe-fonts.github.io/source-code-pro/"
+license=('custom:OFL')
+depends=('fontconfig')
+conflicts=('otf-source-code-pro-ibx' 'ttf-source-code-pro-ibx')
+replaces=('otf-source-code-pro-ibx' 'ttf-source-code-pro-ibx')
+provides=('otf-source-code-pro-ibx' 'ttf-source-code-pro-ibx')
+groups=('kagayaki-bundle-fonts')
+source=("${_tarver}.tar.gz::https://github.com/adobe-fonts/source-code-pro/archive/${_relver}.tar.gz"
+        45-source-code-pro.conf
+        90-non-tt-source-code-pro.conf)
+sha1sums=('fb8601043ec55da1b1cfd27a0843ea5eb14c6cad'
+          'd20feb494116f95e4a35ad40f625a94f9a3bbcb2'
+          '287ef2255289182912eb2daa16810bd87d7100b1')
+
+package(){
+	cd "source-code-pro-$_tarver"
+	
+	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
+	install -m644 LICENSE.txt \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+	
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 OTF/*.otf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 45-source-code-pro.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/45-source-code-pro.conf
+	install -m644 90-non-tt-source-code-pro.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-source-code-pro.conf
+	
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/45-source-code-pro.conf .
+	ln -s ../conf.avail/90-non-tt-source-code-pro.conf .
+}

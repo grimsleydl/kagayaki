@@ -24,6 +24,6 @@ depends=('kagayaki-fonts-base'
          'ttf-ubuntu-font-kagayaki'
          'otf-cantarell-kagayaki'
          'otf-oswald-kagayaki'
-         'otf-tex-gyre-kagayaki'
+         'otf-source-code-pro-kagayaki'
          'otf-urw-fonts-kagayaki'
          't1-cursor-kagayaki')

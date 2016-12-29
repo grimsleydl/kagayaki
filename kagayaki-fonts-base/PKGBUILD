@@ -1,4 +1,5 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
 
 pkgname=kagayaki-fonts-base
 pkgver=1
@@ -10,9 +11,10 @@ provides=('ibfonts-meta-base')
 replaces=('ibfonts-meta-base')
 conflicts=('ibfonts-meta-base')
 pkgdesc="kagayaki-bundle-fonts base collection package"
-depends=('ttf-dejavu-kagayaki'
+depends=('otf-heuristica-kagayaki'
+         'otf-tex-gyre-kagayaki'
          'ttf-courier-prime-kagayaki'
-         'otf-heuristica-kagayaki'
+         'ttf-dejavu-kagayaki'
          'ttf-liberation-kagayaki'
          'ttf-noto-fonts-kagayaki'
          'ttf-noto-emoji-kagayaki'
