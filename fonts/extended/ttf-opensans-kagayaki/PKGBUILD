@@ -1,0 +1,39 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=ttf-opensans-kagayaki
+pkgver=1.10
+pkgrel=1
+pkgdesc="Open Sans is a humanist sans serif typeface designed by Steve Matteson"
+arch=('any')
+url="http://opensans.com/"
+license=('Apache')
+depends=('fontconfig')
+conflicts=('ttf-opensans-ib')
+replaces=('ttf-opensans-ib')
+provides=('ttf-opensans-ib')
+groups=('kagayaki-bundle-fonts')
+source=(http://www.opensans.com/download/open-sans.zip
+        http://www.opensans.com/download/open-sans-condensed.zip
+        45-opensans.conf
+        90-tt-opensans.conf)
+sha1sums=('3edba27a9951a4cfd18af1c1f9d3df9a43f08ace'
+          'baac0e7cb19ab8eaa6b41d4ac8258d6731ed38d7'
+          'e2cccbc4c5d9552430fe158351de374e2aa3b889'
+          'c270db279deb3cf53b79e846dbb296f7d14c6322')
+
+package(){
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	
+	install -D -m644 45-opensans.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/45-opensans.conf
+	install -D -m644 90-tt-opensans.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-tt-opensans.conf
+	
+	install -dm755 "${pkgdir}"/etc/fonts/conf.d
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/45-opensans.conf .
+	ln -s ../conf.avail/90-tt-opensans.conf .
+}
+

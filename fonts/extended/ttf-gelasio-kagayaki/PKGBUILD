@@ -1,0 +1,41 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=ttf-gelasio-kagayaki
+pkgver=1.00
+pkgrel=1
+pkgdesc="Gelasio serif family by Eben Sorkin"
+arch=('any')
+url="http://code.google.com/p/googlefontdirectory/"
+license=('custom:OFL')
+depends=('fontconfig')
+conflicts=('ttf-gelasio-ib')
+replaces=('ttf-gelasio-ib')
+provides=('ttf-gelasio-ib')
+groups=('kagayaki-bundle-fonts')
+source=(https://fontlibrary.org/assets/downloads/gelasio/4d610887ff4d445cbc639aae7828d139/gelasio.zip
+	OFL.txt
+        45-gelasio.conf
+        90-tt-gelasio.conf)
+sha1sums=('855b27ea7b04e787ec3e6e98348d996928d5e255'
+          'd9d18ffe1617846ec857629dd60bc2c738948c70'
+          '67fc5c8d7ebcd96a5a368c2cc220e9568776d05d'
+          'fd1b0628eccf0d613de6928ec47f0183c49e7199')
+
+package(){
+	install -D -m644 OFL.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+	
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	
+	cd "${srcdir}"
+	install -D -m644 45-gelasio.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/45-gelasio.conf
+	install -D -m644 90-tt-gelasio.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-tt-gelasio.conf
+	
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/45-gelasio.conf .
+	ln -s ../conf.avail/90-tt-gelasio.conf .
+}

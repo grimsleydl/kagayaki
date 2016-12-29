@@ -1,0 +1,42 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=ttf-quintessential-kagayaki
+pkgver=1.000
+pkgrel=1
+pkgdesc="The Quintessential typeface is a calligraphic lettering style based on the Italic Hand"
+arch=('any')
+url="https://fonts.google.com/specimen/Quintessential"
+license=('custom:OFL')
+depends=('fontconfig')
+conflicts=('otf-quintessential-ib')
+replaces=('otf-quintessential-ib')
+provides=('otf-quintessential-ib')
+groups=('kagayaki-bundle-fonts')
+source=(https://fonts.google.com/download?family=Quintessential
+        45-quintessential.conf
+        90-non-tt-quintessential.conf)
+sha1sums=('48f38841ab4b2fee697f614f217ce23070baf78e'
+          'b46dcddbfb4ab8883e7b8f5749ed477f1823f202'
+          'b777fbb3004b5109ba500aed3238cbc0df4bf6d4')
+
+package(){
+	cd "${srcdir}"
+	
+	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
+	install -m644 OFL.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"
+	
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -Dm644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 45-quintessential.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/45-quintessential.conf
+	install -m644 90-non-tt-quintessential.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-quintessential.conf
+	
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/45-quintessential.conf .
+	ln -s ../conf.avail/90-non-tt-quintessential.conf .
+}

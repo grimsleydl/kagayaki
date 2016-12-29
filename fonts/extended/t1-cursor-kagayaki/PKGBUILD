@@ -1,0 +1,45 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=t1-cursor-kagayaki
+pkgver=1.0.4
+pkgrel=1
+pkgdesc="Cursor font"
+arch=(any)
+url="http://xorg.freedesktop.org/"
+license=('custom')
+depends=('fontconfig')
+conflicts=('t1-cursor-ib')
+replaces=('t1-cursor-ib')
+provides=('t1-cursor-ib')
+groups=('kagayaki-bundle-fonts')
+source=(${url}/releases/individual/font/font-xfree86-type1-${pkgver}.tar.bz2)
+sha1sums=('1381f274a178cbd08627560e17a4a8f6653be3f7')
+
+build() {
+	cd "${srcdir}"
+	for dir in *; do
+		if [ -d "${dir}" ]; then
+			pushd "${dir}"
+			./configure --prefix=/usr \
+			--with-fontdir=/usr/share/fonts/${pkgname}
+			make
+			popd
+		fi
+	done
+}
+
+package() {
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}/usr/share/licenses/${pkgname}"
+	for dir in *; do
+		if [ -d "${dir}" ]; then
+			pushd "${dir}"
+			make DESTDIR="${pkgdir}" install
+			install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE.${dir%-*}"
+			popd
+		fi
+	done
+	rm -f "${pkgdir}"/usr/share/fonts/${pkgname}/fonts.*
+}
