@@ -2,7 +2,7 @@
 # Contributor: Jan de Groot <jgc@archlinux.org>
 
 pkgname=freetype2-kagayaki
-pkgver=2.7
+pkgver=2.7.1
 pkgrel=1
 pkgdesc="TrueType font rendering library"
 arch=(i686 x86_64)
@@ -25,9 +25,9 @@ source=(http://download.savannah.gnu.org/releases/freetype/freetype-${pkgver}.ta
         0005-freetype-2.5.2-more-demos.patch
         freetype2.sh
 	xft-settings.sh)
-sha1sums=('f251029d5ab542a96dd4531605fe577185077560'
-          '22949e7c809d7d5931331ca54da30e4d195669ea'
-          'b7f7633ca0b828ca319afdd09a81b42592685d9c'
+sha1sums=('4d08a9a6567c6332d58e9a5f9a7e9e3fbce66789'
+          'd8ce472cd775b8ce50d127689acab59181e72ecf'
+          '2ebe93df13eb45dac8515c5ed0216ef694c33f18'
           'b31882ef5e8447e761acee1c4a44c0630cd4d465'
           'b1494810ed3aca25cdd8e8cedf634e5adfe6c09e'
           '41d27140fd590945e22e012c9dce62de3d6f11e6'
