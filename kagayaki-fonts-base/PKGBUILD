@@ -11,11 +11,11 @@ provides=('ibfonts-meta-base')
 replaces=('ibfonts-meta-base')
 conflicts=('ibfonts-meta-base')
 pkgdesc="kagayaki-bundle-fonts base collection package"
-depends=('otf-heuristica-kagayaki'
+depends=('otf-erewhon-kagayaki'
          'otf-tex-gyre-kagayaki'
          'ttf-courier-prime-kagayaki'
          'ttf-dejavu-kagayaki'
          'ttf-liberation-kagayaki'
-         'ttf-noto-fonts-kagayaki'
          'ttf-noto-emoji-kagayaki'
+         'ttf-noto-fonts-kagayaki'
          'ttf-symbola-kagayaki')
