@@ -1,0 +1,44 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=otf-erewhon-kagayaki
+pkgver=1.071
+pkgrel=1
+pkgdesc="Erewhon is based on the Heuristica family, which is based in turn on Utopia"
+arch=('any')
+url="http://www.ctan.org/tex-archive/fonts/erewhon"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+provides=('otf-erewhon-ibx')
+replaces=('otf-erewhon-ibx')
+conflicts=('otf-erewhon-ibx')
+groups=('kagayaki-bundle-fonts')
+source=(http://mirrors.ctan.org/fonts/erewhon.zip
+        45-erewhon.conf
+        90-non-tt-erewhon.conf)
+sha256sums=('4ecbd559cf012508f693d6a9b806946cf5faac47d8e0618ff837d945f66cb29a'
+            'a122f645314ed9e69f55ec77aef6956e4471418baa098f232165d2fbf130aa75'
+            'cc8098a921a2373df220c49240fb143a77504f40e8e46e1183664fb1ac3ff65d')
+
+package(){
+	cd erewhon
+	
+	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
+	install -m644 doc/"OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+	
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 opentype/*.otf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 45-erewhon.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/45-erewhon.conf
+	install -m644 90-non-tt-erewhon.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-erewhon.conf
+	
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/45-erewhon.conf .
+	ln -s ../conf.avail/90-non-tt-erewhon.conf .
+}
