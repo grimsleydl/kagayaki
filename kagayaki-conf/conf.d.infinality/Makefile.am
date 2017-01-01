@@ -32,8 +32,6 @@ CONF_LINKS = \
 	30-metric-aliases.conf			\
 	35-repl-custom.conf			\
 	37-repl-global.conf			\
-	37-repl-webfonts.conf			\
-	38-repl-webfonts-custom.conf		\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
 	45-latin-microsoft.conf			\
@@ -44,11 +42,11 @@ CONF_LINKS = \
 	66-aliases-wine.conf			\
 	67-override-aliases.conf		\
 	68-override.conf			\
+	82-no-bitmaps.conf			\
 	82-no-embedded-bitmaps.conf		\
 	82-no-force-autohint.conf		\
+	82-no-postscript.conf			\
 	82-no-ttf-as-bitmap.conf		\
-	83-yes-bitmaps.conf			\
-	83-yes-postscript.conf			\
 	88-forced-synthetic.conf		\
 	90-non-tt-fonts.conf			\
 	90-tt-fonts-microsoft.conf		\

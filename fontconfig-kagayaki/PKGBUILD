@@ -24,14 +24,13 @@ source=(http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2
 	0004-Makefile.conf.d.patch
 	0005-Makefile.am.in.patch)
 sha1sums=('30d832b754fb10a3b70ebac750a38a0275438ad8'
-          '04389f31b1565117cddccc73a724690b9c785834'
+          'd2dcb4faf722b631519a4bd8ee0f15890a7a46ed'
           'e49b1271c850db495e9f06445a34ab93068daf83'
           'e1d553da760b214b858930a920fb328e2226e887'
           'dc987cc9480e9f8272c1d983c649387f90e1ffcc'
           '164c93498a2b873d28e51b670ac9a581d5597538'
           '5dbe4998551c344f77b0cdc51e956f6b077d9a47'
           '7646dd5d52b6b8429653f128007626fe353f71e8')
-
 
 # a nice page to test font matching:
 # http://zipcon.net/~swhite/docs/computers/browsers/fonttest.html
