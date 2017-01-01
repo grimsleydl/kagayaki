@@ -3,7 +3,7 @@
 
 pkgname=ttf-caladea-kagayaki
 _tarname=crosextrafonts
-pkgver=20140817
+pkgver=20130214
 pkgrel=1
 pkgdesc="Caladeo is a serif font metrically compatible with Cambria"
 arch=('any')
@@ -14,7 +14,7 @@ conflicts=('ttf-caladea-ib')
 replaces=('ttf-caladea-ib')
 provides=('ttf-caladea-ib')
 groups=('kagayaki-bundle-fonts')
-source=(http://mirrors.ctan.org/fonts/caladea.zip
+source=(http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/crosextrafonts-20130214.tar.gz
         45-caladea.conf
         90-tt-caladea.conf)
 sha1sums=('a335d5e0d236cdd074ebe2964b9b8d409839513a'

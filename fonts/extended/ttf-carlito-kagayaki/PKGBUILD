@@ -2,7 +2,7 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=ttf-carlito-kagayaki
-pkgver=20140820
+pkgver=20130920
 pkgrel=1
 pkgdesc="Carlito is a sans-serif font metrically compatible with Calibri"
 arch=('any')
@@ -13,7 +13,7 @@ conflicts=('ttf-carlito-ib')
 replaces=('ttf-carlito-ib')
 provides=('ttf-carlito-ib')
 groups=('kagayaki-bundle-fonts')
-source=(http://mirrors.ctan.org/fonts/carlito.zip
+source=(http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/crosextrafonts-carlito-20130920.tar.gz
         45-carlito.conf
         90-tt-carlito.conf)
 sha1sums=('aac0d8641b385c334593118d5e7b4691d5435ef7'
