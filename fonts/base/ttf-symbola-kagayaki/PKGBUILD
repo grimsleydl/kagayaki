@@ -8,7 +8,7 @@ pkgdesc="Symbola is a free symbol-type font"
 arch=('any')
 url="http://users.teilar.gr/~g1951d/"
 license=('custom')
-depends=('fontconfig')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 provides=('ttf-symbola' 'ttf-symbola-ib')
 replaces=('ttf-symbola' 'ttf-symbola-ib')
 conflicts=('ttf-symbola' 'ttf-symbola-ib')
@@ -17,24 +17,27 @@ source=(http://users.teilar.gr/~g1951d/Symbola.zip
         COPYING
         45-symbola.conf
         90-tt-symbola.conf)
-sha1sums=('9ec5ec364f92836a7bee1b30bd18e4bf3681986b'
-          '3964a993a97d51f019d2dd592eda7bc87817260f'
-          'bece6c5f6f1c869264d2d7d8aaf53b27970b09f7'
-          '55667eafb4db4bc51c42a2c81ffb667337bb6135')
+sha256sums=('856de5857be48b8e31fc078fb93a9f3bd706b2552ba57b42863622f837cd3f35'
+            '78691fbb21caea139fd4105ea840c100cc3ce739b7430211d99ab5b15b14642e'
+            '9b34927b63d6390d3cfe79bce5dcfc3f180b93be5ea9e2b4b5c5f8d89a8093e9'
+            '0f5d31c3fe7af42e8d90a8311a49d84bf60c385983ca9f514cf4eccf40135880')
 
 package(){
-	install -D -m644 COPYING \
+	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
+	install -m644 COPYING \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 	
-	install -D -m644 Symbola_hint.ttf \
-		"${pkgdir}"/usr/share/fonts/"${pkgname}"/Symbola_hint.ttf
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 Symbola_hint.ttf \
+		"${pkgdir}"/usr/share/fonts/"${pkgname}"/Symbola.ttf
 	
-	install -D -m644 45-symbola.conf \
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 45-symbola.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/45-symbola.conf
-	install -D -m644 90-tt-symbola.conf \
+	install -m644 90-tt-symbola.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/90-tt-symbola.conf
 
-	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/45-symbola.conf .
 	ln -s ../conf.avail/90-tt-symbola.conf .

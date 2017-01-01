@@ -6,11 +6,11 @@ pkgname=ttf-noto-emoji-kagayaki
 _commit=f09b63d
 pkgver=1.33
 pkgrel=1
-pkgdesc="Google Noto emoji fonts."
+pkgdesc="Google Noto emoji fonts"
 arch=(any)
 url="https://www.google.com/get/noto/"
 license=(Apache)
-depends=(fontconfig)
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('noto-fonts-emoji' 'ttf-noto-fonts-emoji-ib')
 provides=('noto-fonts-emoji' 'ttf-noto-fonts-emoji-ib')
 makedepends=('cairo' 'optipng' 'python2-fonttools' 'nototools' 'imagemagick' 'zopfli' 'python2-setuptools')
@@ -38,12 +38,12 @@ build() {
 
 package() {
 	cd noto-emoji-*
+
 	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
 	install -m644 NotoColorEmoji.ttf fonts/NotoEmoji-Regular.ttf \
 		"$pkgdir"/usr/share/fonts/"${pkgname}"
 	
 	cd "${srcdir}"
-	# fontconfig templates
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m644 01-emoji.conf \

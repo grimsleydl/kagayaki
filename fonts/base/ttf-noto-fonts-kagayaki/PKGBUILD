@@ -6,7 +6,7 @@ _pkgcr=ttf-noto-fonts-cros-ib
 _pkgsa=ttf-noto-fonts-sans-ib
 _pkgse=ttf-noto-fonts-serif-ib
 _pkgmo=ttf-noto-fonts-mono-ib
-_pkgver=2016-12-28
+_pkgver=2017-01-01
 _commit=e5782aa
 pkgver=${_pkgver//-}
 pkgrel=1
@@ -14,7 +14,7 @@ pkgdesc="Google Noto TTF fonts"
 arch=(any)
 url="http://www.google.com/get/noto/"
 license=(custom:OFL)
-depends=(fontconfig)
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 provides=('noto-fonts' 'ttf-noto-fonts-ib' 'ttf-font')
 replaces=('noto-fonts' 'ttf-noto-fonts-ib' 'ttf-croscore-fonts-ibx')
 conflicts=('noto-fonts' 'ttf-noto-fonts-ib' 'ttf-croscore-fonts-ibx')
@@ -86,8 +86,6 @@ package() {
 		"${pkgdir}/usr/share/licenses/$pkgname/LICENSE"
 	
 	cd "${srcdir}"
-	
-	# fontconfig templates
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m644 40-noto-arabic.conf \

@@ -18,27 +18,29 @@ groups=('kagayaki-bundle-fonts')
 source=(http://downloads.sourceforge.net/project/dejavu/dejavu/${pkgver}/dejavu-fonts-ttf-${pkgver}.tar.bz2
         45-dejavu.conf
         90-tt-dejavu.conf)
-sha1sums=('7fa15e7b9676fc3915338c41e76ad454c344fff5'
-          '4072385eb6d18754f932bda5634da259ab875a1b'
-          'a6332f56d9d95636e9ac99643b3a241ba08f3499')
+sha256sums=('fa9ca4d13871dd122f61258a80d01751d603b4d3ee14095d65453b4e846e17d7'
+            '09a5a099f3dd69e88bb003c62280c3a5ea546ed37ad317f329ba38dc668861c4'
+            '9b875b9c9176a1129af82b738bdd12be93d9820d65693b042ffdd0474184a59b')
 
 package() {
-	cd "${srcdir}"/dejavu-fonts-ttf-${pkgver}
-	install -dm755 "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	cd dejavu-fonts-ttf-${pkgver}
+
+	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
+	install -m644 LICENSE \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
 	install -m644 ttf/*.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
 	
-	install -Dm644 LICENSE \
-		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
-	
-	install -dm755 "${pkgdir}"/etc/fonts/conf.avail
-	install -dm755 "${pkgdir}"/etc/fonts/conf.d
-	install -m644 "${srcdir}"/45-dejavu.conf \
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 45-dejavu.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/45-dejavu.conf
-	install -m644 "${srcdir}/"90-tt-dejavu.conf \
+	install -m644 90-tt-dejavu.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/90-tt-dejavu.conf
 	
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/45-dejavu.conf .
 	ln -s ../conf.avail/90-tt-dejavu.conf .
 }
-
