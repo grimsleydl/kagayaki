@@ -20,9 +20,9 @@ source=("https://github.com/googlei18n/noto-emoji/archive/$_commit.zip"
         45-noto-emoji.conf
         90-tt-noto-emoji.conf)
 sha256sums=('d339dc33854c4bf23cfcc1a50861bcf6b9b4e8538369b58c2f7781786aa615bf'
-            '4d9373d39f242d14e51ccbf7fad2c79ae4ac1b00c5c10c189c6bdc46c7e869fb'
+            '546dcf6221ad7d4dbec330764e3955c529c02375393df341180eba5f1aca92a8'
             '43c3a516b98ae5347d10c7a8761e9d84b910747bf1910189ef18d115becc2bef'
-            'b9604db066d6647f965ced97c243da8889be272a096c4bb640fdf5e6e3e26d51')
+            '02bc5a77db9f8de40b96947db53fe040c3093fd0f1e49d17f0a0f5564dd43812')
 
 prepare() {
 	cd noto-emoji-*
