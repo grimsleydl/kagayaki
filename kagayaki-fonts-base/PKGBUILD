@@ -4,18 +4,18 @@
 pkgname=kagayaki-fonts-base
 pkgver=1
 pkgrel=1
+pkgdesc="kagayaki-bundle-fonts base collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
 license=('GPL' 'MIT')
 provides=('ibfonts-meta-base')
 replaces=('ibfonts-meta-base')
 conflicts=('ibfonts-meta-base')
-pkgdesc="kagayaki-bundle-fonts base collection package"
 depends=('otf-erewhon-kagayaki'
          'otf-tex-gyre-kagayaki'
          'ttf-courier-prime-kagayaki'
          'ttf-dejavu-kagayaki'
-         'ttf-liberation-kagayaki'
          'ttf-noto-emoji-kagayaki'
          'ttf-noto-fonts-kagayaki'
-         'ttf-symbola-kagayaki')
+         'ttf-roboto-kagayaki'
+         'ttf-signika-family-kagayaki')
