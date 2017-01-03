@@ -81,9 +81,9 @@ package() {
 	done
 	
 	# License
-	install -m755 -d "${pkgdir}/usr/share/licenses/$pkgname"
+	install -m755 -d "${pkgdir}"/usr/share/licenses/"$pkgname"
 	install -m644 ../LICENSE \
-		"${pkgdir}/usr/share/licenses/$pkgname/LICENSE"
+		"${pkgdir}"/usr/share/licenses/"$pkgname"/COPYING
 	
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
