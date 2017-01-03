@@ -19,3 +19,5 @@ depends=('otf-erewhon-kagayaki'
          'ttf-noto-fonts-kagayaki'
          'ttf-roboto-kagayaki'
          'ttf-signika-family-kagayaki')
+optdepends=('kagayaki-fonts-extended: Extended font collection'
+            'kagayaki-fonts-world: Maximum coverage collection (CJK, etc.)')

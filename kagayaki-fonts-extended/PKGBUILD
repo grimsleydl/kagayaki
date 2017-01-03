@@ -4,10 +4,10 @@
 pkgname=kagayaki-fonts-extended
 pkgver=1
 pkgrel=1
+pkgdesc="kagayaki-bundle-fonts extended collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
 license=('GPL' 'MIT')
-pkgdesc="kagayaki-bundle-fonts extended collection package"
 conflicts=('xorg-fonts-type1' 'ibfonts-meta-extended-lt')
 replaces=('xorg-fonts-type1' 'ibfonts-meta-extended-lt')
 provides=('xorg-fonts-type1' 'ibfonts-meta-extended-lt')
@@ -16,14 +16,13 @@ depends=('kagayaki-fonts-base'
          'ttf-cantoraone-kagayaki'
          'ttf-carlito-kagayaki'
          'ttf-gelasio-kagayaki'
+         'ttf-liberation-kagayaki'
          'ttf-merriweather-kagayaki'
          'ttf-opensans-kagayaki'
          'ttf-quintessential-kagayaki'
-         'ttf-roboto-kagayaki'
-         'ttf-signika-family-kagayaki'
+         'ttf-symbola-kagayaki'
          'ttf-ubuntu-font-kagayaki'
          'otf-cantarell-kagayaki'
          'otf-oswald-kagayaki'
          'otf-source-code-pro-kagayaki'
-         'otf-urw-fonts-kagayaki'
-         't1-cursor-kagayaki')
+         'otf-urw-fonts-kagayaki')

@@ -1,0 +1,15 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=kagayaki-fonts-world
+pkgver=1
+pkgrel=1
+pkgdesc="kagayaki-bundle-fonts world collection package"
+arch=('any')
+url="https://github.com/julroy67/kagayaki"
+license=('GPL' 'MIT')
+depends=('kagayaki-fonts-base'
+         'otf-iming-kagayaki'
+         'otf-nanum-kagayaki'
+         'ttf-ipamjmincho-kagayaki'
+         'ttf-noto-fonts-cjk-kagayaki'
+         'ttf-noto-fonts-nonlatin-kagayaki')
