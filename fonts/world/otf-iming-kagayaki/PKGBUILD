@@ -1,0 +1,42 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=otf-iming-kagayaki
+_commit=bee6130
+pkgver=5.000
+pkgrel=1
+pkgdesc="IPA derivated traditionnal chinese font"
+arch=(any)
+url="https://github.com/ichitenfont/I.Ming"
+license=(custom:IPA)
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+groups=(kagayaki-bundle-fonts)
+source=("https://github.com/ichitenfont/I.Ming/archive/$_commit.zip"
+		40-iming.conf
+		90-tt-iming.conf)
+sha256sums=('0d08138462e1e0fff953748f27f13889fd30a0fce7f1f688e2ff2d6ff4c486f6'
+            '43cc2b0290e651b9b8cfe9f97671d208c43d74963e344f4b137503c9e0d14263'
+            'd520f6133e355c1d727dd3c61a08fe30bb7a6f228080a717987f81fee647b29f')
+
+package() {
+	cd I.Ming-*
+
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 I.MingCP-5.00.otf \
+		"${pkgdir}"/usr/share/fonts/"${pkgname}"
+
+	install -m755 -d "${pkgdir}"/usr/share/licenses/"$pkgname"
+	install -m644 IPA_Font_License_Agreement_v1.0.txt \
+		"${pkgdir}"/usr/share/licenses/"$pkgname"/COPYING
+	
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m644 40-iming.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-iming.conf
+	install -m644 90-tt-iming.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-tt-iming.conf
+	
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/40-iming.conf .
+	ln -s ../conf.avail/90-tt-iming.conf .
+}

@@ -1,0 +1,31 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=ttf-noto-fonts-cjk-kagayaki
+pkgver=1.004
+pkgrel=1
+pkgdesc="Google Noto TTF CJK fonts"
+arch=(any)
+url="https://www.google.com/get/noto/"
+license=('custom:SIL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+provides=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib')
+replaces=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib')
+conflicts=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib')
+groups=(kagayaki-bundle-fonts)
+source=("https://github.com/googlei18n/noto-cjk/archive/v$pkgver.tar.gz")
+sha256sums=('835a42755c1e8d6a4a406f32609da1f0fa7f9674d05760f0be658d9d6f4ab71c')
+
+package() {
+	cd noto-cjk-"${pkgver}"
+
+	bsdtar -xf NotoSansCJK.ttc.zip
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 NotoSansCJK.ttc \
+		"${pkgdir}"/usr/share/fonts/"${pkgname}"
+
+	# License
+	install -m755 -d "${pkgdir}"/usr/share/licenses/"$pkgname"
+	install -m644 LICENSE \
+		"${pkgdir}"/usr/share/licenses/"$pkgname"/COPYING
+}
