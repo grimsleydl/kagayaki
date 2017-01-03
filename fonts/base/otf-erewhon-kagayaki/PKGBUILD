@@ -16,7 +16,7 @@ groups=('kagayaki-bundle-fonts')
 source=(http://mirrors.ctan.org/fonts/erewhon.zip
         45-erewhon.conf
         90-non-tt-erewhon.conf)
-sha256sums=('4ecbd559cf012508f693d6a9b806946cf5faac47d8e0618ff837d945f66cb29a'
+sha256sums=('b938a96864b1ed2e6f062b98c3ec8d68c46fbb4e7092241caf93a4fc77ba6cce'
             'a122f645314ed9e69f55ec77aef6956e4471418baa098f232165d2fbf130aa75'
             'cc8098a921a2373df220c49240fb143a77504f40e8e46e1183664fb1ac3ff65d')
 
