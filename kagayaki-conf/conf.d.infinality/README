@@ -22,10 +22,9 @@ has led to the following conventions in usage:
  80 through 89		match target="scan" (modify scanned patterns)
  90 through 99		font synthesis
 
-If you are using fontconfig-infinality-ultimate from the infinality-bundle
+If you are using fontconfig-kagayaki from the kagayaki-bundle
 collection, templates are located in ../conf.avail.infinality and they
 are symlinked here instead.
 
 The stock fontconfig template directory and configuration files are still
 available for compatibility reasons and should not be removed.
-
