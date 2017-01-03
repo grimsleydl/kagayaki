@@ -4,7 +4,7 @@
 pkgname=ttf-courier-prime-kagayaki
 pkgver=1.203
 pkgrel=1
-pkgdesc="A free, improved, classical monospaced typeface."
+pkgdesc="A free, improved, classical monospaced typeface"
 arch=('any')
 url="http://quoteunquoteapps.com/courierprime/"
 license=('custom:OFL')
