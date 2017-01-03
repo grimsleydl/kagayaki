@@ -19,8 +19,8 @@ source=(http://downloads.sourceforge.net/project/dejavu/dejavu/${pkgver}/dejavu-
         45-dejavu.conf
         90-tt-dejavu.conf)
 sha256sums=('fa9ca4d13871dd122f61258a80d01751d603b4d3ee14095d65453b4e846e17d7'
-            '09a5a099f3dd69e88bb003c62280c3a5ea546ed37ad317f329ba38dc668861c4'
-            '9b875b9c9176a1129af82b738bdd12be93d9820d65693b042ffdd0474184a59b')
+            '8765daf76e75cf23a51c5160f4ff31df3e023138c71df5e8dee26481aad17576'
+            '197dd5561aec7b522d7a220520d08a3e9cb1f43d3e6c2658f33b5a4c15702436')
 
 package() {
 	cd dejavu-fonts-ttf-${pkgver}
