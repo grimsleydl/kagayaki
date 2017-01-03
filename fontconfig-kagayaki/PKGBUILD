@@ -15,16 +15,16 @@ makedepends=('python2' 'docbook2x')
 provides=('fontconfig=$pkgver' 'fontconfig-infinality-ultimate')
 conflicts=('fontconfig' 'fontconfig-infinality-ultimate')
 install=fontconfig-kagayaki.install
-source=(http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2
+source=("http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2"
 	kagayaki-conf.tar.xz
-        fc-cache-kagayaki.hook
+    fc-cache-kagayaki.hook
 	0001-configure.patch
 	0002-configure.ac.patch
 	0003-Makefile.in.patch
 	0004-Makefile.conf.d.patch
 	0005-Makefile.am.in.patch)
 sha1sums=('30d832b754fb10a3b70ebac750a38a0275438ad8'
-          'd2dcb4faf722b631519a4bd8ee0f15890a7a46ed'
+          '358ce5ddf74e90869f472b9077323b3e15f3c748'
           'e49b1271c850db495e9f06445a34ab93068daf83'
           'e1d553da760b214b858930a920fb328e2226e887'
           'dc987cc9480e9f8272c1d983c649387f90e1ffcc'
@@ -85,9 +85,4 @@ package() {
 	# Alpm hook
 	install -D -m 644 "${srcdir}"/fc-cache-kagayaki.hook \
 		"${pkgdir}/usr/share/libalpm/hooks/90-fc-cache-kagayaki.hook"
-	
-	# Copy documentation
-	cd "${srcdir}/kagayaki-conf"
-	install -m755 -d "${pkgdir}"/usr/share/doc/"${pkgname}"
-	cp -r doc "${pkgdir}"/usr/share/
 }
