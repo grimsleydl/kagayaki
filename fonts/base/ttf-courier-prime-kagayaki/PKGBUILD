@@ -13,7 +13,7 @@ provides=('ttf-courier-prime-ib' 'ttf-courier-prime')
 replaces=('ttf-courier-prime-ib' 'ttf-courier-prime')
 conflicts=('ttf-courier-prime-ib' 'ttf-courier-prime')
 groups=('kagayaki-bundle-fonts')
-source=(http://quoteunquoteapps.com/downloads/courier-prime.zip
+source=(https://julroy67.freeboxos.fr:13476/share/h3Y-xMyPcgF6drIY/Fonts/courier-prime.zip
         45-courier-prime.conf
         90-tt-courier-prime.conf)
 sha256sums=('d5d4faf1bee0d1f52bab1103cbfdfb354976331c86f999c110c22a098cb12d73'
