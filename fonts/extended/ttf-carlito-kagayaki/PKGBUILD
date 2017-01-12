@@ -3,7 +3,7 @@
 
 pkgname=ttf-carlito-kagayaki
 pkgver=20130920
-pkgrel=1
+pkgrel=2
 pkgdesc="Carlito is a sans-serif font metrically compatible with Calibri"
 arch=('any')
 url="https://code.google.com/p/chromium/issues/detail?id=280557"
@@ -16,17 +16,17 @@ groups=('kagayaki-bundle-fonts')
 source=(http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/crosextrafonts-carlito-20130920.tar.gz
         45-carlito.conf
         90-tt-carlito.conf)
-sha1sums=('aac0d8641b385c334593118d5e7b4691d5435ef7'
+sha1sums=('65ceb1377897a4d5a404134423728592aea6eb13'
           'ba31fb428eba83034a4d6edd31cb227d3045f2b5'
           '2ee9bcd6c28d0928d657d21c3a9ece5fb133c9c3')
 
 package(){
-	cd carlito
+	cd crosextrafonts-carlito-"${pkgver}"
 	
-	install -D -m644 doc/LICENSE "${pkgdir}"/usr/share/fonts/"${pkgname}"/COPYING
+	install -D -m644 LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 	
 	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 truetype/*.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
 	
 	cd "${srcdir}"
 	install -D -m644 45-carlito.conf \
