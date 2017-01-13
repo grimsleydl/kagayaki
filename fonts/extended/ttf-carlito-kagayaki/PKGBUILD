@@ -2,6 +2,7 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=ttf-carlito-kagayaki
+_tarname=crosextrafonts-carlito
 pkgver=20130920
 pkgrel=2
 pkgdesc="Carlito is a sans-serif font metrically compatible with Calibri"
@@ -13,7 +14,7 @@ conflicts=('ttf-carlito-ib')
 replaces=('ttf-carlito-ib')
 provides=('ttf-carlito-ib')
 groups=('kagayaki-bundle-fonts')
-source=(http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/crosextrafonts-carlito-20130920.tar.gz
+source=(http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/"${_tarname}"-"${pkgver}".tar.gz
         45-carlito.conf
         90-tt-carlito.conf)
 sha1sums=('65ceb1377897a4d5a404134423728592aea6eb13'
@@ -21,7 +22,7 @@ sha1sums=('65ceb1377897a4d5a404134423728592aea6eb13'
           '2ee9bcd6c28d0928d657d21c3a9ece5fb133c9c3')
 
 package(){
-	cd crosextrafonts-carlito-"${pkgver}"
+	cd "${_tarname}"-"${pkgver}"
 	
 	install -D -m644 LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 	

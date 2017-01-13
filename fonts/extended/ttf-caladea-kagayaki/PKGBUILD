@@ -4,7 +4,7 @@
 pkgname=ttf-caladea-kagayaki
 _tarname=crosextrafonts
 pkgver=20130214
-pkgrel=1
+pkgrel=2
 pkgdesc="Caladeo is a serif font metrically compatible with Cambria"
 arch=('any')
 url="https://code.google.com/p/chromium/issues/detail?id=168879"
@@ -14,18 +14,18 @@ conflicts=('ttf-caladea-ib')
 replaces=('ttf-caladea-ib')
 provides=('ttf-caladea-ib')
 groups=('kagayaki-bundle-fonts')
-source=(http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/crosextrafonts-20130214.tar.gz
+source=(http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/"${_tarname}"-"${pkgver}".tar.gz
         45-caladea.conf
         90-tt-caladea.conf)
-sha1sums=('a335d5e0d236cdd074ebe2964b9b8d409839513a'
+sha1sums=('6f8f87cd21c4cd7e72031852eb90453dba3e2473'
           '90d29666e807c1f7456f4ffa86f4b6ed5b92639b'
           'd4747515ff61405209314f9d909975eec01f56bf')
 
 package(){
-	cd caladea
+	cd "${_tarname}"-"${pkgver}"
 
 	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 truetype/*.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
 	
 	cd "${srcdir}"
 	install -D -m644 45-caladea.conf \
