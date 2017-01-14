@@ -14,7 +14,7 @@ replaces=('ttf-gelasio-ib')
 provides=('ttf-gelasio-ib')
 groups=('kagayaki-bundle-fonts')
 source=(https://fontlibrary.org/assets/downloads/gelasio/4d610887ff4d445cbc639aae7828d139/gelasio.zip
-	OFL.txt
+		OFL.txt
         45-gelasio.conf
         90-tt-gelasio.conf)
 sha1sums=('855b27ea7b04e787ec3e6e98348d996928d5e255'
