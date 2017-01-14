@@ -42,3 +42,5 @@ Futura => TeX Gyre Adventor
 Geneva => Noto Sans
 Helvetica Neue => Open Sans
 Zapf Dingbats => Symbola
+
+![Current browser rendering screenshot](https://github.com/julroy67/kagayaki/blob/master/screencapture-zipcon-net-swhite-docs-computers-browsers-fonttest-html-1484395755271.png)
