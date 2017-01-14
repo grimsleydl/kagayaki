@@ -1,0 +1,45 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: Gaetan Bisson <bisson@archlinux.org>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+
+pkgname=ttf-luxi-kagayaki
+pkgver=1.0.3
+pkgrel=1
+pkgdesc="X.org Luxi Truetype fonts"
+arch=('any')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+depends=('fontconfig')
+conflicts=('font-bh-ttf' 'ttf-bh-ib')
+replaces=('font-bh-ttf' 'ttf-bh-ib')
+provides=('font-bh-ttf' 'ttf-bh-ib')
+groups=('kagayaki-bundle-fonts')
+source=("https://www.x.org/releases/individual/font/font-bh-ttf-${pkgver}.tar.bz2"
+        45-luxi.conf
+        90-tt-luxi.conf)
+sha1sums=('f42ebd527096011040a312e0f9cdf78d64177419'
+          '8fdf9fc799fe19a9ef492a6ad442cb5770f8431a'
+          '084341a04929fbb2a7b9ed54fe9892f07a58b72a')
+
+package() {
+	cd font-bh-ttf-"${pkgver}"
+	
+	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
+	install -m644 COPYING \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+	
+	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 45-luxi.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/45-luxi.conf
+	install -m644 90-tt-luxi.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-tt-luxi.conf
+	
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/45-luxi.conf .
+	ln -s ../conf.avail/90-tt-luxi.conf .
+}
