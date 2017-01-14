@@ -28,7 +28,7 @@ DOC_FILES = $(DOC_SOURCES:.in=)
 CONF_LINKS = \
 	10-base-rendering.conf			\
 	30-metric-aliases.conf			\
-	37-repl-global.conf				\
+	37-repl-main.conf				\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
 	45-latin-microsoft.conf			\
@@ -56,14 +56,9 @@ templateinfdir = $(TEMPLATEINFDIR)
 templateinf_DATA = \
 	10-base-rendering.conf			\
 	28-user.conf					\
-	29-local.conf					\
 	30-metric-aliases.conf			\
-	35-repl-custom.conf				\
-	36-repl-missing-glyphs.conf		\
-	37-repl-global.conf				\
+	37-repl-main.conf				\
 	37-repl-webfonts.conf			\
-	38-repl-terminus-bitmap.conf	\
-	38-repl-webfonts-custom.conf	\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
 	45-latin-microsoft.conf			\

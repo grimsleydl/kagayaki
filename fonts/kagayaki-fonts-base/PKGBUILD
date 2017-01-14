@@ -3,7 +3,7 @@
 
 pkgname=kagayaki-fonts-base
 pkgver=1
-pkgrel=1
+pkgrel=2
 pkgdesc="kagayaki-bundle-fonts base collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
