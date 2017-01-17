@@ -5,7 +5,7 @@
 
 pkgname=ttf-dejavu-kagayaki
 pkgver=2.37
-pkgrel=1
+pkgrel=2
 pkgdesc="Font family based on the Bitstream Vera Fonts with a wider range of characters"
 arch=('any')
 url="http://dejavu-fonts.org/wiki/Main_Page"
@@ -15,23 +15,25 @@ provides=('ttf-font' 'ttf-dejavu' 'ttf-dejavu-ib')
 replaces=('ttf-dejavu' 'ttf-dejavu-ib')
 conflicts=('ttf-dejavu' 'ttf-dejavu-ib')
 groups=('kagayaki-bundle-fonts')
-source=(http://downloads.sourceforge.net/project/dejavu/dejavu/${pkgver}/dejavu-fonts-ttf-${pkgver}.tar.bz2
+source=("http://downloads.sourceforge.net/project/dejavu/dejavu/${pkgver}/dejavu-fonts-ttf-${pkgver}.tar.bz2"
         45-dejavu.conf
         90-tt-dejavu.conf)
 sha256sums=('fa9ca4d13871dd122f61258a80d01751d603b4d3ee14095d65453b4e846e17d7'
             '8765daf76e75cf23a51c5160f4ff31df3e023138c71df5e8dee26481aad17576'
-            '197dd5561aec7b522d7a220520d08a3e9cb1f43d3e6c2658f33b5a4c15702436')
+            'ee052f76dd08937dab508c829c91c273800609601eccd513aa825bc58f8e347e')
 
 package() {
-	cd dejavu-fonts-ttf-${pkgver}
+	cd "${srcdir}"/dejavu-fonts-ttf-"${pkgver}"
 
-	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
-	install -m644 LICENSE \
+	# Install license
+	install -Dm644 "LICENSE" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 ttf/*.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 ttf/*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
@@ -39,7 +41,7 @@ package() {
 		"${pkgdir}"/etc/fonts/conf.avail/45-dejavu.conf
 	install -m644 90-tt-dejavu.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/90-tt-dejavu.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/45-dejavu.conf .
 	ln -s ../conf.avail/90-tt-dejavu.conf .
