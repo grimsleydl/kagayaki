@@ -4,7 +4,7 @@
 pkgname=ttf-ipamjmincho-kagayaki
 pkgver=004.01
 _pkgver=${pkgver/./}
-pkgrel=1
+pkgrel=2
 pkgdesc="Japanese outline Mincho fonts including the unified characters of the Basic Resident Registers Network and the Family Register of Japan (based on IPAex Mincho fonts)"
 arch=('any')
 url="http://ossipedia.ipa.go.jp/ipamjfont/"
@@ -17,9 +17,9 @@ groups=('kagayaki-bundle-fonts')
 source=(http://dl.mojikiban.ipa.go.jp/IPAmjMincho/ipamjm${_pkgver}.zip
 	40-ipamjmincho.conf
 	90-tt-ipamjmincho.conf)
-sha256sums=('6ebc67edcfd34718925657137ad9b39fa70f2c00'
-          '57e4bb8164d546f066c715cc0aa886059af0c901'
-          'b65df8dcbd12c100110f7800f07354959ef61580')
+sha256sums=('eab2078bfb92ca38d2e06bfd0054e0f841062ac67804436f105d354ccef07944'
+            '7559f1f9761435ecc196958b096ea4a8c338e868b3a4f92e91e05255182e3dcc'
+            '5e9408bfd1d0b11847b3cb1d5d1a6a17135429d8f970f7eba2a693b997a97724')
 
 package() {
 	cd "$srcdir"
@@ -29,9 +29,9 @@ package() {
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 	
 	# Install font
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 ipamjm.ttf \
-		"${pkgdir}"/usr/share/fonts/"${pkgname}"
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
