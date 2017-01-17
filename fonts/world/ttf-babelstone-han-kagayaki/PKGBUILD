@@ -2,7 +2,7 @@
 
 pkgname=ttf-babelstone-han-kagayaki
 pkgver=9.0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="BabelStone Han is a free Unicode CJK font with over 31,000 Han characters (hanzi, kanji, hanja)"
 arch=('any')
 url="http://www.babelstone.co.uk/Fonts/Han.html"
@@ -11,25 +11,33 @@ depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir'
 groups=('kagayaki-bundle-fonts')
 source=("http://babelstone.co.uk/Fonts/1082/BabelStoneHan.zip"
 		40-babelstone-han.conf
-		90-tt-babelstone-han.conf)
+		90-tt-babelstone-han.conf
+		COPYING)
 sha256sums=('fbeeb846b6a0d355143d19708e7cf28feff28b0760389b025a5ff75d9949481c'
             '0cc6b4db9f20646ba1f58dd2d398f85aca448b3f7fc475873afbd13a01f7026c'
-            '30f7259da95bbc8264598be34cb86178f8c0563462767a003e6f0f9927b8f4b5')
+            '3ef6bef0fdf0153d43d4f3bd407107361170755d6cbe4a0f6f74cdc83262af9a'
+            'ba74a961aaa5fa7e73dc67276df2781ba405da2cb30c52c9d9eee9c200d4d11e')
 
 package() {
-	cd "$srcdir"
+	cd "${srcdir}"
 
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	# Install license
+	install -Dm644 "COPYING" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 BabelStoneHan.ttf \
-		"${pkgdir}"/usr/share/fonts/"${pkgname}"
-	
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m644 40-babelstone-han.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/40-babelstone-han.conf
 	install -m644 90-tt-babelstone-han.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/90-tt-babelstone-han.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/40-babelstone-han.conf .
 	ln -s ../conf.avail/90-tt-babelstone-han.conf .
