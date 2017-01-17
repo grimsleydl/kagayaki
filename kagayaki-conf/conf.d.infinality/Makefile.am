@@ -28,6 +28,7 @@ DOC_FILES = $(DOC_SOURCES:.in=)
 CONF_LINKS = \
 	10-base-rendering.conf			\
 	30-metric-aliases.conf			\
+	37-repl-cjk.conf				\
 	37-repl-main.conf				\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
@@ -57,6 +58,7 @@ templateinf_DATA = \
 	10-base-rendering.conf			\
 	28-user.conf					\
 	30-metric-aliases.conf			\
+	37-repl-cjk.conf				\
 	37-repl-main.conf				\
 	37-repl-webfonts.conf			\
 	40-non-latin-microsoft.conf		\
@@ -84,12 +86,9 @@ templateinf_DATA = \
 	90-non-tt-fonts.conf			\
 	90-tt-fonts-microsoft.conf		\
 	90-tt-fonts-misc.conf			\
-	92-selective-rendering-microsoft.conf	\
-	92-selective-rendering-misc.conf	\
 	93-final-rendering.conf			\
 	94-no-synthetic.conf			\
-	95-reject.conf					\
-	97-selective-rendering-custom.conf
+	95-reject.conf
 
 README: $(srcdir)/README.in
 	sed "s|\@TEMPLATEINFDIR\@|$(templateinfdir)|" $< > $@
