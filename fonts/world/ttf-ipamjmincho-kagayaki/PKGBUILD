@@ -14,7 +14,7 @@ provides=('ttf-ipamjfont-ibx')
 conflicts=('ttf-ipamjfont-ibx')
 replaces=('ttf-ipamjfont-ibx')
 groups=('kagayaki-bundle-fonts')
-source=(http://dl.mojikiban.ipa.go.jp/IPAmjMincho/ipamjm${_pkgver}.zip
+source=("http://dl.mojikiban.ipa.go.jp/IPAmjMincho/ipamjm${_pkgver}.zip"
 	40-ipamjmincho.conf
 	90-tt-ipamjmincho.conf)
 sha256sums=('eab2078bfb92ca38d2e06bfd0054e0f841062ac67804436f105d354ccef07944'
@@ -22,12 +22,12 @@ sha256sums=('eab2078bfb92ca38d2e06bfd0054e0f841062ac67804436f105d354ccef07944'
             '5e9408bfd1d0b11847b3cb1d5d1a6a17135429d8f970f7eba2a693b997a97724')
 
 package() {
-	cd "$srcdir"
-	
+	cd "${srcdir}"
+
 	# Install license
 	install -Dm644 "IPA_Font_License_Agreement_v1.0.txt" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
-	
+
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 ipamjm.ttf \
@@ -40,7 +40,7 @@ package() {
 		"${pkgdir}"/etc/fonts/conf.avail/40-ipamjmincho.conf
 	install -m644 90-tt-ipamjmincho.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/90-tt-ipamjmincho.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/40-ipamjmincho.conf .
 	ln -s ../conf.avail/90-tt-ipamjmincho.conf .
