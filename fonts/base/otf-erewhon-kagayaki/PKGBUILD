@@ -3,7 +3,7 @@
 
 pkgname=otf-erewhon-kagayaki
 pkgver=1.071
-pkgrel=1
+pkgrel=2
 pkgdesc="Erewhon is based on the Heuristica family, which is based in turn on Utopia"
 arch=('any')
 url="http://www.ctan.org/tex-archive/fonts/erewhon"
@@ -15,30 +15,32 @@ conflicts=('otf-erewhon-ibx')
 groups=('kagayaki-bundle-fonts')
 source=(http://mirrors.ctan.org/fonts/erewhon.zip
         45-erewhon.conf
-        90-non-tt-erewhon.conf)
+        90-tt-erewhon.conf)
 sha256sums=('b938a96864b1ed2e6f062b98c3ec8d68c46fbb4e7092241caf93a4fc77ba6cce'
             'a122f645314ed9e69f55ec77aef6956e4471418baa098f232165d2fbf130aa75'
-            'cc8098a921a2373df220c49240fb143a77504f40e8e46e1183664fb1ac3ff65d')
+            '2464efebad1e090d5ba624afe9655735e081daa1d873984a1d56c8aa1b45da51')
 
 package(){
-	cd erewhon
-	
-	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
-	install -m644 doc/"OFL.txt" \
+	cd "${srcdir}"/erewhon
+
+	# Install license
+	install -Dm644 doc/"OFL.txt" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
-	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 opentype/*.otf "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 opentype/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m644 45-erewhon.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/45-erewhon.conf
-	install -m644 90-non-tt-erewhon.conf \
+	install -m644 90-tt-erewhon.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-erewhon.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/45-erewhon.conf .
-	ln -s ../conf.avail/90-non-tt-erewhon.conf .
+	ln -s ../conf.avail/90-tt-erewhon.conf .
 }

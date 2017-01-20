@@ -3,7 +3,7 @@
 
 pkgname=ttf-courier-prime-kagayaki
 pkgver=1.203
-pkgrel=1
+pkgrel=2
 pkgdesc="A free, improved, classical monospaced typeface"
 arch=('any')
 url="http://quoteunquoteapps.com/courierprime/"
@@ -18,18 +18,21 @@ source=(https://julroy67.freeboxos.fr:13476/share/h3Y-xMyPcgF6drIY/Fonts/courier
         90-tt-courier-prime.conf)
 sha256sums=('d5d4faf1bee0d1f52bab1103cbfdfb354976331c86f999c110c22a098cb12d73'
             'bf60ee516132a80f4293b3418e5741121581cd4dc9c3080f05720b61d0b7006d'
-            '98ca88805d49df11c362b24467b40aeedc4520cb16f4896ded02236b2785e0d6')
+            '465d8c4fe8ec996e6be21283ad96ee1c21503c02f576a414f66dbb62487634e4')
 
 package(){
-	cd "Courier Prime"
-	
-	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
-	install -m644 LICENSE/OFL.txt \
+	cd "${srcdir}/Courier Prime"
+
+	# Install license
+	install -Dm644 "LICENSE/OFL.txt" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.ttf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	
+	# Install infinality conf
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d

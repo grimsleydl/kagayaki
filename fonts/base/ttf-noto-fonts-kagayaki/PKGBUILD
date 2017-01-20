@@ -2,23 +2,23 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=ttf-noto-fonts-kagayaki
-_pkgcr=ttf-noto-fonts-cros-ib
-_pkgsa=ttf-noto-fonts-sans-ib
-_pkgse=ttf-noto-fonts-serif-ib
-_pkgmo=ttf-noto-fonts-mono-ib
-_pkgver=2017-01-01
-_commit=e5782aa
+_pkgcr=ttf-noto-fonts-cros-kagayaki
+_pkgsa=ttf-noto-fonts-sans-kagayaki
+_pkgse=ttf-noto-fonts-serif-kagayaki
+_pkgmo=ttf-noto-fonts-mono-kagayaki
+_pkgver=2017-01-20
+_commit=ed197e6
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Google Noto TTF fonts"
-arch=(any)
+arch=('any')
 url="http://www.google.com/get/noto/"
 license=(custom:OFL)
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 provides=('noto-fonts' 'ttf-noto-fonts-ib' 'ttf-font')
 replaces=('noto-fonts' 'ttf-noto-fonts-ib' 'ttf-croscore-fonts-ibx')
 conflicts=('noto-fonts' 'ttf-noto-fonts-ib' 'ttf-croscore-fonts-ibx')
-groups=(kagayaki-bundle-fonts)
+groups=('kagayaki-bundle-fonts')
 source=("https://github.com/googlei18n/noto-fonts/archive/$_commit.zip"
 	40-noto-arabic.conf
 	45-noto-cros.conf
@@ -29,7 +29,7 @@ source=("https://github.com/googlei18n/noto-fonts/archive/$_commit.zip"
 	90-tt-noto-sans.conf
 	90-tt-noto-serif.conf
 	90-tt-noto-mono.conf)
-sha256sums=('9a0463b9922eaff3d64786982645e4027b6390c1e0cb870a7c9747ed364d387f'
+sha256sums=('0faeba67fa5eff0e1be8f33ac4909cc78a971211abba83fe36694e2d8dc4dbb2'
             '734f20f62e6938601fe874c5af5994cd2e728e80bb121c08e1db8f084888e0ca'
             '3071752f837bca04c03d29f88a419c4a72682b91559353c7e26588c31a590572'
             'cb2fd6c63d1295fe73a15144b22178bed8a7471a603f6c45a86b0738b3565d6b'
@@ -41,50 +41,46 @@ sha256sums=('9a0463b9922eaff3d64786982645e4027b6390c1e0cb870a7c9747ed364d387f'
             '17ec868a487b079dd94b68afbf3e23c2c00db426922d08f836684070dac9e5e5')
 
 package() {
-	cd noto-fonts-*
+	cd "${srcdir}"/noto-fonts-*
 	cd hinted
-	
+
 	# Arimo, Cousine, Tinos
 	_cr=(Arimo-Bold.ttf Arimo-BoldItalic.ttf Arimo-Italic.ttf Arimo-Regular.ttf Cousine-Bold.ttf Cousine-BoldItalic.ttf Cousine-Italic.ttf Cousine-Regular.ttf Tinos-Bold.ttf Tinos-BoldItalic.ttf Tinos-Italic.ttf Tinos-Regular.ttf)
-	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${_pkgcr}"
 
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgcr}"
 	for fnt in "${_cr[@]}"; do
-		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/"${_pkgcr}"
+		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgcr}"
 	done
-	
+
 	# Noto Sans
 	_sans=(NotoKufiArabic-Bold.ttf NotoKufiArabic-Regular.ttf NotoNaskhArabic-Bold.ttf NotoNaskhArabic-Regular.ttf NotoNaskhArabicUI-Bold.ttf NotoNaskhArabicUI-Regular.ttf NotoSansArmenian-Bold.ttf NotoSansArmenian-Regular.ttf NotoSansBengali-Bold.ttf NotoSansBengali-Regular.ttf NotoSansBengaliUI-Bold.ttf NotoSansBengaliUI-Regular.ttf NotoSansCham-Bold.ttf NotoSansCham-Regular.ttf NotoSansDevanagari-Bold.ttf NotoSansDevanagari-Regular.ttf NotoSansDevanagariUI-Bold.ttf NotoSansDevanagariUI-Regular.ttf NotoSansEthiopic-Bold.ttf NotoSansEthiopic-Regular.ttf NotoSansGeorgian-Bold.ttf NotoSansGeorgian-Regular.ttf NotoSansGujarati-Bold.ttf NotoSansGujarati-Regular.ttf NotoSansGujaratiUI-Bold.ttf NotoSansGujaratiUI-Regular.ttf NotoSansGurmukhi-Bold.ttf NotoSansGurmukhi-Regular.ttf NotoSansGurmukhiUI-Bold.ttf NotoSansGurmukhiUI-Regular.ttf NotoSansHebrew-Bold.ttf NotoSansHebrew-Regular.ttf NotoSansKannada-Bold.ttf NotoSansKannada-Regular.ttf NotoSansKannadaUI-Bold.ttf NotoSansKannadaUI-Regular.ttf NotoSansKhmer-Bold.ttf NotoSansKhmer-Regular.ttf NotoSansKhmerUI-Bold.ttf NotoSansKhmerUI-Regular.ttf NotoSansLao-Bold.ttf NotoSansLao-Regular.ttf NotoSansLaoUI-Bold.ttf NotoSansLaoUI-Regular.ttf NotoSansMalayalam-Bold.ttf NotoSansMalayalam-Regular.ttf NotoSansMalayalamUI-Bold.ttf NotoSansMalayalamUI-Regular.ttf NotoSansMyanmar-Bold.ttf NotoSansMyanmar-Regular.ttf NotoSansMyanmarUI-Bold.ttf NotoSansMyanmarUI-Regular.ttf NotoSansOriya-Bold.ttf NotoSansOriya-Regular.ttf NotoSansOriyaUI-Bold.ttf NotoSansOriyaUI-Regular.ttf NotoSansSinhala-Bold.ttf NotoSansSinhala-Regular.ttf NotoSansTamil-Bold.ttf NotoSansTamil-Regular.ttf NotoSansTamilUI-Bold.ttf NotoSansTamilUI-Regular.ttf NotoSansTelugu-Bold.ttf NotoSansTelugu-Regular.ttf NotoSansTeluguUI-Bold.ttf NotoSansTeluguUI-Regular.ttf NotoSansThaana-Bold.ttf NotoSansThaana-Regular.ttf NotoSansThai-Bold.ttf NotoSansThai-Regular.ttf NotoSansThaiUI-Bold.ttf NotoSansThaiUI-Regular.ttf NotoSansTibetan-Bold.ttf NotoSansTibetan-Regular.ttf NotoSans-Bold.ttf NotoSans-BoldItalic.ttf NotoSans-Italic.ttf NotoSans-Regular.ttf NotoSansUI-Bold.ttf NotoSansUI-BoldItalic.ttf NotoSansUI-Italic.ttf NotoSansUI-Regular.ttf)
 	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${_pkgsa}"
-	
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgsa}"
 	for fnt in "${_sans[@]}"; do
-		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/"${_pkgsa}"
+		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgsa}"
 	done
 
 	# Noto Serif
 	_serif=(NotoSerifArmenian-Bold.ttf NotoSerifArmenian-Regular.ttf NotoSerifBengali-Bold.ttf NotoSerifBengali-Regular.ttf NotoSerifDevanagari-Bold.ttf NotoSerifDevanagari-Regular.ttf NotoSerifGeorgian-Bold.ttf NotoSerifGeorgian-Regular.ttf NotoSerifGujarati-Bold.ttf NotoSerifGujarati-Regular.ttf NotoSerifKannada-Bold.ttf NotoSerifKannada-Regular.ttf NotoSerifKhmer-Bold.ttf NotoSerifKhmer-Regular.ttf NotoSerifLao-Bold.ttf NotoSerifLao-Regular.ttf NotoSerifMalayalam-Bold.ttf NotoSerifMalayalam-Regular.ttf NotoSerifTamil-Bold.ttf NotoSerifTamil-Regular.ttf NotoSerifTelugu-Bold.ttf NotoSerifTelugu-Regular.ttf NotoSerifThai-Bold.ttf NotoSerifThai-Regular.ttf NotoSerif-Bold.ttf NotoSerif-BoldItalic.ttf NotoSerif-Italic.ttf NotoSerif-Regular.ttf)
-	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${_pkgse}"
-	
+
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgse}"
 	for fnt in "${_serif[@]}"; do
-		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/"${_pkgse}"
+		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgse}"
 	done
-	
+
 	# Noto Mono
 	_mono=(NotoMono-Regular.ttf)
-	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${_pkgmo}"
-	
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgmo}"
 	for fnt in "${_mono[@]}"; do
-		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/"${_pkgmo}"
+		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgmo}"
 	done
-	
+
 	# License
-	install -m755 -d "${pkgdir}"/usr/share/licenses/"$pkgname"
-	install -m644 ../LICENSE \
+	cd "${srcdir}"/noto-fonts-*
+	install -Dm644 "LICENSE" \
 		"${pkgdir}"/usr/share/licenses/"$pkgname"/COPYING
-	
+
+	# Install infinality conf
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
@@ -106,7 +102,7 @@ package() {
 		"${pkgdir}"/etc/fonts/conf.avail/90-tt-noto-serif.conf
 	install -m644 90-tt-noto-mono.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/90-tt-noto-mono.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/40-noto-arabic.conf .
 	ln -s ../conf.avail/45-noto-cros.conf .

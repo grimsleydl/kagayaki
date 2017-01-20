@@ -3,7 +3,7 @@
 
 pkgname=ttf-signika-family-kagayaki
 pkgver=1.0001
-pkgrel=1
+pkgrel=2
 pkgdesc="Signika is a sans-serif with a gentle character, developed for wayfinding, signage, and other media where clarity of information is required"
 arch=('any')
 url="https://fonts.google.com/specimen/Signika"
@@ -13,21 +13,25 @@ provides=('ttf-signika-family-ib')
 conflicts=('ttf-signika-family-ib')
 replaces=('ttf-signika-family-ib')
 groups=('kagayaki-bundle-fonts-extra')
-source=(https://fonts.google.com/download?family=Signika
+source=("https://fonts.google.com/download?family=Signika"
         45-signika.conf
         90-tt-signika.conf)
 sha256sums=('29f89a3c596f6bf67ffe8db58d53382ff77a00c6e076722ead6665bb3b57ed53'
             'd2425f0d723f72db90e00f323aaa83610a067fe244bcaf13b9dde58a902f0e39'
-            'b5aa77899c9b3511adcb6a8cdd4b09c654913a9d3266207c0d8de381d4e7ea8a')
+            '31170739fd709894dbe9ca9804c57e0e862abb1e0a18108de6f6ef5b88ecc966')
 
 package(){
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	cd "${srcdir}"
 
-	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
-	install -m644 OFL.txt \
+	# Install license
+	install -Dm644 "OFL.txt" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
-	
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m644 45-signika.conf \
@@ -35,7 +39,6 @@ package(){
 	install -m644 90-tt-signika.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/90-tt-signika.conf
 
-	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/45-signika.conf .
 	ln -s ../conf.avail/90-tt-signika.conf .
