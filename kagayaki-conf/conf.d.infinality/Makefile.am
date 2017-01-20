@@ -28,8 +28,8 @@ DOC_FILES = $(DOC_SOURCES:.in=)
 CONF_LINKS = \
 	10-base-rendering.conf			\
 	30-metric-aliases.conf			\
-	37-repl-cjk.conf				\
-	37-repl-main.conf				\
+	37-cjk-aliases.conf				\
+	37-main-aliases.conf				\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
 	45-latin-microsoft.conf			\
@@ -39,7 +39,6 @@ CONF_LINKS = \
 	66-aliases-wine.conf			\
 	82-no-bitmaps.conf				\
 	82-no-embedded-bitmaps.conf		\
-	82-no-force-autohint.conf		\
 	82-no-postscript.conf			\
 	82-no-ttf-as-bitmap.conf		\
 	88-forced-synthetic.conf		\
@@ -58,8 +57,8 @@ templateinf_DATA = \
 	10-base-rendering.conf			\
 	28-user.conf					\
 	30-metric-aliases.conf			\
-	37-repl-cjk.conf				\
-	37-repl-main.conf				\
+	37-cjk-aliases.conf				\
+	37-main-aliases.conf				\
 	37-repl-webfonts.conf			\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\

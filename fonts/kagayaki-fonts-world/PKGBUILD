@@ -7,6 +7,9 @@ pkgdesc="kagayaki-bundle-fonts world collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
 license=('GPL' 'MIT')
+provides=('ibfonts-meta-extended')
+replaces=('ibfonts-meta-extended')
+conflicts=('ibfonts-meta-extended')
 depends=('kagayaki-fonts-base'
          'otf-iming-kagayaki'
          'otf-nanum-kagayaki'
