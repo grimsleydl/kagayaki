@@ -1,9 +1,9 @@
 # kagayaki
 
 # Main fonts
-Helvetica || Arial {Nova} => TeX Gyre Heros
-Helvetica Narrow || Arial Narrow => TeX Gyre Heros Cn
-Times {New Roman} => TeX Gyre Termes
+Helvetica || Arial {Nova || Unicode MS} => Roboto
+Helvetica Narrow || Arial Narrow => Roboto Condensed
+Times {New Roman} => Erewhon
 Courier {New} => Courier Prime
 {ITC} Avant Garde {Gothic} || Century Gothic => TeX Gyre Adventor
 ITC Bookman || Bookman Old Style => TeX Gyre Bonum
