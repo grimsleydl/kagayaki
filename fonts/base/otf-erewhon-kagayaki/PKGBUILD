@@ -3,7 +3,7 @@
 
 pkgname=otf-erewhon-kagayaki
 pkgver=1.071
-pkgrel=2
+pkgrel=3
 pkgdesc="Erewhon is based on the Heuristica family, which is based in turn on Utopia"
 arch=('any')
 url="http://www.ctan.org/tex-archive/fonts/erewhon"
@@ -38,7 +38,7 @@ package(){
 	install -m644 45-erewhon.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/45-erewhon.conf
 	install -m644 90-tt-erewhon.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-erewhon.conf
+		"${pkgdir}"/etc/fonts/conf.avail/90-tt-erewhon.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/45-erewhon.conf .
