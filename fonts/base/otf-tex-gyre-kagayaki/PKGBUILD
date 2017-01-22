@@ -3,7 +3,7 @@
 
 pkgname=otf-tex-gyre-kagayaki
 pkgver=2.005
-pkgrel=2
+pkgrel=3
 pkgdesc="The TeX Gyre Collection of Fonts"
 arch=('any')
 url="http://www.gust.org.pl/projects/e-foundry/tex-gyre/"
@@ -40,7 +40,7 @@ package(){
 	install -m644 45-tex-gyre.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/45-tex-gyre.conf
 	install -m644 90-tt-tex-gyre.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-tex-gyre.conf
+		"${pkgdir}"/etc/fonts/conf.avail/90-tt-tex-gyre.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/45-tex-gyre.conf .
