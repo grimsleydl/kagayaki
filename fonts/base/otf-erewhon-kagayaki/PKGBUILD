@@ -3,7 +3,7 @@
 
 pkgname=otf-erewhon-kagayaki
 pkgver=1.071
-pkgrel=3
+pkgrel=4
 pkgdesc="Erewhon is based on the Heuristica family, which is based in turn on Utopia"
 arch=('any')
 url="http://www.ctan.org/tex-archive/fonts/erewhon"
@@ -18,7 +18,7 @@ source=(http://mirrors.ctan.org/fonts/erewhon.zip
         90-tt-erewhon.conf)
 sha256sums=('b938a96864b1ed2e6f062b98c3ec8d68c46fbb4e7092241caf93a4fc77ba6cce'
             'a122f645314ed9e69f55ec77aef6956e4471418baa098f232165d2fbf130aa75'
-            '2464efebad1e090d5ba624afe9655735e081daa1d873984a1d56c8aa1b45da51')
+            'c31a14d98be4a309390a67830b0e6341f29927aaab1ec91d3cfadbcdebfe190e')
 
 package(){
 	cd "${srcdir}"/erewhon

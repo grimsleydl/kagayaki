@@ -3,7 +3,7 @@
 
 pkgname=ttf-signika-family-kagayaki
 pkgver=1.0001
-pkgrel=2
+pkgrel=3
 pkgdesc="Signika is a sans-serif with a gentle character, developed for wayfinding, signage, and other media where clarity of information is required"
 arch=('any')
 url="https://fonts.google.com/specimen/Signika"
@@ -18,7 +18,7 @@ source=("https://fonts.google.com/download?family=Signika"
         90-tt-signika.conf)
 sha256sums=('29f89a3c596f6bf67ffe8db58d53382ff77a00c6e076722ead6665bb3b57ed53'
             'd2425f0d723f72db90e00f323aaa83610a067fe244bcaf13b9dde58a902f0e39'
-            '31170739fd709894dbe9ca9804c57e0e862abb1e0a18108de6f6ef5b88ecc966')
+            '18476dc6c9896438dd6e8cfdb765062e56cc042547f4c1f2efa38347958003d3')
 
 package(){
 	cd "${srcdir}"

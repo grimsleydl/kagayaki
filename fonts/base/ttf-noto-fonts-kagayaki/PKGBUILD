@@ -6,8 +6,8 @@ _pkgcr=ttf-noto-fonts-cros-kagayaki
 _pkgsa=ttf-noto-fonts-sans-kagayaki
 _pkgse=ttf-noto-fonts-serif-kagayaki
 _pkgmo=ttf-noto-fonts-mono-kagayaki
-_pkgver=2017-01-20
-_commit=ed197e6
+_pkgver=2017-01-21
+_commit=318b3bf
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Google Noto TTF fonts"
@@ -29,16 +29,16 @@ source=("https://github.com/googlei18n/noto-fonts/archive/$_commit.zip"
 	90-tt-noto-sans.conf
 	90-tt-noto-serif.conf
 	90-tt-noto-mono.conf)
-sha256sums=('0faeba67fa5eff0e1be8f33ac4909cc78a971211abba83fe36694e2d8dc4dbb2'
+sha256sums=('50392a6c30ae30cb202e53105eaa281de51d398dbb9074f6d89fe919547e3078'
             '734f20f62e6938601fe874c5af5994cd2e728e80bb121c08e1db8f084888e0ca'
             '3071752f837bca04c03d29f88a419c4a72682b91559353c7e26588c31a590572'
             'cb2fd6c63d1295fe73a15144b22178bed8a7471a603f6c45a86b0738b3565d6b'
             '39e6b5d115fbf0a63876f4890996d57693d8f6c64f93207c163bc5b6e38bc0b3'
             '0a620443b25dc481bdf10b2955ae0a5fdf92982a47e6f8236fb1db92485a6134'
-            '974262f68a88905569a0685a4cd45d34882e348a1355e23f43e6c76dd38aa032'
-            '16c8a798a3f87e098ee5a20a6a34d63de84db3e2886d8d40a33f88a59fa6c80e'
-            'c3d526822a4787a2841f08859c3d1009d68ca97620a7d602ff855d2ff8f257ba'
-            '17ec868a487b079dd94b68afbf3e23c2c00db426922d08f836684070dac9e5e5')
+            '01e9dab032d39798b36934f3db1cabed4bd43e7aa5f2ef1c941701aa858a4046'
+            '0a7a45da27fcf3ad4098ebdfa83a1197fa2cc60963ade98a971aaf60c3ec3662'
+            'db078835390d03fe7244a98c2209daee796c54d4fe67d4d51aec93f936044d93'
+            'a14d951c457af651f3c1142add9ac4f862010a4ee42f90c4b619dce46bb1a7f4')
 
 package() {
 	cd "${srcdir}"/noto-fonts-*

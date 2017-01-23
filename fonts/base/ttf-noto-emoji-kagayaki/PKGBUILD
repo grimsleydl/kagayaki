@@ -3,26 +3,23 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=ttf-noto-emoji-kagayaki
-_commit=f09b63d
+_commit=561d08a
 pkgver=1.33
-pkgrel=1
+pkgrel=2
 pkgdesc="Google Noto emoji fonts"
 arch=(any)
 url="https://www.google.com/get/noto/"
-license=(Apache)
+license=('Apache')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('noto-fonts-emoji' 'ttf-noto-fonts-emoji-ib')
 provides=('noto-fonts-emoji' 'ttf-noto-fonts-emoji-ib')
 makedepends=('cairo' 'optipng' 'python2-fonttools' 'nototools' 'imagemagick' 'zopfli' 'python2-setuptools')
-#source=("noto-emoji::git+https://github.com/googlei18n/noto-emoji.git")
 source=("https://github.com/googlei18n/noto-emoji/archive/$_commit.zip"
-        01-emoji.conf
         45-noto-emoji.conf
-        90-tt-noto-emoji.conf)
-sha256sums=('d339dc33854c4bf23cfcc1a50861bcf6b9b4e8538369b58c2f7781786aa615bf'
-            '546dcf6221ad7d4dbec330764e3955c529c02375393df341180eba5f1aca92a8'
+        90-non-tt-noto-emoji.conf)
+sha256sums=('efb0474ad3b63e7842ad016023bec4ab306993975b453b812eb097de6b75192f'
             '43c3a516b98ae5347d10c7a8761e9d84b910747bf1910189ef18d115becc2bef'
-            '02bc5a77db9f8de40b96947db53fe040c3093fd0f1e49d17f0a0f5564dd43812')
+            'ec415f42ff3c729f5874999df0ed07c2bf38c64ea5b2da9268ab4a9baa287b75')
 
 prepare() {
 	cd noto-emoji-*
@@ -39,22 +36,21 @@ build() {
 package() {
 	cd noto-emoji-*
 
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoColorEmoji.ttf fonts/NotoEmoji-Regular.ttf \
-		"$pkgdir"/usr/share/fonts/"${pkgname}"
-	
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
-	install -m644 01-emoji.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/01-emoji.conf
 	install -m644 45-noto-emoji.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/45-noto-emoji.conf
-	install -m644 90-tt-noto-emoji.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-noto-emoji.conf
-	
+	install -m644 90-non-tt-noto-emoji.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-noto-emoji.conf
+
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/01-emoji.conf .
 	ln -s ../conf.avail/45-noto-emoji.conf .
-	ln -s ../conf.avail/90-tt-noto-emoji.conf .
+	ln -s ../conf.avail/90-non-tt-noto-emoji.conf .
 }
