@@ -28,8 +28,8 @@ DOC_FILES = $(DOC_SOURCES:.in=)
 CONF_LINKS = \
 	10-base-rendering.conf			\
 	30-metric-aliases.conf			\
-	37-cjk-aliases.conf				\
-	37-main-aliases.conf				\
+	31-main-aliases.conf			\
+	32-cjk-aliases.conf				\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
 	45-latin-microsoft.conf			\
@@ -57,9 +57,9 @@ templateinf_DATA = \
 	10-base-rendering.conf			\
 	28-user.conf					\
 	30-metric-aliases.conf			\
-	37-cjk-aliases.conf				\
-	37-main-aliases.conf				\
-	37-repl-webfonts.conf			\
+	31-main-aliases.conf			\
+	32-cjk-aliases.conf				\
+	33-repl-webfonts.conf			\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
 	45-latin-microsoft.conf			\

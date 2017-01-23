@@ -6,7 +6,7 @@ _basename=fontconfig
 pkgver=2.12.1
 pkgrel=7
 pkgdesc="A library for configuring and customizing font access"
-arch=(i686 x86_64)
+arch=('i686' 'x86_64')
 url='http://www.fontconfig.org/release/'
 license=('custom' 'MIT')
 groups=('kagayaki-bundle')
@@ -24,7 +24,7 @@ source=("http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2"
 	0004-Makefile.conf.d.patch
 	0005-Makefile.am.in.patch)
 sha1sums=('30d832b754fb10a3b70ebac750a38a0275438ad8'
-          'ceb1561b2e601ec31e72cee59bcffdcaf36d3852'
+          'b0b2a075b460abeb6d661c7f07bd7e0e3ba116a9'
           'e49b1271c850db495e9f06445a34ab93068daf83'
           'e1d553da760b214b858930a920fb328e2226e887'
           'dc987cc9480e9f8272c1d983c649387f90e1ffcc'
@@ -57,7 +57,7 @@ prepare() {
 }
 
 build() {
-	cd $_basename-$pkgver
+	cd "$_basename-$pkgver"
 	./configure --prefix=/usr \
 		--sysconfdir=/etc \
 		--with-templatedir=/etc/fonts/conf.avail \
@@ -76,11 +76,12 @@ build() {
 #}
 
 package() {
-	cd $_basename-$pkgver
+	cd "$_basename-$pkgver"
 	make DESTDIR="$pkgdir" install
 	
 	# Install license
-	install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+	install -Dm644 "COPYING" \
+		"$pkgdir/usr/share/licenses/$pkgname/COPYING"
 	
 	# Alpm hook
 	install -D -m 644 "${srcdir}"/fc-cache-kagayaki.hook \
