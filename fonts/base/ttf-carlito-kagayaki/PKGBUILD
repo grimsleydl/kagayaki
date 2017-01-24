@@ -4,7 +4,7 @@
 pkgname=ttf-carlito-kagayaki
 _tarname=crosextrafonts-carlito
 pkgver=20130920
-pkgrel=2
+pkgrel=3
 pkgdesc="Carlito is a sans-serif font metrically compatible with Calibri"
 arch=('any')
 url="https://code.google.com/p/chromium/issues/detail?id=280557"
@@ -14,28 +14,33 @@ conflicts=('ttf-carlito-ib')
 replaces=('ttf-carlito-ib')
 provides=('ttf-carlito-ib')
 groups=('kagayaki-bundle-fonts')
-source=(http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/"${_tarname}"-"${pkgver}".tar.gz
+source=("http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/${_tarname}-${pkgver}.tar.gz"
         45-carlito.conf
         90-tt-carlito.conf)
 sha1sums=('65ceb1377897a4d5a404134423728592aea6eb13'
           'ba31fb428eba83034a4d6edd31cb227d3045f2b5'
-          '2ee9bcd6c28d0928d657d21c3a9ece5fb133c9c3')
+          'eb1dd897f021cb5c31f6cbbb328ca0a99c918bfb')
 
 package(){
-	cd "${_tarname}"-"${pkgver}"
-	
-	install -D -m644 LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
-	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	
+	cd "${srcdir}/${_tarname}-${pkgver}"
+
+	# Install license
+	install -D -m644 "LICENSE" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
 	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -D -m644 45-carlito.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/45-carlito.conf
 	install -D -m644 90-tt-carlito.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/90-tt-carlito.conf
-	
-	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/45-carlito.conf .
 	ln -s ../conf.avail/90-tt-carlito.conf .

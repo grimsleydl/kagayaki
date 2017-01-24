@@ -13,6 +13,8 @@ replaces=('ibfonts-meta-base')
 conflicts=('ibfonts-meta-base')
 depends=('otf-erewhon-kagayaki'
          'otf-tex-gyre-kagayaki'
+         'ttf-caladea-kagayaki'
+         'ttf-carlito-kagayaki'
          'ttf-courier-prime-kagayaki'
          'ttf-dejavu-kagayaki'
          'ttf-noto-emoji-kagayaki'
