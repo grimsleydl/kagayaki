@@ -36,7 +36,6 @@ CONF_LINKS = \
 	45-latin-misc.conf				\
 	49-sansserif.conf				\
 	60-kagayaki.conf				\
-	66-aliases-wine.conf			\
 	82-no-bitmaps.conf				\
 	82-no-embedded-bitmaps.conf		\
 	82-no-postscript.conf			\
@@ -68,7 +67,6 @@ templateinf_DATA = \
 	60-kagayaki.conf				\
 	60-latin.conf					\
 	65-non-latin.conf				\
-	66-aliases-wine.conf			\
 	67-override-aliases.conf		\
 	68-override.conf				\
 	82-no-bitmaps.conf				\
