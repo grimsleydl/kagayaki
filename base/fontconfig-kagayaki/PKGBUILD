@@ -4,7 +4,7 @@
 pkgname=fontconfig-kagayaki
 _basename=fontconfig
 pkgver=2.12.1
-pkgrel=7
+pkgrel=8
 pkgdesc="A library for configuring and customizing font access"
 arch=('i686' 'x86_64')
 url='http://www.fontconfig.org/release/'
@@ -24,7 +24,7 @@ source=("http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2"
 	0004-Makefile.conf.d.patch
 	0005-Makefile.am.in.patch)
 sha1sums=('30d832b754fb10a3b70ebac750a38a0275438ad8'
-          'b0b2a075b460abeb6d661c7f07bd7e0e3ba116a9'
+          '29ddea95645098a44611a69c092322f309303e49'
           'e49b1271c850db495e9f06445a34ab93068daf83'
           'e1d553da760b214b858930a920fb328e2226e887'
           'dc987cc9480e9f8272c1d983c649387f90e1ffcc'
@@ -66,7 +66,7 @@ build() {
 		--localstatedir=/var \
 		--disable-static \
 		--with-default-fonts=/usr/share/fonts \
-		--with-add-fonts=/usr/share/fonts
+		--with-add-fonts=/usr/share/fonts/kagayaki
 	make
 }
 

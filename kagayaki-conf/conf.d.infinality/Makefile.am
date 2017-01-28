@@ -28,8 +28,6 @@ DOC_FILES = $(DOC_SOURCES:.in=)
 CONF_LINKS = \
 	10-base-rendering.conf			\
 	30-metric-aliases.conf			\
-	31-main-aliases.conf			\
-	32-cjk-aliases.conf				\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
 	45-latin-microsoft.conf			\
