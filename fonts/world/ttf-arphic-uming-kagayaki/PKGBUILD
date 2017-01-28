@@ -1,0 +1,44 @@
+# Maintainer: Julien Humbert <julroy67@gmail.com>
+# Contributor: Gaetan Bisson <bisson@archlinux.org>
+# Contributor: Damir Perisa <damir.perisa@bluewin.ch>
+# Contributor: Firmicus <francois.archlinux.org> 
+
+pkgname=ttf-arphic-uming-kagayaki
+pkgver=0.2.20080216.1
+pkgrel=1
+pkgdesc='CJK Unicode font Ming style'
+url='http://www.freedesktop.org/wiki/Software/CJKUnifonts'
+license=('custom:Arphic_Public_License')
+arch=('any')
+depends=('fontconfig' 'xorg-font-utils')
+source=("http://ftp.gnome.org/mirror/cdimage/snapshot/Debian/pool/main/t/ttf-arphic-uming/ttf-arphic-uming_${pkgver}.orig.tar.gz"
+		40-arphic-uming.conf
+		90-non-tt-arphic-uming.conf)
+sha256sums=('8038a6db9e832456d5da5559aff8d15130243be1091bf24f3243503a6f1bda98'
+            '31354d755b743c8ab42dae297eb11901cc4c24af32cee48168ac4a6999022ce1'
+            '3699c785418df222c3f8fc96187fa1dfa35d919d8c75c82d21a00af0b6ca8eb9')
+
+package() {
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "license/english/ARPHICPL.TXT" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+    # Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 uming.ttc \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m644 40-arphic-uming.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-arphic-uming.conf
+	install -m644 90-non-tt-arphic-uming.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-arphic-uming.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/40-arphic-uming.conf .
+	ln -s ../conf.avail/90-non-tt-arphic-uming.conf .
+}
