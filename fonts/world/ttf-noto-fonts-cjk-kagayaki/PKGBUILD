@@ -3,7 +3,7 @@
 
 pkgname=ttf-noto-fonts-cjk-kagayaki
 pkgver=1.004
-pkgrel=2
+pkgrel=3
 pkgdesc="Google Noto TTF CJK fonts"
 arch=(any)
 url="https://www.google.com/get/noto/"
@@ -14,11 +14,9 @@ replaces=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mo
 conflicts=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib')
 groups=(kagayaki-bundle-fonts)
 source=("https://github.com/googlei18n/noto-cjk/archive/v$pkgver.tar.gz"
-		40-noto-cjk.conf
-		90-tt-noto-cjk.conf)
+		40-noto-cjk.conf)
 sha256sums=('835a42755c1e8d6a4a406f32609da1f0fa7f9674d05760f0be658d9d6f4ab71c'
-            '1c2e537a094d8be79663a3fea867d1fc59098e13fe4087cb687ce217bb8e8376'
-            '93028c57d9cc49e81b14ea9cc31ad1dfc08783da5bab065b8eaae37cec3617f7')
+            '1c2e537a094d8be79663a3fea867d1fc59098e13fe4087cb687ce217bb8e8376')
 
 package() {
 	cd "${srcdir}"/noto-cjk-"${pkgver}"
@@ -40,10 +38,7 @@ package() {
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m644 40-noto-cjk.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/40-noto-cjk.conf
-	install -m644 90-tt-noto-cjk.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-noto-cjk.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/40-noto-cjk.conf .
-	ln -s ../conf.avail/90-tt-noto-cjk.conf .
 }
