@@ -4,22 +4,18 @@
 pkgname=ttf-caladea-kagayaki
 _tarname=crosextrafonts
 pkgver=20130214
-pkgrel=3
-pkgdesc="Caladeo is a serif font metrically compatible with Cambria"
+pkgrel=4
+pkgdesc="Caladea is a serif font metrically compatible with Cambria"
 arch=('any')
 url="https://code.google.com/p/chromium/issues/detail?id=168879"
 license=('Apache')
-depends=('fontconfig')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('ttf-caladea-ib')
-replaces=('ttf-caladea-ib')
-provides=('ttf-caladea-ib')
 groups=('kagayaki-bundle-fonts')
 source=("http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/${_tarname}-${pkgver}.tar.gz"
-        45-caladea.conf
-        90-tt-caladea.conf)
+        40-caladea.conf)
 sha1sums=('6f8f87cd21c4cd7e72031852eb90453dba3e2473'
-          '90d29666e807c1f7456f4ffa86f4b6ed5b92639b'
-          'cdca7301d6f22acd79997469c4323bbc8f19dbf8')
+          '90d29666e807c1f7456f4ffa86f4b6ed5b92639b')
 
 package(){
 	cd "${srcdir}/${_tarname}-${pkgver}"
@@ -33,12 +29,9 @@ package(){
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 45-caladea.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-caladea.conf
-	install -m644 90-tt-caladea.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-caladea.conf
+	install -m644 40-caladea.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-caladea.conf
 	
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-caladea.conf .
-	ln -s ../conf.avail/90-tt-caladea.conf .
+	ln -s ../conf.avail/40-caladea.conf .
 }
