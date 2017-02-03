@@ -6,39 +6,30 @@ _pkgcr=ttf-noto-fonts-cros-kagayaki
 _pkgsa=ttf-noto-fonts-sans-kagayaki
 _pkgse=ttf-noto-fonts-serif-kagayaki
 _pkgmo=ttf-noto-fonts-mono-kagayaki
-_pkgver=2017-01-21
-_commit=318b3bf
+_pkgver=2017-01-31
+_commit=bea530d
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Google Noto TTF fonts"
 arch=('any')
 url="http://www.google.com/get/noto/"
-license=(custom:OFL)
+license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-provides=('noto-fonts' 'ttf-noto-fonts-ib' 'ttf-font')
-replaces=('noto-fonts' 'ttf-noto-fonts-ib' 'ttf-croscore-fonts-ibx')
+provides=('noto-fonts' 'ttf-font')
 conflicts=('noto-fonts' 'ttf-noto-fonts-ib' 'ttf-croscore-fonts-ibx')
 groups=('kagayaki-bundle-fonts')
 source=("https://github.com/googlei18n/noto-fonts/archive/$_commit.zip"
 	40-noto-arabic.conf
-	45-noto-cros.conf
-	45-noto-sans.conf
-	45-noto-serif.conf
-	45-noto-mono.conf
-	90-tt-noto-cros.conf
-	90-tt-noto-sans.conf
-	90-tt-noto-serif.conf
-	90-tt-noto-mono.conf)
-sha256sums=('50392a6c30ae30cb202e53105eaa281de51d398dbb9074f6d89fe919547e3078'
+	40-noto-cros.conf
+	40-noto-sans.conf
+	40-noto-serif.conf
+	40-noto-mono.conf)
+sha256sums=('b373590d7217cdccd68ee01fb1bb96ac3a3d2dfd6b4fc6cef8dc635c6f4a2a7c'
             '734f20f62e6938601fe874c5af5994cd2e728e80bb121c08e1db8f084888e0ca'
             '3071752f837bca04c03d29f88a419c4a72682b91559353c7e26588c31a590572'
             'cb2fd6c63d1295fe73a15144b22178bed8a7471a603f6c45a86b0738b3565d6b'
             '39e6b5d115fbf0a63876f4890996d57693d8f6c64f93207c163bc5b6e38bc0b3'
-            '0a620443b25dc481bdf10b2955ae0a5fdf92982a47e6f8236fb1db92485a6134'
-            '01e9dab032d39798b36934f3db1cabed4bd43e7aa5f2ef1c941701aa858a4046'
-            '0a7a45da27fcf3ad4098ebdfa83a1197fa2cc60963ade98a971aaf60c3ec3662'
-            'db078835390d03fe7244a98c2209daee796c54d4fe67d4d51aec93f936044d93'
-            'a14d951c457af651f3c1142add9ac4f862010a4ee42f90c4b619dce46bb1a7f4')
+            '0a620443b25dc481bdf10b2955ae0a5fdf92982a47e6f8236fb1db92485a6134')
 
 package() {
 	cd "${srcdir}"/noto-fonts-*
@@ -86,31 +77,19 @@ package() {
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m644 40-noto-arabic.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/40-noto-arabic.conf
-	install -m644 45-noto-cros.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-noto-cros.conf
-	install -m644 45-noto-sans.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-noto-sans.conf
-	install -m644 45-noto-serif.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-noto-serif.conf
-	install -m644 45-noto-mono.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-noto-mono.conf
-	install -m644 90-tt-noto-cros.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-noto-cros.conf
-	install -m644 90-tt-noto-sans.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-noto-sans.conf
-	install -m644 90-tt-noto-serif.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-noto-serif.conf
-	install -m644 90-tt-noto-mono.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-noto-mono.conf
+	install -m644 40-noto-cros.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-noto-cros.conf
+	install -m644 40-noto-sans.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-noto-sans.conf
+	install -m644 40-noto-serif.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-noto-serif.conf
+	install -m644 40-noto-mono.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-noto-mono.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/40-noto-arabic.conf .
-	ln -s ../conf.avail/45-noto-cros.conf .
-	ln -s ../conf.avail/45-noto-sans.conf .
-	ln -s ../conf.avail/45-noto-serif.conf .
-	ln -s ../conf.avail/45-noto-mono.conf .
-	ln -s ../conf.avail/90-tt-noto-cros.conf .
-	ln -s ../conf.avail/90-tt-noto-sans.conf .
-	ln -s ../conf.avail/90-tt-noto-serif.conf .
-	ln -s ../conf.avail/90-tt-noto-mono.conf .
+	ln -s ../conf.avail/40-noto-cros.conf .
+	ln -s ../conf.avail/40-noto-sans.conf .
+	ln -s ../conf.avail/40-noto-serif.conf .
+	ln -s ../conf.avail/40-noto-mono.conf .
 }
