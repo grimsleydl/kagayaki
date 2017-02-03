@@ -5,7 +5,7 @@
  SUBDIRS=fontconfig fc-blanks fc-case fc-lang fc-glyphname src \
  	fc-cache fc-cat fc-list fc-match fc-pattern fc-query fc-scan \
 -	fc-validate conf.d test
-+	fc-validate conf.d conf.d.infinality test
++	fc-validate conf.d conf.d.kagayaki test
  if ENABLE_DOCS
  SUBDIRS += doc
  endif
@@ -25,7 +25,7 @@
  DIST_SUBDIRS = fontconfig fc-blanks fc-case fc-lang fc-glyphname src \
  	fc-cache fc-cat fc-list fc-match fc-pattern fc-query fc-scan \
 -	fc-validate conf.d test doc
-+	fc-validate conf.d conf.d.infinality test doc
++	fc-validate conf.d conf.d.kagayaki test doc
  am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
  	$(srcdir)/fontconfig-zip.in $(srcdir)/fontconfig.pc.in \
  	$(srcdir)/fontconfig.spec.in AUTHORS COPYING ChangeLog INSTALL \
@@ -42,7 +42,7 @@
  SUBDIRS = fontconfig fc-blanks fc-case fc-lang fc-glyphname src \
  	fc-cache fc-cat fc-list fc-match fc-pattern fc-query fc-scan \
 -	fc-validate conf.d test $(am__append_1)
-+	fc-validate conf.d conf.d.infinality test $(am__append_1)
++	fc-validate conf.d conf.d.kagayaki test $(am__append_1)
  ACLOCAL_AMFLAGS = -I m4
  EXTRA_DIST = fontconfig.pc.in fonts.conf.in fonts.dtd \
  	fontconfig.spec.in fontconfig.spec fontconfig-zip.in \

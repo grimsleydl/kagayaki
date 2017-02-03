@@ -10,7 +10,7 @@
  	[templatedir=yes])
 +AC_ARG_WITH(templateinfdir,
 +	[AC_HELP_STRING([--with-templateinfdir=DIR],
-+			[Use DIR to store the Infinality compliant configuration template files [default=DATADIR/fontconfig/conf.avail.infinality]])],
++			[Use DIR to store the Kagayaki compliant configuration template files [default=DATADIR/fontconfig/conf.avail.kagayaki]])],
 +	[templateinfdir="$withval"],
 +	[templateinfdir=yes])
  AC_ARG_WITH(baseconfigdir,
@@ -22,7 +22,7 @@
  esac
 +case "$templateinfdir" in
 +no|yes)
-+	templateinfdir='${datadir}'/fontconfig/conf.avail.infinality
++	templateinfdir='${datadir}'/fontconfig/conf.avail.kagayaki
 +	;;
 +*)
 +	;;
@@ -47,7 +47,7 @@
  fc-case/Makefile
  src/Makefile
  conf.d/Makefile
-+conf.d.infinality/Makefile
++conf.d.kagayaki/Makefile
  fc-cache/Makefile
  fc-cat/Makefile
  fc-list/Makefile

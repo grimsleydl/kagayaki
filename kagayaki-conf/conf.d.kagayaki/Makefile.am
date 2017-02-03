@@ -27,21 +27,16 @@ DOC_FILES = $(DOC_SOURCES:.in=)
 
 CONF_LINKS = \
 	10-base-rendering.conf			\
+	20-unhint-small-dejavu.conf		\
 	30-metric-aliases.conf			\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
 	45-latin-microsoft.conf			\
 	45-latin-misc.conf				\
 	49-sansserif.conf				\
-	60-kagayaki.conf				\
-	82-no-bitmaps.conf				\
-	82-no-embedded-bitmaps.conf		\
-	82-no-postscript.conf			\
-	82-no-ttf-as-bitmap.conf		\
-	88-forced-synthetic.conf		\
-	93-final-rendering.conf			\
-	94-no-synthetic.conf			\
-	95-reject.conf
+	51-local.conf					\
+	70-no-bitmaps.conf				\
+	82-no-postscript.conf
 
 EXTRA_DIST = $(templateinf_DATA) $(DOC_SOURCES)
 CLEANFILES = $(DOC_FILES)
@@ -52,38 +47,25 @@ config_DATA = $(DOC_FILES)
 templateinfdir = $(TEMPLATEINFDIR)
 templateinf_DATA = \
 	10-base-rendering.conf			\
+	10-scale-bitmap-fonts.conf		\
+	20-unhint-small-dejavu.conf		\
 	28-user.conf					\
 	30-metric-aliases.conf			\
-	31-main-aliases.conf			\
-	32-cjk-aliases.conf				\
-	33-repl-webfonts.conf			\
 	40-non-latin-microsoft.conf		\
 	40-non-latin-misc.conf			\
 	45-latin-microsoft.conf			\
 	45-latin-misc.conf				\
 	49-sansserif.conf				\
-	60-kagayaki.conf				\
-	60-latin.conf					\
-	65-non-latin.conf				\
-	67-override-aliases.conf		\
-	68-override.conf				\
-	82-no-bitmaps.conf				\
-	82-no-embedded-bitmaps.conf		\
+	51-local.conf					\
+	70-no-bitmaps.conf				\
 	82-no-force-autohint.conf		\
 	82-no-postscript.conf			\
 	82-no-ttf-as-bitmap.conf		\
-	83-yes-bitmaps.conf				\
 	83-yes-embedded-bitmaps.conf	\
-	83-yes-force-autohint.conf		\
-	83-yes-postscript.conf			\
 	83-yes-ttf-as-bitmap.conf		\
 	88-forced-synthetic.conf		\
-	90-non-tt-fonts.conf			\
-	90-tt-fonts-microsoft.conf		\
-	90-tt-fonts-misc.conf			\
 	93-final-rendering.conf			\
-	94-no-synthetic.conf			\
-	95-reject.conf
+	94-no-synthetic.conf
 
 README: $(srcdir)/README.in
 	sed "s|\@TEMPLATEINFDIR\@|$(templateinfdir)|" $< > $@

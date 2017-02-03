@@ -4,7 +4,7 @@
 pkgname=fontconfig-kagayaki
 _basename=fontconfig
 pkgver=2.12.1
-pkgrel=8
+pkgrel=9
 pkgdesc="A library for configuring and customizing font access"
 arch=('i686' 'x86_64')
 url='http://www.fontconfig.org/release/'
@@ -14,23 +14,25 @@ depends=('expat' 'freetype2-kagayaki' 'kagayaki-fonts-base')
 makedepends=('python2' 'docbook2x')
 provides=('fontconfig=$pkgver' 'fontconfig-infinality-ultimate')
 conflicts=('fontconfig' 'fontconfig-infinality-ultimate')
-install=fontconfig-kagayaki.install
+install='fontconfig-kagayaki.install'
 source=("http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2"
 	kagayaki-conf.tar.xz
+	local.conf
     fc-cache-kagayaki.hook
 	0001-configure.patch
 	0002-configure.ac.patch
 	0003-Makefile.in.patch
 	0004-Makefile.conf.d.patch
 	0005-Makefile.am.in.patch)
-sha1sums=('30d832b754fb10a3b70ebac750a38a0275438ad8'
-          '29ddea95645098a44611a69c092322f309303e49'
-          'e49b1271c850db495e9f06445a34ab93068daf83'
-          'e1d553da760b214b858930a920fb328e2226e887'
-          'dc987cc9480e9f8272c1d983c649387f90e1ffcc'
-          '164c93498a2b873d28e51b670ac9a581d5597538'
-          '5dbe4998551c344f77b0cdc51e956f6b077d9a47'
-          '7646dd5d52b6b8429653f128007626fe353f71e8')
+sha256sums=('b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3'
+            'fcebc0406907c05e1a12d810eca2a31aa6454de3bdb8f47014b2bbee8720b7ea'
+            'd10542da60cbd236482dcf805fd75af724c5199f6819e18a20c2e3e422cf35a6'
+            '2762e927cd78c56a7d568684d8bb3cc73e2f6c268e0ba70de2a959fa09d36728'
+            'f7ea52a89dba51e803907f2ce61ae1bd3c055a99662737839f67399209cfed3d'
+            'ec92e8e07a23d43e643c32d35ef0f9e8711f6b31cca1e1d56def0b1edfce6e60'
+            '0676efe16ffe6a032fe2e8be1405974d633220ddcf7ea38cf686e521b3d83735'
+            '4d3cb2643c46ad7eadee388bd2921a3e73137951205f124bed5b6337d8974871'
+            'e25483bfa492a56e55e730c7ce0b1f6d5d3f0176a7330e23f6b326553c593015')
 
 # a nice page to test font matching:
 # http://zipcon.net/~swhite/docs/computers/browsers/fonttest.html
@@ -40,7 +42,7 @@ prepare() {
 	# copy kagayaki stuff
 	cd "kagayaki-conf"
 	
-	cp -r conf.d.infinality "${srcdir}/${_basename}-${pkgver}"/conf.d.infinality
+	cp -r conf.d.kagayaki "${srcdir}/${_basename}-${pkgver}"/conf.d.kagayaki
 	
 	# prepare src
 	cd "${srcdir}/${_basename}-${pkgver}"
@@ -61,7 +63,7 @@ build() {
 	./configure --prefix=/usr \
 		--sysconfdir=/etc \
 		--with-templatedir=/etc/fonts/conf.avail \
-		--with-templateinfdir=/etc/fonts/conf.avail.infinality \
+		--with-templateinfdir=/etc/fonts/conf.avail.kagayaki \
 		--with-xmldir=/etc/fonts \
 		--localstatedir=/var \
 		--disable-static \
@@ -83,6 +85,10 @@ package() {
 	install -Dm644 "COPYING" \
 		"$pkgdir/usr/share/licenses/$pkgname/COPYING"
 	
+	# Kagayaki local.conf
+	install -D -m 644 "${srcdir}"/local.conf \
+		"${pkgdir}/etc/fonts/local.conf"
+
 	# Alpm hook
 	install -D -m 644 "${srcdir}"/fc-cache-kagayaki.hook \
 		"${pkgdir}/usr/share/libalpm/hooks/90-fc-cache-kagayaki.hook"

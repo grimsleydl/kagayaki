@@ -4,14 +4,14 @@
 pkgbase=freetype2-kagayaki
 pkgname=('freetype2-kagayaki' 'freetype2-demos-kagayaki')
 pkgver=2.7.1
-pkgrel=2
+pkgrel=3
 arch=('i686' 'x86_64')
 license=('GPL' 'MIT')
 url="http://www.freetype.org"
 makedepends=('libx11' 'zlib' 'bzip2' 'sh' 'libpng' 'harfbuzz')
-source=(http://download.savannah.gnu.org/releases/freetype/freetype-${pkgver}.tar.bz2
-        http://download.savannah.gnu.org/releases/freetype/freetype-doc-${pkgver}.tar.bz2
-        http://download.savannah.gnu.org/releases/freetype/ft2demos-${pkgver}.tar.bz2
+source=("http://download.savannah.gnu.org/releases/freetype/freetype-${pkgver}.tar.bz2"
+        "http://download.savannah.gnu.org/releases/freetype/freetype-doc-${pkgver}.tar.bz2"
+        "http://download.savannah.gnu.org/releases/freetype/ft2demos-${pkgver}.tar.bz2"
         0001-Enable-table-validation-modules.patch
         0002-Enable-subpixel-rendering.patch
         0003-Enable-infinality-subpixel-hinting.patch
@@ -26,19 +26,18 @@ sha256sums=('3a3bb2c4e15ffb433f2032f50a5b5a92558206822e22bfe8cbe339af4aa82f88'
             'd043fa4ce22b6e6cfafa0d2e2898b1c5cd000ec66094a97ab57c9126934ba371'
             '36484db4b926ed026e7f32570573493b5a9793a129f08d54383a26d65a6af89b'
             'f7f8e09c44f7552c883846e9a6a1efc50377c4932234e74adc4a8ff750606467'
-            'f3631c544ad11fae99c30f36f672dc3f5d248a9d21278ecf556d8286b04c985e')
-
+            '990d9169da0d8299df42e80894a5f2d32e3d83030ca48ca262ea19cadb8653d4')
 
 prepare() {
 	# Rename source dir to allow building the demos
-	mv freetype-${pkgver} freetype2
+	mv freetype-"${pkgver}" freetype2
 	
 	cd freetype2
 	patch -Np1 -i ../0001-Enable-table-validation-modules.patch
 	patch -Np1 -i ../0002-Enable-subpixel-rendering.patch
 	patch -Np1 -i ../0003-Enable-infinality-subpixel-hinting.patch
 	
-	cd ../ft2demos-${pkgver}
+	cd ../ft2demos-"${pkgver}"
 	# enable more demos
 	patch -Np1 -i ../0005-freetype-2.5.2-more-demos.patch
 	
@@ -54,7 +53,7 @@ build() {
 	make
 	
 	# Build demos
-	cd ../ft2demos-${pkgver}
+	cd ../ft2demos-"${pkgver}"
 	make
 }
 
@@ -81,8 +80,8 @@ package_freetype2-kagayaki() {
 	install -dm755 "${pkgdir}/usr/share/doc"
 	cp -a docs "${pkgdir}/usr/share/doc/${pkgname}"
 
-	cd ../ft2demos-${pkgver}
-	mkdir -p $srcdir/ft-demos
+	cd ../ft2demos-"${pkgver}"
+	mkdir -p "${srcdir}"/ft-demos
 	for _i in bin/{f,t}t*; do
 		libtool --mode=install install $_i "$srcdir/ft-demos"
 	done
@@ -98,5 +97,5 @@ package_freetype2-demos-kagayaki() {
 	depends=('freetype2' 'libx11')
 
 	install -dm755 "${pkgdir}/usr/bin"
-	cp -a $srcdir/ft-demos/* "${pkgdir}/usr/bin"
+	cp -a "${srcdir}"/ft-demos/* "${pkgdir}/usr/bin"
 }
