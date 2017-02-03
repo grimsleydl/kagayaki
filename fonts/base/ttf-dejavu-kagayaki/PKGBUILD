@@ -5,22 +5,19 @@
 
 pkgname=ttf-dejavu-kagayaki
 pkgver=2.37
-pkgrel=3
+pkgrel=4
 pkgdesc="Font family based on the Bitstream Vera Fonts with a wider range of characters"
 arch=('any')
 url="http://dejavu-fonts.org/wiki/Main_Page"
 license=('custom')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-provides=('ttf-font' 'ttf-dejavu' 'ttf-dejavu-ib')
-replaces=('ttf-dejavu' 'ttf-dejavu-ib')
+provides=('ttf-font' 'ttf-dejavu')
 conflicts=('ttf-dejavu' 'ttf-dejavu-ib')
 groups=('kagayaki-bundle-fonts')
 source=("http://downloads.sourceforge.net/project/dejavu/dejavu/${pkgver}/dejavu-fonts-ttf-${pkgver}.tar.bz2"
-        45-dejavu.conf
-        90-tt-dejavu.conf)
+        40-dejavu.conf)
 sha256sums=('fa9ca4d13871dd122f61258a80d01751d603b4d3ee14095d65453b4e846e17d7'
-            '8765daf76e75cf23a51c5160f4ff31df3e023138c71df5e8dee26481aad17576'
-            'f55d5051e769b34abc86fefa4eb65592aa9a717c525bec011c6ee8271aa0db95')
+            '8765daf76e75cf23a51c5160f4ff31df3e023138c71df5e8dee26481aad17576')
 
 package() {
 	cd "${srcdir}"/dejavu-fonts-ttf-"${pkgver}"
@@ -37,12 +34,9 @@ package() {
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 45-dejavu.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-dejavu.conf
-	install -m644 90-tt-dejavu.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-dejavu.conf
+	install -m644 40-dejavu.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-dejavu.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-dejavu.conf .
-	ln -s ../conf.avail/90-tt-dejavu.conf .
+	ln -s ../conf.avail/40-dejavu.conf .
 }
