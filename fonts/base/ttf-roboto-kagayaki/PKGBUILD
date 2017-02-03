@@ -3,24 +3,20 @@
 
 pkgname=ttf-roboto-kagayaki
 pkgver=2.136
-pkgrel=3
+pkgrel=4
 pkgdesc="Modern sans-serif font family designed by Christian Robertson and introduced with Android Ice Cream Sandwich operating system"
 arch=('any')
 url="https://github.com/google/roboto"
 license=('Apache')
 depends=('fontconfig')
-conflicts=('ttf-roboto' 'ttf-roboto-ibx')
-replaces=('ttf-roboto' 'ttf-roboto-ibx')
-provides=('ttf-roboto' 'ttf-roboto-ibx')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 groups=('kagayaki-bundle-fonts')
 source=("https://github.com/google/roboto/releases/download/v$pkgver/roboto-hinted.zip"
 		"https://fonts.google.com/download?family=Roboto%20Slab"
-        45-roboto.conf
-        90-tt-roboto.conf)
+        40-roboto.conf)
 sha256sums=('c4528791de55ade3d6c698738a70b457311e4dd296c5a3318aa729874067fa6a'
             '158ef4214c73b0ff7ac17393282aeaf7855fe32759a673fbac42efec34d35114'
-            '808dcc4eced043842aade40a69bf1c87d533b43a8610a57ec54f64c96b47ff9c'
-            'd8333c986e528bb00eab20a0b7e109d33af17add39dbfb564c3fcf7ef5c83c33')
+            '808dcc4eced043842aade40a69bf1c87d533b43a8610a57ec54f64c96b47ff9c')
 
 package(){
 	cd "${srcdir}"
@@ -35,12 +31,9 @@ package(){
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
-	install -D -m644 45-roboto.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-roboto.conf
-	install -D -m644 90-tt-roboto.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-roboto.conf
+	install -D -m644 40-roboto.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-roboto.conf
 	
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-roboto.conf .
-	ln -s ../conf.avail/90-tt-roboto.conf .
+	ln -s ../conf.avail/40-roboto.conf .
 }
