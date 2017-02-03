@@ -4,22 +4,18 @@
 pkgname=ttf-ipamjmincho-kagayaki
 pkgver=004.01
 _pkgver=${pkgver/./}
-pkgrel=3
+pkgrel=4
 pkgdesc="Japanese outline Mincho fonts including the unified characters of the Basic Resident Registers Network and the Family Register of Japan (based on IPAex Mincho fonts)"
 arch=('any')
 url="http://ossipedia.ipa.go.jp/ipamjfont/"
 license=('custom:IPA')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-provides=('ttf-ipamjfont-ibx')
 conflicts=('ttf-ipamjfont-ibx')
-replaces=('ttf-ipamjfont-ibx')
 groups=('kagayaki-bundle-fonts')
 source=("http://dl.mojikiban.ipa.go.jp/IPAmjMincho/ipamjm${_pkgver}.zip"
-	40-ipamjmincho.conf
-	90-non-tt-ipamjmincho.conf)
+	40-ipamjmincho.conf)
 sha256sums=('eab2078bfb92ca38d2e06bfd0054e0f841062ac67804436f105d354ccef07944'
-            '7559f1f9761435ecc196958b096ea4a8c338e868b3a4f92e91e05255182e3dcc'
-            '5e9408bfd1d0b11847b3cb1d5d1a6a17135429d8f970f7eba2a693b997a97724')
+            '7559f1f9761435ecc196958b096ea4a8c338e868b3a4f92e91e05255182e3dcc')
 
 package() {
 	cd "${srcdir}"
@@ -38,10 +34,7 @@ package() {
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m644 40-ipamjmincho.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/40-ipamjmincho.conf
-	install -m644 90-non-tt-ipamjmincho.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-ipamjmincho.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/40-ipamjmincho.conf .
-	ln -s ../conf.avail/90-non-tt-ipamjmincho.conf .
 }
