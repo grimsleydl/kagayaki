@@ -3,24 +3,22 @@
 
 pkgname=otf-nanum-kagayaki
 pkgver=3.1
-pkgrel=2
+pkgrel=3
 pkgdesc="The Nanum fonts are unicode fonts designed especially for the Korean-language script"
 arch=('any')
 url="http://hangeul.naver.com/"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 makedepends=('p7zip')
-provides=('ttf-nanum' 'ttf-nanum-fonts-ibx')
 conflicts=('ttf-nanum' 'ttf-nanum-fonts-ibx')
-replaces=('ttf-nanum' 'ttf-nanum-fonts-ibx')
 groups=('kagayaki-bundle-fonts')
 _filename="NanumFontSetup_OTF_ALL_hangeulcamp.exe"
 source=("http://appdown.naver.com/naver/font/NanumFont/setup/${_filename}"
 		40-nanum.conf
-		90-tt-nanum.conf)
+		OFL.txt)
 sha256sums=('f4196e2c305c46bc0d089dfad337262aecb34f0b1b2311022fb578356aef79c0'
-            '42b260f5937c226b7c6d6b2aab9e868ff386a60914371a7bd2d6f83b84b93da8'
-            '3d601e4753b3029c801a6113a60f90ae80aa501b2e862e0c37876c0e85448215')
+            '4ac02f36514e8784d9ca0384f62f014f429083f839dbb37cf26d1e163d9ba1ee'
+            '274ab590e1297b4cdeacc3a0d896468ee3dd5827b6f84c46bf86eed46610f13f')
 
 prepare() {
 	cd "${srcdir}"
@@ -36,7 +34,9 @@ package() {
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 \$WINDIR/Fonts/*.otf \
+	install -m644 \$WINDIR/Fonts/NanumGothic*.otf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 \$WINDIR/Fonts/NanumMyeongjo*.otf \
 		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf
@@ -44,10 +44,7 @@ package() {
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m644 40-nanum.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/40-nanum.conf
-	install -m644 90-tt-nanum.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-nanum.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/40-nanum.conf .
-	ln -s ../conf.avail/90-tt-nanum.conf .
 }
