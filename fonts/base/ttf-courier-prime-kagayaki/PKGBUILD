@@ -3,22 +3,18 @@
 
 pkgname=ttf-courier-prime-kagayaki
 pkgver=1.203
-pkgrel=3
+pkgrel=4
 pkgdesc="A free, improved, classical monospaced typeface"
 arch=('any')
 url="http://quoteunquoteapps.com/courierprime/"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-provides=('ttf-courier-prime-ib' 'ttf-courier-prime')
-replaces=('ttf-courier-prime-ib' 'ttf-courier-prime')
 conflicts=('ttf-courier-prime-ib' 'ttf-courier-prime')
 groups=('kagayaki-bundle-fonts')
 source=(https://julroy67.freeboxos.fr:13476/share/h3Y-xMyPcgF6drIY/Fonts/courier-prime.zip
-        45-courier-prime.conf
-        90-tt-courier-prime.conf)
+        40-courier-prime.conf)
 sha256sums=('d5d4faf1bee0d1f52bab1103cbfdfb354976331c86f999c110c22a098cb12d73'
-            'bf60ee516132a80f4293b3418e5741121581cd4dc9c3080f05720b61d0b7006d'
-            '417e91633b81998c11eb1e4b666b3b5b43e145137fca3e6405e2ebe882751fc6')
+            'bf60ee516132a80f4293b3418e5741121581cd4dc9c3080f05720b61d0b7006d')
 
 package(){
 	cd "${srcdir}/Courier Prime"
@@ -36,12 +32,9 @@ package(){
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -D -m644 45-courier-prime.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-courier-prime.conf
-	install -D -m644 90-tt-courier-prime.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-courier-prime.conf
+	install -D -m644 40-courier-prime.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-courier-prime.conf
 	
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-courier-prime.conf .
-	ln -s ../conf.avail/90-tt-courier-prime.conf .
+	ln -s ../conf.avail/40-courier-prime.conf .
 }
