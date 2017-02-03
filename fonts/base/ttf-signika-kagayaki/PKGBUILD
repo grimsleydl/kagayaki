@@ -3,22 +3,18 @@
 
 pkgname=ttf-signika-family-kagayaki
 pkgver=1.0001
-pkgrel=3
+pkgrel=4
 pkgdesc="Signika is a sans-serif with a gentle character, developed for wayfinding, signage, and other media where clarity of information is required"
 arch=('any')
 url="https://fonts.google.com/specimen/Signika"
 license=('custom:OFL')
-depends=('fontconfig')
-provides=('ttf-signika-family-ib')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('ttf-signika-family-ib')
-replaces=('ttf-signika-family-ib')
 groups=('kagayaki-bundle-fonts-extra')
 source=("https://fonts.google.com/download?family=Signika"
-        45-signika.conf
-        90-tt-signika.conf)
+        40-signika.conf)
 sha256sums=('29f89a3c596f6bf67ffe8db58d53382ff77a00c6e076722ead6665bb3b57ed53'
-            'd2425f0d723f72db90e00f323aaa83610a067fe244bcaf13b9dde58a902f0e39'
-            '18476dc6c9896438dd6e8cfdb765062e56cc042547f4c1f2efa38347958003d3')
+            'd2425f0d723f72db90e00f323aaa83610a067fe244bcaf13b9dde58a902f0e39')
 
 package(){
 	cd "${srcdir}"
@@ -34,12 +30,9 @@ package(){
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 45-signika.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-signika.conf
-	install -m644 90-tt-signika.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-signika.conf
+	install -m644 40-signika.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-signika.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-signika.conf .
-	ln -s ../conf.avail/90-tt-signika.conf .
+	ln -s ../conf.avail/40-signika.conf .
 }
