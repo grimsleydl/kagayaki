@@ -3,24 +3,21 @@
 
 pkgname=otf-tex-gyre-kagayaki
 pkgver=2.005
-pkgrel=4
+pkgrel=5
 pkgdesc="The TeX Gyre Collection of Fonts"
 arch=('any')
 url="http://www.gust.org.pl/projects/e-foundry/tex-gyre/"
 license=('GFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-provides=('otf-tex-gyre-ib' 'otf-texgyre' 'gsfonts')
+provides=('gsfonts')
 replaces=('otf-tex-gyre-ib' 'otf-texgyre' 'gsfonts')
-conflicts=('otf-tex-gyre-ib' 'otf-texgyre' 'gsfonts')
 groups=('kagayaki-bundle-fonts')
 source=("http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/tg-${pkgver}otf.zip"
         GFL.txt
-        45-tex-gyre.conf
-        90-tt-tex-gyre.conf)
+        40-tex-gyre.conf)
 sha256sums=('6158bdb106e5b017743cb6e9ddb6ad4c7153e82fafadd6eb5d62c9f3064df04e'
             '5752b69cd0a5c1ed27242d672ce3031ac9ed4e3a1ba2265db3676cf2689f67c1'
-            'e0a49b011eac2e51dbb844706825c3b84f4c9a0a1640d2d6f8b462dd29bb2fe7'
-            '1052a870d794933cb27cf61d994bf89d70469ce1081dd2e3cac972fc39d9430c')
+            'e0a49b011eac2e51dbb844706825c3b84f4c9a0a1640d2d6f8b462dd29bb2fe7')
 
 package(){
 	cd "${srcdir}"
@@ -37,12 +34,9 @@ package(){
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 45-tex-gyre.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-tex-gyre.conf
-	install -m644 90-tt-tex-gyre.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-tex-gyre.conf
+	install -m644 40-tex-gyre.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-tex-gyre.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-tex-gyre.conf .
-	ln -s ../conf.avail/90-tt-tex-gyre.conf .
+	ln -s ../conf.avail/40-tex-gyre.conf .
 }
