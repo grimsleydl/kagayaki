@@ -29,10 +29,8 @@ CONF_LINKS = \
 	10-base-rendering.conf			\
 	20-unhint-small-dejavu.conf		\
 	30-metric-aliases.conf			\
-	40-non-latin-microsoft.conf		\
-	40-non-latin-misc.conf			\
-	45-latin-microsoft.conf			\
-	45-latin-misc.conf				\
+	41-nonlatin.conf				\
+	42-latin.conf					\
 	49-sansserif.conf				\
 	51-local.conf					\
 	70-no-bitmaps.conf				\
@@ -47,25 +45,18 @@ config_DATA = $(DOC_FILES)
 templateinfdir = $(TEMPLATEINFDIR)
 templateinf_DATA = \
 	10-base-rendering.conf			\
-	10-scale-bitmap-fonts.conf		\
 	20-unhint-small-dejavu.conf		\
 	28-user.conf					\
 	30-metric-aliases.conf			\
-	40-non-latin-microsoft.conf		\
-	40-non-latin-misc.conf			\
-	45-latin-microsoft.conf			\
-	45-latin-misc.conf				\
+	41-nonlatin.conf				\
+	42-latin.conf					\
 	49-sansserif.conf				\
 	51-local.conf					\
 	70-no-bitmaps.conf				\
-	82-no-force-autohint.conf		\
 	82-no-postscript.conf			\
 	82-no-ttf-as-bitmap.conf		\
 	83-yes-embedded-bitmaps.conf	\
-	83-yes-ttf-as-bitmap.conf		\
-	88-forced-synthetic.conf		\
-	93-final-rendering.conf			\
-	94-no-synthetic.conf
+	83-yes-ttf-as-bitmap.conf
 
 README: $(srcdir)/README.in
 	sed "s|\@TEMPLATEINFDIR\@|$(templateinfdir)|" $< > $@
