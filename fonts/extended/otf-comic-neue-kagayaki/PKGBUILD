@@ -1,0 +1,37 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=otf-comic-neue-kagayaki
+pkgver=2.3
+pkgrel=1
+pkgdesc="Comic Neue aspires to be the casual script choice for everyone including the typographically savvy"
+arch=('any')
+url="http://comicneue.com/"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+groups=('kagayaki-bundle-fonts')
+source=("http://comicneue.com/comic-neue-${pkgver}.zip"
+        40-comic-neue.conf)
+sha256sums=('f3a7500eb477d03a865249dd3fa5ecff516d12d11d5d8494c8164fd4ee842599'
+            '3e6c412f9e8a4d99d5ea0828e1fda810bc204ca6bcc251d381c5564e676ceed6')
+
+package() {
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "SIL-License.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 OTF/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -D -m644 40-comic-neue.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-comic-neue.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/40-comic-neue.conf .
+}
