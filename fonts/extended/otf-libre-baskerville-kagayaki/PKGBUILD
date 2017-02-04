@@ -3,41 +3,37 @@
 
 pkgname=otf-libre-baskerville-kagayaki
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Libre Baskerville font designed by Pablo Impallari"
 arch=('any')
 url="http://www.impallari.com/"
 license=('custom:OFL')
-depends=('fontconfig')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('ttf-libre-baskerville-ibx' 'otf-libre-baskerville-ibx')
-replaces=('ttf-libre-baskerville-ibx' 'otf-libre-baskerville-ibx')
-provides=('ttf-libre-baskerville-ibx' 'otf-libre-baskerville-ibx')
 groups=('kagayaki-bundle-fonts')
 source=("http://www.impallari.com/media/uploads/prosources/update-86-source.zip"
-        45-libre-baskerville.conf
-        90-non-tt-libre-baskerville.conf)
-sha1sums=('e866f713cf022769eaa13287f7a088a8bb873110'
-          '502d5f64b28f00d48a76646f846a77f76a86930a'
-          'a08b96730748ee3a1a4099936fb36708cc590090')
+        40-libre-baskerville.conf)
+sha256sums=('67ee4b67d55a8b9a16f234125bb89bffb9842e2b74f2c0e8f8479dde11f288d4'
+            '79b7f9a9d8afa68dddc116ad0a55f1fe6adf35468069e6058db35ea6beecfdd8')
 
 package(){
-	cd "Libre Baskerville v1.0"
+	cd "${srcdir}/Libre Baskerville v1.0"
 
-	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
-	install -m644 OFL.txt \
+	# Install license
+	install -Dm644 "OFL.txt" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 src/*.otf "${pkgdir}"/usr/share/fonts/"${pkgname}"
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 src/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
+	# Install infinality conf
+	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 ../45-libre-baskerville.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-libre-baskerville.conf
-	install -m644 ../90-non-tt-libre-baskerville.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-non-tt-libre-baskerville.conf
+	install -m644 40-libre-baskerville.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-libre-baskerville.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-libre-baskerville.conf .
-	ln -s ../conf.avail/90-non-tt-libre-baskerville.conf .
+	ln -s ../conf.avail/40-libre-baskerville.conf .
 }
