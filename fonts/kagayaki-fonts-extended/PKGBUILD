@@ -3,7 +3,7 @@
 
 pkgname=kagayaki-fonts-extended
 pkgver=1
-pkgrel=4
+pkgrel=5
 pkgdesc="kagayaki-bundle-fonts extended collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
@@ -12,12 +12,12 @@ conflicts=('xorg-fonts-type1' 'ibfonts-meta-extended-lt')
 replaces=('xorg-fonts-type1' 'ibfonts-meta-extended-lt')
 provides=('xorg-fonts-type1' 'ibfonts-meta-extended-lt')
 depends=('kagayaki-fonts-base'
+         'otf-archivo-black-kagayaki'
          'otf-cantarell-kagayaki'
          'otf-comic-neue-kagayaki'
          'otf-libre-baskerville-kagayaki'
          'otf-oswald-kagayaki'
          'otf-source-code-pro-kagayaki'
-         'ttf-archivo-black-kagayaki'
          'ttf-cantoraone-kagayaki'
          'ttf-gelasio-kagayaki'
          'ttf-lato-kagayaki'
