@@ -26,10 +26,9 @@ package() {
 	install -m644 OTF/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf
-	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -D -m644 40-comic-neue.conf \
+	install -m644 40-comic-neue.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/40-comic-neue.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
