@@ -3,39 +3,39 @@
 
 pkgname=ttf-gelasio-kagayaki
 pkgver=1.00
-pkgrel=1
+pkgrel=2
 pkgdesc="Gelasio serif family by Eben Sorkin"
 arch=('any')
 url="http://code.google.com/p/googlefontdirectory/"
 license=('custom:OFL')
-depends=('fontconfig')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('ttf-gelasio-ib')
-replaces=('ttf-gelasio-ib')
-provides=('ttf-gelasio-ib')
 groups=('kagayaki-bundle-fonts')
-source=(https://fontlibrary.org/assets/downloads/gelasio/4d610887ff4d445cbc639aae7828d139/gelasio.zip
+source=("https://fontlibrary.org/assets/downloads/gelasio/4d610887ff4d445cbc639aae7828d139/gelasio.zip"
 		OFL.txt
-        45-gelasio.conf
-        90-tt-gelasio.conf)
-sha1sums=('855b27ea7b04e787ec3e6e98348d996928d5e255'
-          'd9d18ffe1617846ec857629dd60bc2c738948c70'
-          '67fc5c8d7ebcd96a5a368c2cc220e9568776d05d'
-          'fd1b0628eccf0d613de6928ec47f0183c49e7199')
+        40-gelasio.conf)
+sha256sums=('6e0d6be4fc1fc2f5ae7694434dd5209fb2d92b12cee687815390da14c09c961d'
+            '274ab590e1297b4cdeacc3a0d896468ee3dd5827b6f84c46bf86eed46610f13f'
+            'fc0fb11fe69cbd05c84dd6be445d78bca629d4c303fca793e04501b98ccf8872')
 
 package(){
-	install -D -m644 OFL.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
-	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	
 	cd "${srcdir}"
-	install -D -m644 45-gelasio.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-gelasio.conf
-	install -D -m644 90-tt-gelasio.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-gelasio.conf
-	
+
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 40-gelasio.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-gelasio.conf
+	
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-gelasio.conf .
-	ln -s ../conf.avail/90-tt-gelasio.conf .
+	ln -s ../conf.avail/40-gelasio.conf .
 }
