@@ -4,7 +4,7 @@
 pkgname=fontconfig-kagayaki
 _basename=fontconfig
 pkgver=2.12.1
-pkgrel=11
+pkgrel=12
 pkgdesc="A library for configuring and customizing font access"
 arch=('i686' 'x86_64')
 url='http://www.fontconfig.org/release/'
