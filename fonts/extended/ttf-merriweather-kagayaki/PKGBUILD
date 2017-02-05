@@ -4,39 +4,39 @@
 pkgname=ttf-merriweather-kagayaki
 _serif=Merriweather
 pkgver=2.000
-pkgrel=1
+pkgrel=2
 pkgdesc="Merriweather Serif font family by Eben Sorkin"
 arch=('any')
 url="http://sorkintype.com"
 license=('custom:OFL')
 depends=('fontconfig')
-provides=('ttf-merriweather-ib' 'ttf-merriweather-sans-ib')
 conflicts=('ttf-merriweather-ib' 'ttf-merriweather-sans-ib')
-replaces=('ttf-merriweather-ib' 'ttf-merriweather-sans-ib')
 groups=('kagayaki-bundle-fonts')
-source=(git+https://github.com/EbenSorkin/${_serif}.git
-        https://fonts.google.com/download?family=Merriweather%20Sans
-        45-merriweather.conf
-        90-tt-merriweather.conf)
-sha1sums=('SKIP'
-          '66f4092acac36c0fd86f81cb6acd348ea70f1a43'
-          'bb42d4db2aa255191895b07a6170eb50c3f7121e'
-          '2a2f26a1e4691c5a7dffdb61009bb1695c277166')
+source=("git+https://github.com/EbenSorkin/${_serif}.git"
+        "https://fonts.google.com/download?family=Merriweather%20Sans"
+        40-merriweather.conf)
+sha256sums=('SKIP'
+            '2024a27decd17c1a5c7d8093f1d133bc35500774ed3971f284bdcafe523481c2'
+            '1dae15ef13f56dbede5b0997cc5ec05f9d426bd2561cb30d75daac752af8f99e')
 
 package(){
-	install -D -m644 OFL.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
-	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	install -m644 ${_serif}/fonts/ttf/*.ttf "${pkgdir}"/usr/share/fonts/"${pkgname}"
-	
-	install -D -m644 45-merriweather.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-merriweather.conf
-	install -D -m644 90-tt-merriweather.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-merriweather.conf
+	cd "${srcdir}"
 
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 "${_serif}"/fonts/ttf/*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 40-merriweather.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-merriweather.conf
+
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-merriweather.conf .
-	ln -s ../conf.avail/90-tt-merriweather.conf .
+	ln -s ../conf.avail/40-merriweather.conf .
 }
