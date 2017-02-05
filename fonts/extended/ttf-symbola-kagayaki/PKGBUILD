@@ -3,42 +3,39 @@
 
 pkgname=ttf-symbola-kagayaki
 pkgver=9.00
-pkgrel=1
+pkgrel=2
 pkgdesc="Symbola is a free symbol-type font"
 arch=('any')
 url="http://users.teilar.gr/~g1951d/"
 license=('custom')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-provides=('ttf-symbola' 'ttf-symbola-ib')
-replaces=('ttf-symbola' 'ttf-symbola-ib')
 conflicts=('ttf-symbola' 'ttf-symbola-ib')
 groups=('kagayaki-bundle-fonts')
-source=(http://users.teilar.gr/~g1951d/Symbola.zip
+source=("http://users.teilar.gr/~g1951d/Symbola.zip"
         COPYING
-        45-symbola.conf
-        90-tt-symbola.conf)
+        40-symbola.conf)
 sha256sums=('856de5857be48b8e31fc078fb93a9f3bd706b2552ba57b42863622f837cd3f35'
             '78691fbb21caea139fd4105ea840c100cc3ce739b7430211d99ab5b15b14642e'
-            '9b34927b63d6390d3cfe79bce5dcfc3f180b93be5ea9e2b4b5c5f8d89a8093e9'
-            '0f5d31c3fe7af42e8d90a8311a49d84bf60c385983ca9f514cf4eccf40135880')
+            '501e956044151e9ab69f3f2a33bb842540d0fcf96a5e6a53de1db44b697f8593')
 
 package(){
-	install -m755 -d "${pkgdir}"/usr/share/licenses/"${pkgname}"
-	install -m644 COPYING \
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "COPYING" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
-	
-	install -m755 -d "${pkgdir}"/usr/share/fonts/"${pkgname}"
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 Symbola_hint.ttf \
-		"${pkgdir}"/usr/share/fonts/"${pkgname}"/Symbola.ttf
-	
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"/Symbola.ttf
+
+	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 45-symbola.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/45-symbola.conf
-	install -m644 90-tt-symbola.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/90-tt-symbola.conf
+	install -m644 40-symbola.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-symbola.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-symbola.conf .
-	ln -s ../conf.avail/90-tt-symbola.conf .
+	ln -s ../conf.avail/40-symbola.conf .
 }
