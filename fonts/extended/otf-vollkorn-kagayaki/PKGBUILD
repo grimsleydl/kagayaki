@@ -1,0 +1,38 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=otf-vollkorn-kagayaki
+pkgver=3.005
+pkgrel=1
+pkgdesc="Vollkorn typeface by Friedrich Althausen"
+arch=('any')
+url="http://vollkorn-typeface.com/"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+conflicts=('otf-vollkorn-ibx')
+groups=('kagayaki-bundle-fonts-extra')
+source=("http://vollkorn-typeface.com/download/vollkorn-${pkgver//./-}.zip"
+        40-vollkorn.conf)
+sha256sums=('2ba29d185bcf943f844a88546fbc4ec668d53f2564d8aa1c5837ffb9a45f4fab'
+            '0b73334acc81467713230c338be86d58494c1cad9b12340dba4757d99c266abe')
+
+package(){
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "OpenFontLicense.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 PS-OTF/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 40-vollkorn.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/40-vollkorn.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/40-vollkorn.conf .
+}
