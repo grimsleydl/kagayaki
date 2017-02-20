@@ -4,7 +4,7 @@
 pkgname=fontconfig-kagayaki
 _basename=fontconfig
 pkgver=2.12.1
-pkgrel=12
+pkgrel=13
 pkgdesc="A library for configuring and customizing font access"
 arch=('i686' 'x86_64')
 url='http://www.fontconfig.org/release/'
@@ -26,8 +26,8 @@ source=("http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2"
 	0005-Makefile.am.in.patch)
 sha256sums=('b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3'
             'cca4d33c314ff3eb4103aec8a1f5ef3188c7b048786126a5ac2accfa2c117116'
-            '9879a6dc3919e1e3c55283df058df3bef6dcbb11c11d241b3d5dfc34b4552c8a'
-            '2762e927cd78c56a7d568684d8bb3cc73e2f6c268e0ba70de2a959fa09d36728'
+            '9d05bbb58f1144516434591166f231241400943fcbe7fdd75f297c9509516fa8'
+            'a4453b748b011029cc2395d817b7650f50418ae4eebb53f6521d81c6873400dd'
             'f7ea52a89dba51e803907f2ce61ae1bd3c055a99662737839f67399209cfed3d'
             'ec92e8e07a23d43e643c32d35ef0f9e8711f6b31cca1e1d56def0b1edfce6e60'
             '0676efe16ffe6a032fe2e8be1405974d633220ddcf7ea38cf686e521b3d83735'
