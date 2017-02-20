@@ -12,6 +12,7 @@ url="http://fonts.jp/hanazono/"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('ttf-hanazono')
+groups=('kagayaki-bundle-fonts')
 source=("hanazono-font-${pkgver}.zip::https://fr.osdn.net/dl/hanazono-font/hanazono-${pkgver}.zip"
          40-hanazono.conf)
 sha256sums=('2b89af892d969edbb47b5adf75663a76c2bec5961467e65557b623f6b2add139'
