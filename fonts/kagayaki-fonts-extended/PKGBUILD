@@ -3,7 +3,7 @@
 
 pkgname=kagayaki-fonts-extended
 pkgver=1
-pkgrel=6
+pkgrel=7
 pkgdesc="kagayaki-bundle-fonts extended collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
@@ -19,7 +19,9 @@ depends=('kagayaki-fonts-base'
          'otf-libre-baskerville-kagayaki'
          'otf-oswald-kagayaki'
          'otf-source-code-pro-kagayaki'
+         'otf-vollkorn-kagayaki'
          'ttf-cantoraone-kagayaki'
+         'ttf-cormorant-kagayaki'
          'ttf-gelasio-kagayaki'
          'ttf-lato-kagayaki'
          'ttf-liberation-kagayaki'
