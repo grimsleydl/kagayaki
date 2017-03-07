@@ -6,8 +6,8 @@ _pkgcr=ttf-noto-fonts-cros-kagayaki
 _pkgsa=ttf-noto-fonts-sans-kagayaki
 _pkgse=ttf-noto-fonts-serif-kagayaki
 _pkgmo=ttf-noto-fonts-mono-kagayaki
-_pkgver=2017-01-31
-_commit=bea530d
+_pkgver=2017-03-07
+_commit=60aa0da
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Google Noto TTF fonts"
@@ -24,11 +24,11 @@ source=("https://github.com/googlei18n/noto-fonts/archive/$_commit.zip"
 	40-noto-sans.conf
 	40-noto-serif.conf
 	40-noto-mono.conf)
-sha256sums=('b373590d7217cdccd68ee01fb1bb96ac3a3d2dfd6b4fc6cef8dc635c6f4a2a7c'
+sha256sums=('7eacff1b42fcd09686612d0f51027e9a61f6129e411965a6909e0793a049160a'
             '734f20f62e6938601fe874c5af5994cd2e728e80bb121c08e1db8f084888e0ca'
             '3071752f837bca04c03d29f88a419c4a72682b91559353c7e26588c31a590572'
-            'cb2fd6c63d1295fe73a15144b22178bed8a7471a603f6c45a86b0738b3565d6b'
-            '39e6b5d115fbf0a63876f4890996d57693d8f6c64f93207c163bc5b6e38bc0b3'
+            '4241f9b6da41247fbaa20af152e5f70701a80d799cb31524518e98a9be99e8e8'
+            'dbbb0f6c0fbaa281094a1348d93d02b5f35b9c6d1b00a96ee72587d71be3f02d'
             '0a620443b25dc481bdf10b2955ae0a5fdf92982a47e6f8236fb1db92485a6134')
 
 package() {
@@ -44,7 +44,7 @@ package() {
 	done
 
 	# Noto Sans
-	_sans=(NotoKufiArabic-Bold.ttf NotoKufiArabic-Regular.ttf NotoNaskhArabic-Bold.ttf NotoNaskhArabic-Regular.ttf NotoNaskhArabicUI-Bold.ttf NotoNaskhArabicUI-Regular.ttf NotoSansArmenian-Bold.ttf NotoSansArmenian-Regular.ttf NotoSansBengali-Bold.ttf NotoSansBengali-Regular.ttf NotoSansBengaliUI-Bold.ttf NotoSansBengaliUI-Regular.ttf NotoSansCham-Bold.ttf NotoSansCham-Regular.ttf NotoSansDevanagari-Bold.ttf NotoSansDevanagari-Regular.ttf NotoSansDevanagariUI-Bold.ttf NotoSansDevanagariUI-Regular.ttf NotoSansEthiopic-Bold.ttf NotoSansEthiopic-Regular.ttf NotoSansGeorgian-Bold.ttf NotoSansGeorgian-Regular.ttf NotoSansGujarati-Bold.ttf NotoSansGujarati-Regular.ttf NotoSansGujaratiUI-Bold.ttf NotoSansGujaratiUI-Regular.ttf NotoSansGurmukhi-Bold.ttf NotoSansGurmukhi-Regular.ttf NotoSansGurmukhiUI-Bold.ttf NotoSansGurmukhiUI-Regular.ttf NotoSansHebrew-Bold.ttf NotoSansHebrew-Regular.ttf NotoSansKannada-Bold.ttf NotoSansKannada-Regular.ttf NotoSansKannadaUI-Bold.ttf NotoSansKannadaUI-Regular.ttf NotoSansKhmer-Bold.ttf NotoSansKhmer-Regular.ttf NotoSansKhmerUI-Bold.ttf NotoSansKhmerUI-Regular.ttf NotoSansLao-Bold.ttf NotoSansLao-Regular.ttf NotoSansLaoUI-Bold.ttf NotoSansLaoUI-Regular.ttf NotoSansMalayalam-Bold.ttf NotoSansMalayalam-Regular.ttf NotoSansMalayalamUI-Bold.ttf NotoSansMalayalamUI-Regular.ttf NotoSansMyanmar-Bold.ttf NotoSansMyanmar-Regular.ttf NotoSansMyanmarUI-Bold.ttf NotoSansMyanmarUI-Regular.ttf NotoSansOriya-Bold.ttf NotoSansOriya-Regular.ttf NotoSansOriyaUI-Bold.ttf NotoSansOriyaUI-Regular.ttf NotoSansSinhala-Bold.ttf NotoSansSinhala-Regular.ttf NotoSansTamil-Bold.ttf NotoSansTamil-Regular.ttf NotoSansTamilUI-Bold.ttf NotoSansTamilUI-Regular.ttf NotoSansTelugu-Bold.ttf NotoSansTelugu-Regular.ttf NotoSansTeluguUI-Bold.ttf NotoSansTeluguUI-Regular.ttf NotoSansThaana-Bold.ttf NotoSansThaana-Regular.ttf NotoSansThai-Bold.ttf NotoSansThai-Regular.ttf NotoSansThaiUI-Bold.ttf NotoSansThaiUI-Regular.ttf NotoSansTibetan-Bold.ttf NotoSansTibetan-Regular.ttf NotoSans-Bold.ttf NotoSans-BoldItalic.ttf NotoSans-Italic.ttf NotoSans-Regular.ttf NotoSansUI-Bold.ttf NotoSansUI-BoldItalic.ttf NotoSansUI-Italic.ttf NotoSansUI-Regular.ttf)
+	_sans=(NotoKufiArabic-Bold.ttf NotoKufiArabic-Regular.ttf NotoNaskhArabic-Bold.ttf NotoNaskhArabic-Regular.ttf NotoNaskhArabicUI-Bold.ttf NotoNaskhArabicUI-Regular.ttf NotoSansArmenian-Bold.ttf NotoSansArmenian-Regular.ttf NotoSansBengali-Bold.ttf NotoSansBengali-Regular.ttf NotoSansBengaliUI-Bold.ttf NotoSansBengaliUI-Regular.ttf NotoSansCham-Bold.ttf NotoSansCham-Regular.ttf NotoSansCherokee-Regular.ttf NotoSansDevanagari-Bold.ttf NotoSansDevanagari-Regular.ttf NotoSansDevanagariUI-Bold.ttf NotoSansDevanagariUI-Regular.ttf NotoSansEthiopic-Bold.ttf NotoSansEthiopic-Regular.ttf NotoSansGeorgian-Bold.ttf NotoSansGeorgian-Regular.ttf NotoSansGujarati-Bold.ttf NotoSansGujarati-Regular.ttf NotoSansGujaratiUI-Bold.ttf NotoSansGujaratiUI-Regular.ttf NotoSansGurmukhi-Bold.ttf NotoSansGurmukhi-Regular.ttf NotoSansGurmukhiUI-Bold.ttf NotoSansGurmukhiUI-Regular.ttf NotoSansHebrew-Bold.ttf NotoSansHebrew-Regular.ttf NotoSansKannada-Bold.ttf NotoSansKannada-Regular.ttf NotoSansKannadaUI-Bold.ttf NotoSansKannadaUI-Regular.ttf NotoSansKhmer-Bold.ttf NotoSansKhmer-Regular.ttf NotoSansKhmerUI-Bold.ttf NotoSansKhmerUI-Regular.ttf NotoSansLao-Bold.ttf NotoSansLao-Regular.ttf NotoSansLaoUI-Bold.ttf NotoSansLaoUI-Regular.ttf NotoSansMalayalam-Bold.ttf NotoSansMalayalam-Regular.ttf NotoSansMalayalamUI-Bold.ttf NotoSansMalayalamUI-Regular.ttf NotoSansMyanmar-Bold.ttf NotoSansMyanmar-Regular.ttf NotoSansMyanmarUI-Bold.ttf NotoSansMyanmarUI-Regular.ttf NotoSansOriya-Bold.ttf NotoSansOriya-Regular.ttf NotoSansOriyaUI-Bold.ttf NotoSansOriyaUI-Regular.ttf NotoSansSinhala-Bold.ttf NotoSansSinhala-Regular.ttf NotoSansTamil-Bold.ttf NotoSansTamil-Regular.ttf NotoSansTamilUI-Bold.ttf NotoSansTamilUI-Regular.ttf NotoSansTelugu-Bold.ttf NotoSansTelugu-Regular.ttf NotoSansTeluguUI-Bold.ttf NotoSansTeluguUI-Regular.ttf NotoSansThaana-Bold.ttf NotoSansThaana-Regular.ttf NotoSansThai-Bold.ttf NotoSansThai-Regular.ttf NotoSansThaiUI-Bold.ttf NotoSansThaiUI-Regular.ttf NotoSansTibetan-Bold.ttf NotoSansTibetan-Regular.ttf NotoSans-Bold.ttf NotoSans-BoldItalic.ttf NotoSans-Italic.ttf NotoSans-Regular.ttf NotoSansUI-Bold.ttf NotoSansUI-BoldItalic.ttf NotoSansUI-Italic.ttf NotoSansUI-Regular.ttf)
 	
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgsa}"
 	for fnt in "${_sans[@]}"; do
@@ -52,7 +52,7 @@ package() {
 	done
 
 	# Noto Serif
-	_serif=(NotoSerifArmenian-Bold.ttf NotoSerifArmenian-Regular.ttf NotoSerifBengali-Bold.ttf NotoSerifBengali-Regular.ttf NotoSerifDevanagari-Bold.ttf NotoSerifDevanagari-Regular.ttf NotoSerifGeorgian-Bold.ttf NotoSerifGeorgian-Regular.ttf NotoSerifGujarati-Bold.ttf NotoSerifGujarati-Regular.ttf NotoSerifKannada-Bold.ttf NotoSerifKannada-Regular.ttf NotoSerifKhmer-Bold.ttf NotoSerifKhmer-Regular.ttf NotoSerifLao-Bold.ttf NotoSerifLao-Regular.ttf NotoSerifMalayalam-Bold.ttf NotoSerifMalayalam-Regular.ttf NotoSerifTamil-Bold.ttf NotoSerifTamil-Regular.ttf NotoSerifTelugu-Bold.ttf NotoSerifTelugu-Regular.ttf NotoSerifThai-Bold.ttf NotoSerifThai-Regular.ttf NotoSerif-Bold.ttf NotoSerif-BoldItalic.ttf NotoSerif-Italic.ttf NotoSerif-Regular.ttf)
+	_serif=(NotoSerifArmenian-Bold.ttf NotoSerifArmenian-Regular.ttf NotoSerifBengali-Bold.ttf NotoSerifBengali-Regular.ttf NotoSerifDevanagari-Bold.ttf NotoSerifDevanagari-Regular.ttf NotoSerifGeorgian-Bold.ttf NotoSerifGeorgian-Regular.ttf NotoSerifGujarati-Bold.ttf NotoSerifGujarati-Regular.ttf NotoSerifHebrew-Bold.ttf NotoSerifHebrew-Regular.ttf NotoSerifKannada-Bold.ttf NotoSerifKannada-Regular.ttf NotoSerifKhmer-Bold.ttf NotoSerifKhmer-Regular.ttf NotoSerifLao-Bold.ttf NotoSerifLao-Regular.ttf NotoSerifMalayalam-Bold.ttf NotoSerifMalayalam-Regular.ttf NotoSerifTamil-Bold.ttf NotoSerifTamil-Regular.ttf NotoSerifTelugu-Bold.ttf NotoSerifTelugu-Regular.ttf NotoSerifThai-Bold.ttf NotoSerifThai-Regular.ttf NotoSerif-Bold.ttf NotoSerif-BoldItalic.ttf NotoSerif-Italic.ttf NotoSerif-Regular.ttf)
 
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${_pkgse}"
 	for fnt in "${_serif[@]}"; do
