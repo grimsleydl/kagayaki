@@ -4,18 +4,18 @@
 pkgname=fontconfig-kagayaki
 _basename=fontconfig
 pkgver=2.12.1
-pkgrel=14
+pkgrel=15
 pkgdesc="A library for configuring and customizing font access"
 arch=('i686' 'x86_64')
-url='http://www.fontconfig.org/release/'
+url="https://www.freedesktop.org/wiki/Software/fontconfig/"
 license=('custom' 'MIT')
 groups=('kagayaki-bundle')
 depends=('expat' 'freetype2-kagayaki' 'kagayaki-fonts-base')
-makedepends=('python2' 'docbook2x')
+makedepends=('python2' 'docbook2x' 'gperf')
 provides=('fontconfig=$pkgver' 'fontconfig-infinality-ultimate')
 conflicts=('fontconfig' 'fontconfig-infinality-ultimate')
 install='fontconfig-kagayaki.install'
-source=("http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2"
+source=("https://www.freedesktop.org/software/$_basename/release/$_basename-$pkgver.tar.bz2"
 	kagayaki-conf.tar.xz
 	local.conf
     fc-cache-kagayaki.hook
@@ -23,16 +23,22 @@ source=("http://www.fontconfig.org/release/${_basename}-${pkgver}.tar.bz2"
 	0002-configure.ac.patch
 	0003-Makefile.in.patch
 	0004-Makefile.conf.d.patch
-	0005-Makefile.am.in.patch)
+	0005-Makefile.am.in.patch
+	0006-fix-test-with-freetype2-2.7.1.patch
+	0007-fix-build-glibc2.25.patch
+	0008-fix-build-gperf-3.1.patch)
 sha256sums=('b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3'
             'cca4d33c314ff3eb4103aec8a1f5ef3188c7b048786126a5ac2accfa2c117116'
-            '0bde3ae0e83c5583f4b654e150da15c158490a5041f65b8aaeb0fed08e8a872a'
+            'f21172fafbae41f5319f64809a30e1d61eed6f51bd09631b57d4ce7050851861'
             'a4453b748b011029cc2395d817b7650f50418ae4eebb53f6521d81c6873400dd'
             'f7ea52a89dba51e803907f2ce61ae1bd3c055a99662737839f67399209cfed3d'
             'ec92e8e07a23d43e643c32d35ef0f9e8711f6b31cca1e1d56def0b1edfce6e60'
             '0676efe16ffe6a032fe2e8be1405974d633220ddcf7ea38cf686e521b3d83735'
             '4d3cb2643c46ad7eadee388bd2921a3e73137951205f124bed5b6337d8974871'
-            'e25483bfa492a56e55e730c7ce0b1f6d5d3f0176a7330e23f6b326553c593015')
+            'e25483bfa492a56e55e730c7ce0b1f6d5d3f0176a7330e23f6b326553c593015'
+            'b3a5d8c31ca5d791b002d7d72901a0ec85a11b4dd6335ea0a106a4f3fbcac648'
+            '4063ecfd0e5509609e5d5353df63c23b2ac90002016bf85c781241994306583f'
+            'dc804531d19cc4f6ac499e7ec6a566ca843331b20d8e3c4d3b1983e104558b64')
 
 # a nice page to test font matching:
 # http://zipcon.net/~swhite/docs/computers/browsers/fonttest.html
@@ -41,7 +47,6 @@ sha256sums=('b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3'
 prepare() {
 	# copy kagayaki stuff
 	cd "kagayaki-conf"
-	
 	cp -r conf.d.kagayaki "${srcdir}/${_basename}-${pkgver}"/conf.d.kagayaki
 	
 	# prepare src
@@ -52,6 +57,9 @@ prepare() {
 	patch -Np1 -i ../0003-Makefile.in.patch
 	patch -Np1 -i ../0004-Makefile.conf.d.patch
 	patch -Np1 -i ../0005-Makefile.am.in.patch
+	patch -Np1 -i ../0006-fix-test-with-freetype2-2.7.1.patch
+	patch -Np1 -i ../0007-fix-build-glibc2.25.patch
+	patch -Np1 -i ../0008-fix-build-gperf-3.1.patch
 	
 	aclocal
 	libtoolize -f
@@ -60,6 +68,7 @@ prepare() {
 
 build() {
 	cd "$_basename-$pkgver"
+
 	./configure --prefix=/usr \
 		--sysconfdir=/etc \
 		--with-templatedir=/etc/fonts/conf.avail \
