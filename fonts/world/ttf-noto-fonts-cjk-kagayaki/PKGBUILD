@@ -3,33 +3,38 @@
 
 pkgname=ttf-noto-fonts-cjk-kagayaki
 pkgver=1.004
-pkgrel=3
+pkgrel=4
 pkgdesc="Google Noto TTF CJK fonts"
-arch=(any)
+arch=('any')
 url="https://www.google.com/get/noto/"
 license=('custom:SIL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 provides=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib')
-replaces=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib')
-conflicts=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib')
-groups=(kagayaki-bundle-fonts)
-source=("https://github.com/googlei18n/noto-cjk/archive/v$pkgver.tar.gz"
+replaces=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib' 'ttf-ipamjmincho-kagayaki' 'otf-fandol-kagayaki' 'otf-nanum-kagayaki')
+conflicts=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib' 'ttf-ipamjmincho-kagayaki' 'otf-fandol-kagayaki' 'otf-nanum-kagayaki')
+groups=('kagayaki-bundle-fonts')
+source=("https://noto-website.storage.googleapis.com/pkgs/NotoSansCJK.ttc.zip"
+		"https://noto-website.storage.googleapis.com/pkgs/NotoSerifCJK.ttc.zip"
 		40-noto-cjk.conf)
-sha256sums=('835a42755c1e8d6a4a406f32609da1f0fa7f9674d05760f0be658d9d6f4ab71c'
-            '1c2e537a094d8be79663a3fea867d1fc59098e13fe4087cb687ce217bb8e8376')
+sha256sums=('52dd6f2780b8e5cc137a0fcaaf45a0143a4261b4b07c165ae4cd1b7878b148ab'
+            '87e29a16ddd16c6b4bb83ae8cbd843ca6f757d12eae06f3462149534ce99f284'
+            'e0916701f06cdecefc3589c7fff6013635165ed39bd476332848c6b325aa1ecb')
 
 package() {
-	cd "${srcdir}"/noto-cjk-"${pkgver}"
+	cd "${srcdir}"
 
 	bsdtar -xf NotoSansCJK.ttc.zip
+	bsdtar -xf NotoSerifCJK.ttc.zip
 
 	# Install license
-	install -Dm644 "LICENSE" \
+	install -Dm644 "LICENSE_OFL.txt" \
 		"${pkgdir}"/usr/share/licenses/"$pkgname"/COPYING
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansCJK.ttc \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 NotoSerifCJK.ttc \
 		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf
