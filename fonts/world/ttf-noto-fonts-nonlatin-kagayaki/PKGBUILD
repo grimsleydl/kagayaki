@@ -2,8 +2,8 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=ttf-noto-fonts-nonlatin-kagayaki
-_pkgver=2017-03-07
-_commit=60aa0da
+_pkgver=2017-04-11
+_commit=da9eaa8
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Google Noto TTF fonts: non-Latin extension"
@@ -15,13 +15,13 @@ conflicts=('ttf-noto-fonts-nonlatin-ib')
 groups=('kagayaki-bundle-fonts')
 source=("https://github.com/googlei18n/noto-fonts/archive/$_commit.zip"
         40-noto-nonlatin.conf)
-sha256sums=('7eacff1b42fcd09686612d0f51027e9a61f6129e411965a6909e0793a049160a'
+sha256sums=('7b1f05322be7b295084e1cd697af96f5180d4039637bb5087f5b98fb6bd7aa7f'
             '389135d52073b5302a2ae6b52df508bf3af67937497375fbafd3fbdd9f0c2270')
 
 package() {
-	cd "${srcdir}/noto-fonts-60aa0da2ee84b11e78725b4577edc2e80b009d56/unhinted"
+	cd "${srcdir}/noto-fonts-da9eaa876e50b1be4912fce92ec0209efaf172ff/unhinted"
 
-	_nonlatinsans=(NotoNastaliqUrdu-Regular.ttf NotoSansBatak-Regular.ttf NotoSansCanadianAboriginal-Regular.ttf NotoSansSyriacEastern-Regular.ttf NotoSansSyriacEstrangela-Regular.ttf NotoSansSyriacWestern-Regular.ttf)
+	_nonlatinsans=(NotoNastaliqUrdu-Regular.ttf NotoSansAdlam-Regular.ttf NotoSansBatak-Regular.ttf NotoSansCanadianAboriginal-Regular.ttf NotoSansSyriacEastern-Regular.ttf NotoSansSyriacEstrangela-Regular.ttf NotoSansSyriacWestern-Regular.ttf)
 
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
@@ -29,15 +29,15 @@ package() {
 		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	done
 
-	cd "${srcdir}/noto-fonts-60aa0da2ee84b11e78725b4577edc2e80b009d56/alpha/from-pipeline/unhinted/variable-ttf/sans"
+	cd "${srcdir}/noto-fonts-da9eaa876e50b1be4912fce92ec0209efaf172ff/alpha/from-pipeline/unhinted/variable-ttf/sans"
 
-	_nonlatinsansalpha=(NotoSansAdlam-Regular-VF.ttf NotoSansAvestan-Regular-VF.ttf NotoSansBalinese-Regular-VF.ttf NotoSansBamum-Regular-VF.ttf NotoSansBrahmi-Regular-VF.ttf NotoSansBuginese-Regular-VF.ttf NotoSansBuhid-Regular-VF.ttf NotoSansCarian-Regular-VF.ttf NotoSansCoptic-Regular-VF.ttf NotoSansCuneiform-Regular-VF.ttf NotoSansCypriot-Regular-VF.ttf NotoSansDeseret-Regular-VF.ttf NotoSansEgyptianHieroglyphs-Regular-VF.ttf NotoSansGlagolitic-Regular-VF.ttf NotoSansGothic-Regular-VF.ttf NotoSansHanunoo-Regular-VF.ttf NotoSansImperialAramaic-Regular-VF.ttf NotoSansInscriptionalPahlavi-Regular-VF.ttf NotoSansInscriptionalParthian-Regular-VF.ttf NotoSansJavanese-Regular-VF.ttf NotoSansKaithi-Regular-VF.ttf NotoSansKayahLi-Regular-VF.ttf NotoSansKharoshthi-Regular-VF.ttf NotoSansLepcha-Regular-VF.ttf NotoSansLimbu-Regular-VF.ttf NotoSansLinearB-Regular-VF.ttf NotoSansLisu-Regular-VF.ttf NotoSansLycian-Regular-VF.ttf NotoSansLydian-Regular-VF.ttf NotoSansMandaic-Regular-VF.ttf NotoSansMeeteiMayek-Regular-VF.ttf NotoSansMongolian-Regular-VF.ttf NotoSansNewTaiLue-Regular-VF.ttf NotoSansNKo-Regular-VF.ttf NotoSansOgham-Regular-VF.ttf NotoSansOlChiki-Regular-VF.ttf NotoSansOldItalic-Regular-VF.ttf NotoSansOldPersian-Regular-VF.ttf NotoSansOldSouthArabian-Regular-VF.ttf NotoSansOldTurkic-Regular-VF.ttf NotoSansOsmanya-Regular-VF.ttf NotoSansPhags-Pa-Regular-VF.ttf NotoSansPhoenician-Regular-VF.ttf NotoSansRejang-Regular-VF.ttf NotoSansRunic-Regular-VF.ttf NotoSansSamaritan-Regular-VF.ttf NotoSansSaurashtra-Regular-VF.ttf NotoSansShavian-Regular-VF.ttf NotoSansSundanese-Regular-VF.ttf NotoSansSylotiNagri-Regular-VF.ttf NotoSansSymbols2-Regular-VF.ttf NotoSansSymbols-VF.ttf NotoSansTagalog-Regular-VF.ttf NotoSansTagbanwa-Regular-VF.ttf NotoSansTaiLe-Regular-VF.ttf NotoSansTaiTham-Regular-VF.ttf NotoSansTaiViet-Regular-VF.ttf NotoSansTifinagh-Regular-VF.ttf NotoSansUgaritic-Regular-VF.ttf NotoSansVai-Regular-VF.ttf NotoSansYi-Regular-VF.ttf)
+	_nonlatinsansalpha=(NotoSansAvestan-Regular-VF.ttf NotoSansBalinese-Regular-VF.ttf NotoSansBamum-Regular-VF.ttf NotoSansBrahmi-Regular-VF.ttf NotoSansBuginese-Regular-VF.ttf NotoSansBuhid-Regular-VF.ttf NotoSansCarian-Regular-VF.ttf NotoSansCoptic-Regular-VF.ttf NotoSansCuneiform-Regular-VF.ttf NotoSansCypriot-Regular-VF.ttf NotoSansDeseret-Regular-VF.ttf NotoSansEgyptianHieroglyphs-Regular-VF.ttf NotoSansGlagolitic-Regular-VF.ttf NotoSansGothic-Regular-VF.ttf NotoSansHanunoo-Regular-VF.ttf NotoSansImperialAramaic-Regular-VF.ttf NotoSansInscriptionalPahlavi-Regular-VF.ttf NotoSansInscriptionalParthian-Regular-VF.ttf NotoSansJavanese-Regular-VF.ttf NotoSansKaithi-Regular-VF.ttf NotoSansKayahLi-Regular-VF.ttf NotoSansKharoshthi-Regular-VF.ttf NotoSansLepcha-Regular-VF.ttf NotoSansLimbu-Regular-VF.ttf NotoSansLinearB-Regular-VF.ttf NotoSansLisu-Regular-VF.ttf NotoSansLycian-Regular-VF.ttf NotoSansLydian-Regular-VF.ttf NotoSansMandaic-Regular-VF.ttf NotoSansMeeteiMayek-Regular-VF.ttf NotoSansMongolian-Regular-VF.ttf NotoSansNewTaiLue-Regular-VF.ttf NotoSansNKo-Regular-VF.ttf NotoSansOgham-Regular-VF.ttf NotoSansOlChiki-Regular-VF.ttf NotoSansOldItalic-Regular-VF.ttf NotoSansOldPersian-Regular-VF.ttf NotoSansOldSouthArabian-Regular-VF.ttf NotoSansOldTurkic-Regular-VF.ttf NotoSansOsmanya-Regular-VF.ttf NotoSansPhags-Pa-Regular-VF.ttf NotoSansPhoenician-Regular-VF.ttf NotoSansRejang-Regular-VF.ttf NotoSansRunic-Regular-VF.ttf NotoSansSamaritan-Regular-VF.ttf NotoSansSaurashtra-Regular-VF.ttf NotoSansShavian-Regular-VF.ttf NotoSansSundanese-Regular-VF.ttf NotoSansSylotiNagri-Regular-VF.ttf NotoSansSymbols2-Regular-VF.ttf NotoSansSymbols-VF.ttf NotoSansTagalog-Regular-VF.ttf NotoSansTagbanwa-Regular-VF.ttf NotoSansTaiLe-Regular-VF.ttf NotoSansTaiTham-Regular-VF.ttf NotoSansTaiViet-Regular-VF.ttf NotoSansTifinagh-Regular-VF.ttf NotoSansUgaritic-Regular-VF.ttf NotoSansVai-Regular-VF.ttf NotoSansYi-Regular-VF.ttf)
 
 	for fnt in "${_nonlatinsansalpha[@]}"; do
 		install -m644 "$fnt" "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	done
 
-	cd "${srcdir}/noto-fonts-60aa0da2ee84b11e78725b4577edc2e80b009d56/alpha/from-pipeline/unhinted/variable-ttf/serif"
+	cd "${srcdir}/noto-fonts-da9eaa876e50b1be4912fce92ec0209efaf172ff/alpha/from-pipeline/unhinted/variable-ttf/serif"
 
 	_nonlatinserifalpha=(NotoSerifEthiopic-VF.ttf NotoSerifSinhala-VF.ttf)
 
@@ -46,7 +46,7 @@ package() {
 	done
 
 	# License
-	cd "${srcdir}/noto-fonts-60aa0da2ee84b11e78725b4577edc2e80b009d56"
+	cd "${srcdir}/noto-fonts-da9eaa876e50b1be4912fce92ec0209efaf172ff"
 	install -m755 -d "${pkgdir}"/usr/share/licenses/"$pkgname"
 	install -m644 "LICENSE" \
 		"${pkgdir}"/usr/share/licenses/"$pkgname"/COPYING
