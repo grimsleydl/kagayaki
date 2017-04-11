@@ -2,7 +2,7 @@
 
 pkgname=kagayaki-fonts-world
 pkgver=1
-pkgrel=4
+pkgrel=5
 pkgdesc="kagayaki-bundle-fonts world collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
@@ -11,8 +11,5 @@ provides=('ibfonts-meta-extended')
 replaces=('ibfonts-meta-extended')
 conflicts=('ibfonts-meta-extended')
 depends=('kagayaki-fonts-base'
-         'otf-fandol-kagayaki'
-         'otf-nanum-kagayaki'
-         'ttf-ipamjmincho-kagayaki'
          'ttf-noto-fonts-cjk-kagayaki'
          'ttf-noto-fonts-nonlatin-kagayaki')
