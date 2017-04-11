@@ -3,9 +3,9 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=ttf-noto-emoji-kagayaki
-_commit=700c7fb
+_commit=ff93f20
 pkgver=1.33
-pkgrel=4
+pkgrel=5
 pkgdesc="Google Noto emoji fonts"
 arch=('any')
 url="https://www.google.com/get/noto/"
@@ -15,7 +15,7 @@ conflicts=('noto-fonts-emoji' 'ttf-noto-fonts-emoji-ib')
 makedepends=('cairo' 'optipng' 'python2-fonttools' 'nototools' 'imagemagick' 'zopfli' 'python2-setuptools')
 source=("https://github.com/googlei18n/noto-emoji/archive/$_commit.zip"
         40-noto-emoji.conf)
-sha256sums=('4521379494c60fcc3d57f7c45e1ebf99fb5232b41059c4839b8e0e5dcfffe4a7'
+sha256sums=('70245c9f6a7736ccf3de7b3840f2f10561b8d39baed0edece3c216736a929e54'
             '073342e1d22a4dd4743a7e4c22d14f06788644039088121ab7a7a30e1a057465')
 
 prepare() {
