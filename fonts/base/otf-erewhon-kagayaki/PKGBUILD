@@ -2,7 +2,7 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=otf-erewhon-kagayaki
-pkgver=1.073
+pkgver=1.08
 pkgrel=1
 pkgdesc="Erewhon is based on the Heuristica family, which is based in turn on Utopia"
 arch=('any')
@@ -13,7 +13,7 @@ conflicts=('otf-erewhon-ibx')
 groups=('kagayaki-bundle-fonts')
 source=("http://mirrors.ctan.org/fonts/erewhon.zip"
         40-erewhon.conf)
-sha256sums=('00bb73e271473c26152f7b191d08b648b37f24a172051f90b1c7b86e0734996c'
+sha256sums=('d1821e2d1fcf16192fd2e32b29b09ae72bed810ea67b33c92d8f285cb4d75748'
             'a122f645314ed9e69f55ec77aef6956e4471418baa098f232165d2fbf130aa75')
 
 package(){
