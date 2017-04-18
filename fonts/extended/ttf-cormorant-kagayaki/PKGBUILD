@@ -2,7 +2,8 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=ttf-cormorant-kagayaki
-pkgver=3.3
+pkgver=3.304
+_commit=91ed730
 pkgrel=1
 pkgdesc="The Cormorant Typeface"
 arch=('any')
@@ -10,13 +11,13 @@ license=('custom: OFL')
 conflicts=('ttf-cormorant' 'ttf-cormorant-ibx')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-font-utils')
 url='https://www.behance.net/gallery/28579883/Cormorant-an-open-source-display-font-family'
-source=("https://github.com/CatharsisFonts/Cormorant/releases/download/v${pkgver}/Cormorant_Install_v${pkgver}.zip"
+source=("https://github.com/CatharsisFonts/Cormorant/archive/$_commit.zip"
 		40-cormorant.conf)
-sha256sums=('288d1f0285b81564ba34db475d5ab0a07173580fefa5b4b82208b5c1e4838021'
+sha256sums=('e45917d50c6c43053a0c34a4de7aab6f7a3cf3c98d5e3601890156f061a0ce8f'
             '0987235d59f1f379d24cddba81f43494429e637b2541ad2676348bbe84eba126')
 
 package() {
-	cd "${srcdir}/Cormorant_Install_v${pkgver}"
+	cd "${srcdir}"/Cormorant-*
 
 	# Install license
 	install -Dm644 "OFL.txt" \
