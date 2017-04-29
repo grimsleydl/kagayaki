@@ -6,8 +6,8 @@ _pkgcr=ttf-noto-fonts-cros-kagayaki
 _pkgsa=ttf-noto-fonts-sans-kagayaki
 _pkgse=ttf-noto-fonts-serif-kagayaki
 _pkgmo=ttf-noto-fonts-mono-kagayaki
-_pkgver=2017-04-19
-_commit=d6d92fe
+_pkgver=2017-04-28
+_commit=eefe36b
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Google Noto TTF fonts"
@@ -24,7 +24,7 @@ source=("https://github.com/googlei18n/noto-fonts/archive/$_commit.zip"
 	40-noto-sans.conf
 	40-noto-serif.conf
 	40-noto-mono.conf)
-sha256sums=('7fc4c8e8723fb796718bdc6ba595d544435cabb4be49158d58c1e7c842113541'
+sha256sums=('99aa168c10a84e8b67b89ab4076288489a7cd1576ad0af94e99fe49e8995fb38'
             '734f20f62e6938601fe874c5af5994cd2e728e80bb121c08e1db8f084888e0ca'
             '3071752f837bca04c03d29f88a419c4a72682b91559353c7e26588c31a590572'
             '4241f9b6da41247fbaa20af152e5f70701a80d799cb31524518e98a9be99e8e8'
