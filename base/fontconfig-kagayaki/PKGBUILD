@@ -4,7 +4,7 @@
 pkgname=fontconfig-kagayaki
 _basename=fontconfig
 pkgver=2.12.1
-pkgrel=15
+pkgrel=17
 pkgdesc="A library for configuring and customizing font access"
 arch=('i686' 'x86_64')
 url="https://www.freedesktop.org/wiki/Software/fontconfig/"
@@ -29,7 +29,7 @@ source=("https://www.freedesktop.org/software/$_basename/release/$_basename-$pkg
 	0008-fix-build-gperf-3.1.patch)
 sha256sums=('b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3'
             'cca4d33c314ff3eb4103aec8a1f5ef3188c7b048786126a5ac2accfa2c117116'
-            'f21172fafbae41f5319f64809a30e1d61eed6f51bd09631b57d4ce7050851861'
+            '7d52f95cb473a826433e170dfe0c465dd8ffc48083ae422b07e42e5b2192cb50'
             'a4453b748b011029cc2395d817b7650f50418ae4eebb53f6521d81c6873400dd'
             'f7ea52a89dba51e803907f2ce61ae1bd3c055a99662737839f67399209cfed3d'
             'ec92e8e07a23d43e643c32d35ef0f9e8711f6b31cca1e1d56def0b1edfce6e60'
