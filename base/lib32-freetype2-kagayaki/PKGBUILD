@@ -3,25 +3,27 @@
 
 _pkgbasename=freetype2
 pkgname=lib32-$_pkgbasename-kagayaki
-pkgver=2.7.1
+pkgver=2.8
 pkgrel=1
 pkgdesc="TrueType font rendering library"
-arch=(x86_64)
+arch=('x86_64')
 license=('GPL' 'MIT')
 url="http://freetype.sourceforge.net"
 groups=('kagayaki-bundle-multilib')
 depends=('lib32-zlib' 'lib32-bzip2' 'lib32-libpng' 'lib32-harfbuzz' $_pkgbasename-kagayaki)
-makedepends=(gcc-multilib)
+makedepends=('gcc-multilib' 'libx11')
 conflicts=('lib32-freetype2' 'lib32-freetype2-infinality-ultimate')
 provides=('lib32-freetype2' 'lib32-freetype2-infinality-ultimate')
-source=(http://download.savannah.gnu.org/releases/freetype/freetype-${pkgver}.tar.bz2
-	0001-Enable-table-validation-modules.patch
-	0002-Enable-subpixel-rendering.patch
-	0003-Enable-infinality-subpixel-hinting.patch)
-sha1sums=('4d08a9a6567c6332d58e9a5f9a7e9e3fbce66789'
-          'b31882ef5e8447e761acee1c4a44c0630cd4d465'
-          'b1494810ed3aca25cdd8e8cedf634e5adfe6c09e'
-          '41d27140fd590945e22e012c9dce62de3d6f11e6')
+source=("https://download-mirror.savannah.gnu.org/releases/freetype/freetype-${pkgver}.tar.bz2"
+		0001-Enable-table-validation-modules.patch
+		0002-Enable-subpixel-rendering.patch
+		0003-Enable-infinality-subpixel-hinting.patch
+		0004-Enable-long-PCF-family-names.patch)
+sha1sums=('42c6b1f733fe13a3eba135f5025b22cb68450f91'
+          'adcaec92eba6b539482c77ee669b313e1825c6e6'
+          '0b36ec198c713337e0e75e95aca148e3c305d604'
+          '9ff85c71a5cfab685aab17fcd8394e70e1330814'
+          '334f229875039794adeb574e27d365bb445fb314')
 
 prepare() {
 	# Rename source dir to allow building the demos
@@ -31,6 +33,7 @@ prepare() {
 	patch -Np1 -i ../0001-Enable-table-validation-modules.patch
 	patch -Np1 -i ../0002-Enable-subpixel-rendering.patch
 	patch -Np1 -i ../0003-Enable-infinality-subpixel-hinting.patch
+	patch -Np1 -i ../0004-Enable-long-PCF-family-names.patch
 }
 
 build() {

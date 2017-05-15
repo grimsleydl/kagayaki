@@ -3,41 +3,47 @@
 
 pkgbase=freetype2-kagayaki
 pkgname=('freetype2-kagayaki' 'freetype2-demos-kagayaki')
-pkgver=2.7.1
-pkgrel=3
+pkgver=2.8
+pkgrel=1
+pkgdesc="Font rasterization library"
 arch=('i686' 'x86_64')
 license=('GPL' 'MIT')
 url="http://www.freetype.org"
-makedepends=('libx11' 'zlib' 'bzip2' 'sh' 'libpng' 'harfbuzz')
-source=("http://download.savannah.gnu.org/releases/freetype/freetype-${pkgver}.tar.bz2"
-        "http://download.savannah.gnu.org/releases/freetype/freetype-doc-${pkgver}.tar.bz2"
-        "http://download.savannah.gnu.org/releases/freetype/ft2demos-${pkgver}.tar.bz2"
+depends=('zlib' 'bzip2' 'sh' 'libpng' 'harfbuzz')
+makedepends=('libx11')
+source=("https://download-mirror.savannah.gnu.org/releases/freetype/freetype-${pkgver}.tar.bz2"
+        "https://download-mirror.savannah.gnu.org/releases/freetype/freetype-doc-${pkgver}.tar.bz2"
+        "https://download-mirror.savannah.gnu.org/releases/freetype/ft2demos-${pkgver}.tar.bz2"
         0001-Enable-table-validation-modules.patch
         0002-Enable-subpixel-rendering.patch
         0003-Enable-infinality-subpixel-hinting.patch
+		0004-Enable-long-PCF-family-names.patch
         0005-freetype-2.5.2-more-demos.patch
         freetype2.sh
 		xft-settings.sh)
-sha256sums=('3a3bb2c4e15ffb433f2032f50a5b5a92558206822e22bfe8cbe339af4aa82f88'
-            '8e09cf22d1c98006fe3af160b7c3b7c847e4a3743963d6d89314d350b859dfb0'
-            'd3f8a0d5a3f0d58701133458a8c1d3f97f658869f3c904b1fda447ed3b290ecd'
-            '6d273254fd925d284e5f66e3861eaef69a4393f34872398b2c93af0d5e15d34e'
-            '9da762d69d85ca825a8e4578aaaeba28aa17b8d8a3bca29929c4786b3a82c104'
-            'd043fa4ce22b6e6cfafa0d2e2898b1c5cd000ec66094a97ab57c9126934ba371'
+sha256sums=('a3c603ed84c3c2495f9c9331fe6bba3bb0ee65e06ec331e0a0fb52158291b40b'
+            '427ba04d11f450df4bac4c95fec247be1b835ccdcf85d8b081f3f39d31811154'
+            '2b6ce0d36bcb43fcc8aac07a0287982d855571ee271c3803c768e501f9c1a233'
+            '515d52643fa47bb96c99792c81d4c05694b4e08494d36c5f81f6d05b61d4f287'
+            '40cf3b6e5390019a73c73d35fdf56a2b2bf380aefdb8c81ceae5dc94695f87e9'
+            '7c99c299b6e46159e0be8179976736481358975bbe650d8c33ae5089c0da73f9'
+            '7f5aa51a67a68002226f8e869eaa3f6b870c04d19135a14c64a6c355eb023a39'
             '36484db4b926ed026e7f32570573493b5a9793a129f08d54383a26d65a6af89b'
             'f7f8e09c44f7552c883846e9a6a1efc50377c4932234e74adc4a8ff750606467'
             '990d9169da0d8299df42e80894a5f2d32e3d83030ca48ca262ea19cadb8653d4')
 
 prepare() {
 	# Rename source dir to allow building the demos
-	mv freetype-"${pkgver}" freetype2
+	mv freetype-${pkgver} freetype2
+	mv ft2demos-${pkgver} freetype2-demos
 	
 	cd freetype2
 	patch -Np1 -i ../0001-Enable-table-validation-modules.patch
 	patch -Np1 -i ../0002-Enable-subpixel-rendering.patch
 	patch -Np1 -i ../0003-Enable-infinality-subpixel-hinting.patch
+	patch -Np1 -i ../0004-Enable-long-PCF-family-names.patch
 	
-	cd ../ft2demos-"${pkgver}"
+	cd ../freetype2-demos
 	# enable more demos
 	patch -Np1 -i ../0005-freetype-2.5.2-more-demos.patch
 	
@@ -53,7 +59,7 @@ build() {
 	make
 	
 	# Build demos
-	cd ../ft2demos-"${pkgver}"
+	cd ../freetype2-demos
 	make
 }
 
@@ -63,8 +69,6 @@ check() {
 }
 
 package_freetype2-kagayaki() {
-	pkgdesc="TrueType font rendering library"
-	depends=('zlib' 'bzip2' 'sh' 'libpng' 'harfbuzz')
 	provides=("freetype2=$pkgver" 'freetype2-infinality-ultimate' 'libfreetype.so')
 	conflicts=('freetype2' 'freetype2-infinality-ultimate')
 	replaces=('freetype2' 'freetype2-infinality-ultimate')
@@ -80,14 +84,8 @@ package_freetype2-kagayaki() {
 	install -dm755 "${pkgdir}/usr/share/doc"
 	cp -a docs "${pkgdir}/usr/share/doc/${pkgname}"
 
-	cd ../ft2demos-"${pkgver}"
-	mkdir -p "${srcdir}"/ft-demos
-	for _i in bin/{f,t}t*; do
-		libtool --mode=install install $_i "$srcdir/ft-demos"
-	done
-
 	# freetype2 runtime settings
-	install -m755 -d "${pkgdir}/etc/X11/xinit/xinitrc.d"
+	install -dm755 "${pkgdir}/etc/X11/xinit/xinitrc.d"
 	install -m755 "${srcdir}/xft-settings.sh" \
 		"${pkgdir}/etc/X11/xinit/xinitrc.d/xft-settings.sh"
 }
@@ -96,6 +94,9 @@ package_freetype2-demos-kagayaki() {
 	pkgdesc="Freetype tools and demos"
 	depends=('freetype2' 'libx11')
 
-	install -dm755 "${pkgdir}/usr/bin"
-	cp -a "${srcdir}"/ft-demos/* "${pkgdir}/usr/bin"
+	cd freetype2-demos
+	install -d "${pkgdir}/usr/bin"
+	for _i in bin/{f,t}t*; do
+		libtool --mode=install install $_i "${pkgdir}/usr/bin"
+	done
 }
