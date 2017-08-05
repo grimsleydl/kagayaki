@@ -1,0 +1,41 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=kagayaki-fonts-base
+pkgver=2
+pkgrel=1
+pkgdesc="kagayaki-bundle-fonts base collection package"
+arch=('any')
+url="https://github.com/julroy67/kagayaki"
+license=('GPL' 'MIT')
+provides=('ttf-font' 'xorg-fonts-misc')
+depends=('fontconfig'
+         'freetype2'
+         'cairo'
+         'caladea-kagayaki'
+         'carlito-kagayaki'
+         'courier-prime-kagayaki'
+         'dejavu-kagayaki'
+         'erewhon-kagayaki'
+         'noto-emoji-kagayaki'
+         'noto-fonts-kagayaki'
+         'roboto-kagayaki'
+         'signika-family-kagayaki'
+         'tex-gyre-kagayaki')
+optdepends=('kagayaki-fonts-extended: Extended font collection'
+            'kagayaki-fonts-world: Maximum coverage collection (CJK, etc.)')
+source=('xft-settings.sh'
+        'local.conf')
+sha1sums=('c95f6e2c8b89ad8b66ad97cfa4153257c70c271e'
+          'cfff6bee817bc78f3d99bb48f71c9c9043d4a3ef')
+
+package() {
+	# kagayaki settings
+	install -dm755 "${pkgdir}/etc/X11/xinit/xinitrc.d"
+	install -m755 "${srcdir}/xft-settings.sh" \
+		"${pkgdir}/etc/X11/xinit/xinitrc.d/xft-settings.sh"
+    
+    install -dm755 "${pkgdir}/etc/fonts"
+    install -D -m 644 "${srcdir}/local.conf" \
+		"${pkgdir}/etc/fonts/local.conf"
+}

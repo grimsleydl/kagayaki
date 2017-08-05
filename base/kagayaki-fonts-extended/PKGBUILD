@@ -2,15 +2,14 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=kagayaki-fonts-extended
-pkgver=1
-pkgrel=7
+pkgver=2
+pkgrel=1
 pkgdesc="kagayaki-bundle-fonts extended collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
 license=('GPL' 'MIT')
-conflicts=('xorg-fonts-type1' 'ibfonts-meta-extended-lt')
-replaces=('xorg-fonts-type1' 'ibfonts-meta-extended-lt')
-provides=('xorg-fonts-type1' 'ibfonts-meta-extended-lt')
+provides=('xorg-fonts-type1')
+replaces=('xorg-fonts-type1')
 depends=('kagayaki-fonts-base'
          'otf-archivo-black-kagayaki'
          'otf-cantarell-kagayaki'
