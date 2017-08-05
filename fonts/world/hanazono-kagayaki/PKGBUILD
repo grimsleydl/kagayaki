@@ -3,7 +3,7 @@
 # Contributor: TDY <tdy@gmx.com>
 # Contributor: cuihao <cuihao dot leo at gmail dot com>
 
-pkgname=ttf-hanazono-kagayaki
+pkgname=hanazono-kagayaki
 pkgver=20160201
 pkgrel=1
 pkgdesc="A free Japanese kanji font, which contains about 78,685 characters"
@@ -14,7 +14,7 @@ depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir'
 conflicts=('ttf-hanazono')
 groups=('kagayaki-bundle-fonts')
 source=("hanazono-font-${pkgver}.zip::https://fr.osdn.net/dl/hanazono-font/hanazono-${pkgver}.zip"
-         40-hanazono.conf)
+         43-hanazono.conf)
 sha256sums=('2b89af892d969edbb47b5adf75663a76c2bec5961467e65557b623f6b2add139'
             '90c2de23d1bc1906ff0a7a8de7be1a89f33ac254337ff1b3e92fc02f4be8b926')
 
@@ -32,9 +32,9 @@ package() {
     # Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
-	install -m644 40-hanazono.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/40-hanazono.conf
+	install -m644 43-hanazono.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/43-hanazono.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/40-hanazono.conf .
+	ln -s ../conf.avail/43-hanazono.conf .
 }

@@ -1,9 +1,9 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 # Contributor: bohoomil <@zoho.com>
 
-pkgname=ttf-noto-fonts-nonlatin-kagayaki
-_pkgver=2017-05-05
-_commit=28c49d2
+pkgname=noto-fonts-nonlatin-kagayaki
+_pkgver=2017-08-02
+_commit=93ed31f
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Google Noto TTF fonts: non-Latin extension"
@@ -11,11 +11,11 @@ arch=('any')
 url="http://www.google.com/get/noto/"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-conflicts=('ttf-noto-fonts-nonlatin-ib')
+conflicts=('ttf-noto-fonts-nonlatin-kagayaki')
 groups=('kagayaki-bundle-fonts')
 source=("https://github.com/googlei18n/noto-fonts-alpha/archive/$_commit.zip"
-        40-noto-nonlatin.conf)
-sha256sums=('bb4789bfeb9b0e6ca7519a898a263f5c521806552144d115e5e1c545f464da8a'
+        43-noto-nonlatin.conf)
+sha256sums=('79895de64b2e8bf662dc6c65318fb80d598adb08301b1e76f6cebc2387b1f392'
             '11cd3fe038c2e6ddb95120067f01dd0764b4ecb9672ed203f2f1b700c8b8c46d')
 
 package() {
@@ -48,9 +48,9 @@ package() {
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
-	install -m644 40-noto-nonlatin.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/40-noto-nonlatin.conf
+	install -m644 43-noto-nonlatin.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/43-noto-nonlatin.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/40-noto-nonlatin.conf .
+	ln -s ../conf.avail/43-noto-nonlatin.conf .
 }

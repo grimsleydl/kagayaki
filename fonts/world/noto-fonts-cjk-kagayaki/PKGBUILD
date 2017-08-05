@@ -1,21 +1,19 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 # Contributor: bohoomil <@zoho.com>
 
-pkgname=ttf-noto-fonts-cjk-kagayaki
+pkgname=noto-fonts-cjk-kagayaki
 pkgver=1.004
-pkgrel=4
+pkgrel=1
 pkgdesc="Google Noto TTF CJK fonts"
 arch=('any')
 url="https://www.google.com/get/noto/"
 license=('custom:SIL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-provides=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib')
-replaces=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib' 'ttf-ipamjmincho-kagayaki' 'otf-fandol-kagayaki' 'otf-nanum-kagayaki')
-conflicts=('ttf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-ib' 'otf-noto-fonts-cjk-mono-ib' 'ttf-ipamjmincho-kagayaki' 'otf-fandol-kagayaki' 'otf-nanum-kagayaki')
+conflicts=('ttf-noto-fonts-cjk-kagayaki')
 groups=('kagayaki-bundle-fonts')
 source=("https://noto-website.storage.googleapis.com/pkgs/NotoSansCJK.ttc.zip"
 		"https://noto-website.storage.googleapis.com/pkgs/NotoSerifCJK.ttc.zip"
-		40-noto-cjk.conf)
+		43-noto-cjk.conf)
 sha256sums=('52dd6f2780b8e5cc137a0fcaaf45a0143a4261b4b07c165ae4cd1b7878b148ab'
             '87e29a16ddd16c6b4bb83ae8cbd843ca6f757d12eae06f3462149534ce99f284'
             'e0916701f06cdecefc3589c7fff6013635165ed39bd476332848c6b325aa1ecb')
@@ -41,9 +39,9 @@ package() {
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
-	install -m644 40-noto-cjk.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/40-noto-cjk.conf
+	install -m644 43-noto-cjk.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/43-noto-cjk.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/40-noto-cjk.conf .
+	ln -s ../conf.avail/43-noto-cjk.conf .
 }
