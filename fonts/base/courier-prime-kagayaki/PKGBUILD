@@ -1,18 +1,18 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 # Contributor: bohoomil <@zoho.com>
 
-pkgname=ttf-courier-prime-kagayaki
+pkgname=courier-prime-kagayaki
 pkgver=1.203
-pkgrel=4
+pkgrel=1
 pkgdesc="A free, improved, classical monospaced typeface"
 arch=('any')
 url="http://quoteunquoteapps.com/courierprime/"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-conflicts=('ttf-courier-prime-ib' 'ttf-courier-prime')
+conflicts=('ttf-courier-prime-kagayaki' 'ttf-courier-prime')
 groups=('kagayaki-bundle-fonts')
 source=(https://julroy67.freeboxos.fr:13476/share/h3Y-xMyPcgF6drIY/Fonts/courier-prime.zip
-        40-courier-prime.conf)
+        41-courier-prime.conf)
 sha256sums=('d5d4faf1bee0d1f52bab1103cbfdfb354976331c86f999c110c22a098cb12d73'
             'bf60ee516132a80f4293b3418e5741121581cd4dc9c3080f05720b61d0b7006d')
 
@@ -32,9 +32,9 @@ package(){
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -D -m644 40-courier-prime.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/40-courier-prime.conf
+	install -D -m644 41-courier-prime.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/41-courier-prime.conf
 	
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/40-courier-prime.conf .
+	ln -s ../conf.avail/41-courier-prime.conf .
 }

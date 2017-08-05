@@ -1,20 +1,20 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 # Contributor: bohoomil <@zoho.com>
 
-pkgname=otf-tex-gyre-kagayaki
+pkgname=tex-gyre-kagayaki
 pkgver=2.005
-pkgrel=5
+pkgrel=1
 pkgdesc="The TeX Gyre Collection of Fonts"
 arch=('any')
 url="http://www.gust.org.pl/projects/e-foundry/tex-gyre/"
 license=('GFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 provides=('gsfonts')
-replaces=('otf-tex-gyre-ib' 'otf-texgyre' 'gsfonts')
+replaces=('otf-tex-gyre-kagayaki' 'tex-gyre-fonts')
 groups=('kagayaki-bundle-fonts')
 source=("http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/tg-${pkgver}otf.zip"
         GFL.txt
-        40-tex-gyre.conf)
+        41-tex-gyre.conf)
 sha256sums=('6158bdb106e5b017743cb6e9ddb6ad4c7153e82fafadd6eb5d62c9f3064df04e'
             '5752b69cd0a5c1ed27242d672ce3031ac9ed4e3a1ba2265db3676cf2689f67c1'
             'e0a49b011eac2e51dbb844706825c3b84f4c9a0a1640d2d6f8b462dd29bb2fe7')
@@ -34,9 +34,9 @@ package(){
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 40-tex-gyre.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/40-tex-gyre.conf
+	install -m644 41-tex-gyre.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/41-tex-gyre.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/40-tex-gyre.conf .
+	ln -s ../conf.avail/41-tex-gyre.conf .
 }

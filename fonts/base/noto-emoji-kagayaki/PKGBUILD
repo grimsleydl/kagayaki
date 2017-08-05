@@ -1,0 +1,42 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: Antonio Rojas <arojas@archlinux.org>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=noto-emoji-kagayaki
+pkgver=1.39
+_release=2017-05-18-cook-color-fix
+pkgrel=1
+pkgdesc="Google Noto emoji fonts"
+arch=('any')
+url="https://www.google.com/get/noto/"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+conflicts=('ttf-noto-emoji-kagayaki' 'noto-fonts-emoji')
+makedepends=('cairo' 'optipng' 'imagemagick' 'zopfli' 'python2-fonttools' 'python2-nototools' 'python2-setuptools')
+source=("https://github.com/googlei18n/noto-emoji/archive/v${_release}.tar.gz"
+        41-noto-emoji.conf)
+sha256sums=('22e768db575dca847bc47f02ee92eb6481d9c9338077cdcce114d090bd35e91a'
+            '073342e1d22a4dd4743a7e4c22d14f06788644039088121ab7a7a30e1a057465')
+
+package() {
+	cd "noto-emoji-${_release}/fonts"
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 NotoColorEmoji.ttf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	
+	# License
+	install -Dm644 "LICENSE" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m644 41-noto-emoji.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/41-noto-emoji.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/41-noto-emoji.conf .
+}

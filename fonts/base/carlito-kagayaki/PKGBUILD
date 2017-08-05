@@ -1,19 +1,19 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 # Contributor: bohoomil <@zoho.com>
 
-pkgname=ttf-carlito-kagayaki
+pkgname=carlito-kagayaki
 _tarname=crosextrafonts-carlito
 pkgver=20130920
-pkgrel=4
+pkgrel=1
 pkgdesc="Carlito is a sans-serif font metrically compatible with Calibri"
 arch=('any')
 url="https://code.google.com/p/chromium/issues/detail?id=280557"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-conflicts=('ttf-carlito-ib')
+conflicts=('ttf-carlito-kagayaki')
 groups=('kagayaki-bundle-fonts')
 source=("http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/${_tarname}-${pkgver}.tar.gz"
-        40-carlito.conf)
+        41-carlito.conf)
 sha1sums=('65ceb1377897a4d5a404134423728592aea6eb13'
           'ba31fb428eba83034a4d6edd31cb227d3045f2b5')
 
@@ -32,9 +32,9 @@ package(){
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -D -m644 40-carlito.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/40-carlito.conf
+	install -D -m644 41-carlito.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/41-carlito.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/40-carlito.conf .
+	ln -s ../conf.avail/41-carlito.conf .
 }

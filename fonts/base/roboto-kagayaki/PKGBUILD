@@ -1,20 +1,20 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 # Contributor: bohoomil <@zoho.com>
 
-pkgname=ttf-roboto-kagayaki
-pkgver=2.137
+pkgname=roboto-kagayaki
+pkgver=2.138
 pkgrel=1
 pkgdesc="Modern sans-serif font family designed by Christian Robertson and introduced with Android Ice Cream Sandwich operating system"
 arch=('any')
 url="https://github.com/google/roboto"
 license=('Apache')
-depends=('fontconfig')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+conflicts=('ttf-roboto-kagayaki')
 groups=('kagayaki-bundle-fonts')
-source=("https://fonts.google.com/download?family=Roboto"
+source=("https://github.com/google/roboto/releases/download/v${pkgver}/roboto-unhinted.zip"
 		"https://fonts.google.com/download?family=Roboto%20Slab"
-        40-roboto.conf)
-sha256sums=('3d0a957f7070355aa776cd0b09e26d002d4bb141962b53ef6daa893572d45d48'
+        41-roboto.conf)
+sha256sums=('70f64c718510a601fbcf752aafe644314dacaeb85474dc689c89787c4a72a728'
             '158ef4214c73b0ff7ac17393282aeaf7855fe32759a673fbac42efec34d35114'
             '3969926196107dee8b6af1c4dd0aae4cdf7cf454abe831ad94050fb881bd12d0')
 
@@ -29,9 +29,9 @@ package(){
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
-	install -D -m644 40-roboto.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/40-roboto.conf
+	install -D -m644 41-roboto.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/41-roboto.conf
 	
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/40-roboto.conf .
+	ln -s ../conf.avail/41-roboto.conf .
 }

@@ -1,7 +1,7 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 # Contributor: bohoomil <@zoho.com>
 
-pkgname=otf-erewhon-kagayaki
+pkgname=erewhon-kagayaki
 pkgver=1.08
 pkgrel=1
 pkgdesc="Erewhon is based on the Heuristica family, which is based in turn on Utopia"
@@ -9,10 +9,10 @@ arch=('any')
 url="http://www.ctan.org/tex-archive/fonts/erewhon"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-conflicts=('otf-erewhon-ibx')
+conflicts=('otf-erewhon-kagayaki')
 groups=('kagayaki-bundle-fonts')
 source=("http://mirrors.ctan.org/fonts/erewhon.zip"
-        40-erewhon.conf)
+        41-erewhon.conf)
 sha256sums=('d1821e2d1fcf16192fd2e32b29b09ae72bed810ea67b33c92d8f285cb4d75748'
             'a122f645314ed9e69f55ec77aef6956e4471418baa098f232165d2fbf130aa75')
 
@@ -31,9 +31,9 @@ package(){
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 40-erewhon.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/40-erewhon.conf
+	install -m644 41-erewhon.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/41-erewhon.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/40-erewhon.conf .
+	ln -s ../conf.avail/41-erewhon.conf .
 }
