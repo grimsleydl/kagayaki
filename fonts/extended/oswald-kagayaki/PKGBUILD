@@ -1,0 +1,42 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=oswald-kagayaki
+pkgver=3.0
+pkgrel=1
+pkgdesc="Oswald is a reworking of the classic Gothic and Grotesque type styles"
+arch=('any')
+url="https://github.com/vernnobile/OswaldFont"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+conflicts=('otf-oswald-kagayaki')
+groups=('kagayaki-bundle-fonts-extra')
+source=("git+https://github.com/vernnobile/OswaldFont.git"
+        42-oswald.conf)
+md5sums=('SKIP'
+         '3abe7ce6d6444a06b49735ac94523666')
+
+package(){
+	cd "${srcdir}/OswaldFont/3.0"
+
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 Italic/[2-8]00/src/*.otf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 Roman/[2-8]00/src/*.otf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-oswald.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-oswald.conf
+	
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-oswald.conf .
+}

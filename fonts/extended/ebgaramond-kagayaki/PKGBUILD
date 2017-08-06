@@ -1,0 +1,42 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=ebgaramond-kagayaki
+pkgver=0.008
+pkgrel=1
+pkgdesc="EB Garamond is a revival by Georg Duffner of the 16th century fonts designed by Claude Garamond"
+arch=('any')
+url="http://www.georgduffner.at/ebgaramond/"
+license=('custom:OFL')
+conflicts=('otf-ebgaramond-kagayaki')
+groups=('kagayaki-bundle-fonts')
+source=("https://github.com/octaviopardo/EBGaramond12/archive/master.zip"
+        42-ebgaramond.conf
+        COPYING)
+sha256sums=('a57798af2861cbe366cd70c3778da7c057d0f6a9bd4e92539548912e9171cb52'
+            '31c8d67f4b4d30cc4fb43ed265ce1fff686653cad45e2ed1c2c1a17bccd7f806'
+            '4dc912b80d055ec137ee5d1989fb5a49cdc19d857e9e2fb238f233a209f67d01')
+
+package(){
+    cd "${srcdir}"
+
+	# Install license
+    install -Dm644 "COPYING" \
+        "${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+    cd "${srcdir}/EBGaramond12-master/Fonts"
+
+    # Install font
+    install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+    install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+    cd "${srcdir}"
+    install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+    install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+    install -m644 42-ebgaramond.conf \
+        "${pkgdir}"/etc/fonts/conf.avail/42-ebgaramond.conf
+
+    cd "${pkgdir}"/etc/fonts/conf.d
+    ln -s ../conf.avail/42-ebgaramond.conf .
+}

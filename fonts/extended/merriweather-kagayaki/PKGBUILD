@@ -1,0 +1,42 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=merriweather-kagayaki
+_serif=Merriweather
+pkgver=2.001
+pkgrel=1
+pkgdesc="Merriweather Serif font family by Eben Sorkin"
+arch=('any')
+url="http://sorkintype.com"
+license=('custom:OFL')
+depends=('fontconfig')
+conflicts=('ttf-merriweather-kagayaki')
+groups=('kagayaki-bundle-fonts')
+source=("git+https://github.com/EbenSorkin/${_serif}.git"
+        "https://fonts.google.com/download?family=Merriweather%20Sans"
+        42-merriweather.conf)
+sha256sums=('SKIP'
+            'af0aa1c23b5f41656d52fb97887f6b3deb27f09a0114ff6cf0b631a6eff29bb3'
+            '1dae15ef13f56dbede5b0997cc5ec05f9d426bd2561cb30d75daac752af8f99e')
+
+package(){
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 "${_serif}"/fonts/ttf/*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-merriweather.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-merriweather.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-merriweather.conf .
+}

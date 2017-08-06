@@ -1,0 +1,38 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+# Contributor: bohoomil <@zoho.com>
+
+pkgname=cantoraone-kagayaki
+pkgver=1.001
+pkgrel=1
+pkgdesc="Cantora is a friendly semi formal, semi condensed, semi sans serif. It has reminiscences of hand lettering, mixing straight and bowed stems, and natural curves"
+arch=('any')
+url="https://fonts.google.com/specimen/Cantora+One"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+conflicts=('ttf-cantoraone-kagayaki')
+groups=('kagayaki-bundle-fonts')
+source=("https://fonts.google.com/download?family=Cantora%20One"
+        42-cantoraone.conf)
+sha256sums=('efee9a6062dd51590db9ede14ffe42c310b923ee024388b29cf387e1833c60cb'
+            'ebde06514c3b69766fc8b8abc0eff6551dc3f06a6a46a2f6a14b2b2b3895336a')
+
+package(){
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-cantoraone.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-cantoraone.conf
+	
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-cantoraone.conf .
+}
