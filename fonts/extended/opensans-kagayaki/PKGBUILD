@@ -3,7 +3,7 @@
 
 pkgname=opensans-kagayaki
 pkgver=1.10
-pkgrel=1
+pkgrel=2
 pkgdesc="Open Sans is a humanist sans serif typeface designed by Steve Matteson"
 arch=('any')
 url="http://opensans.com/"
@@ -32,6 +32,6 @@ package(){
 		"${pkgdir}"/etc/fonts/conf.avail/42-opensans.conf
 	
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/45-opensans.conf .
+	ln -s ../conf.avail/42-opensans.conf .
 }
 
