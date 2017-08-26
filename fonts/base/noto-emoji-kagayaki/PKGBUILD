@@ -3,8 +3,8 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=noto-emoji-kagayaki
-pkgver=1.39
-_release=2017-05-18-cook-color-fix
+pkgver=2.001
+_commit=8a6530b7b26e8c5ee7b177a1388d492bbcaf4319
 pkgrel=1
 pkgdesc="Google Noto emoji fonts"
 arch=('any')
@@ -12,14 +12,13 @@ url="https://www.google.com/get/noto/"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('ttf-noto-emoji-kagayaki' 'noto-fonts-emoji')
-makedepends=('cairo' 'optipng' 'imagemagick' 'zopfli' 'python2-fonttools' 'python2-nototools' 'python2-setuptools')
-source=("https://github.com/googlei18n/noto-emoji/archive/v${_release}.tar.gz"
+source=("https://github.com/googlei18n/noto-emoji/archive/$_commit.zip"
         41-noto-emoji.conf)
-sha256sums=('22e768db575dca847bc47f02ee92eb6481d9c9338077cdcce114d090bd35e91a'
-            '073342e1d22a4dd4743a7e4c22d14f06788644039088121ab7a7a30e1a057465')
+sha256sums=('eef8620340f8f229772fd215282b08273685b416b910698b8979f3c21b5b653b'
+            'c640e5b5538e7f04f15aba75a78d99fcc4d98e7b51699df6c659d1237e9940fb')
 
 package() {
-	cd "noto-emoji-${_release}/fonts"
+	cd "noto-emoji-${_commit}/fonts"
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
