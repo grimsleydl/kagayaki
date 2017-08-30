@@ -4,7 +4,7 @@
 pkgname=carlito-kagayaki
 _tarname=crosextrafonts-carlito
 pkgver=20130920
-pkgrel=1
+pkgrel=2
 pkgdesc="Carlito is a sans-serif font metrically compatible with Calibri"
 arch=('any')
 url="https://code.google.com/p/chromium/issues/detail?id=280557"
@@ -15,7 +15,7 @@ groups=('kagayaki-bundle-fonts')
 source=("http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/${_tarname}-${pkgver}.tar.gz"
         41-carlito.conf)
 sha1sums=('65ceb1377897a4d5a404134423728592aea6eb13'
-          'ba31fb428eba83034a4d6edd31cb227d3045f2b5')
+          'c69a017abdda2757feadfb74d22c6a18ea756b6c')
 
 package(){
 	cd "${srcdir}/${_tarname}-${pkgver}"

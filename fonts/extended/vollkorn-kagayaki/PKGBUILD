@@ -3,7 +3,7 @@
 
 pkgname=vollkorn-kagayaki
 pkgver=4.015
-pkgrel=1
+pkgrel=2
 pkgdesc="Vollkorn typeface by Friedrich Althausen"
 arch=('any')
 url="http://vollkorn-typeface.com/"
@@ -14,7 +14,7 @@ groups=('kagayaki-bundle-fonts-extra')
 source=("http://vollkorn-typeface.com/download/vollkorn-${pkgver//./-}.zip"
         42-vollkorn.conf)
 sha256sums=('b5cb2bb11e9a9f19f6af09bba84f905f22c5c19619ee4424742dc73caa09dce5'
-            '0b73334acc81467713230c338be86d58494c1cad9b12340dba4757d99c266abe')
+            '5e40c01faf1ae8984b5e4600064df83f3df97579812a419b8fba14b87ae77619')
 
 package(){
 	cd "${srcdir}"

@@ -3,7 +3,7 @@
 
 pkgname=lato-kagayaki
 pkgver=2.015
-pkgrel=1
+pkgrel=2
 pkgdesc="Lato is a sanserif type­face family designed in the Summer 2010 by Warsaw-based designer Łukasz Dziedzic"
 arch=('any')
 url="http://www.latofonts.com/"
@@ -14,7 +14,7 @@ groups=('kagayaki-bundle-fonts')
 source=("http://www.latofonts.com/download/Lato2OFL.zip"
         42-lato.conf)
 sha1sums=('1b29ec9a8a1c151ff0f2e9f49d5544ddce217604'
-          '86f9ff2da81ba10f64e6747fdd8d27231da28d2b')
+          '9cecf8ac5719f091d4bb9d16b347fa56f5d2843e')
 
 package(){
 	cd "${srcdir}/Lato2OFL"

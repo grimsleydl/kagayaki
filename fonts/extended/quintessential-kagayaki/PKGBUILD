@@ -3,7 +3,7 @@
 
 pkgname=quintessential-kagayaki
 pkgver=1.000
-pkgrel=1
+pkgrel=2
 pkgdesc="The Quintessential typeface is a calligraphic lettering style based on the Italic Hand"
 arch=('any')
 url="https://fonts.google.com/specimen/Quintessential"
@@ -14,7 +14,7 @@ groups=('kagayaki-bundle-fonts')
 source=("https://fonts.google.com/download?family=Quintessential"
         42-quintessential.conf)
 sha256sums=('078603ea731ce205634255a2c2dcaa2624fa91ead40f615a8facd9f8cbac07b0'
-            'a2d8634952dc67fac7064acec999b4fd914a151c9ed8b548baeba627af122866')
+            '2b8ccfb16e5510b1daa5cf802ce5833c5649bd160398f4a0546b2c2851d903a9')
 
 package(){
 	cd "${srcdir}"

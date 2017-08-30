@@ -3,7 +3,7 @@
 
 pkgname=cantoraone-kagayaki
 pkgver=1.001
-pkgrel=1
+pkgrel=2
 pkgdesc="Cantora is a friendly semi formal, semi condensed, semi sans serif. It has reminiscences of hand lettering, mixing straight and bowed stems, and natural curves"
 arch=('any')
 url="https://fonts.google.com/specimen/Cantora+One"
@@ -14,7 +14,7 @@ groups=('kagayaki-bundle-fonts')
 source=("https://fonts.google.com/download?family=Cantora%20One"
         42-cantoraone.conf)
 sha256sums=('efee9a6062dd51590db9ede14ffe42c310b923ee024388b29cf387e1833c60cb'
-            'ebde06514c3b69766fc8b8abc0eff6551dc3f06a6a46a2f6a14b2b2b3895336a')
+            'ffd21fed1506dfd8d5f7e99473930430993ad2e6cf84f014978d7b3ecedebb52')
 
 package(){
 	cd "${srcdir}"

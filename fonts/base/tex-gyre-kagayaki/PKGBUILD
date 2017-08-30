@@ -3,7 +3,7 @@
 
 pkgname=tex-gyre-kagayaki
 pkgver=2.005
-pkgrel=1
+pkgrel=2
 pkgdesc="The TeX Gyre Collection of Fonts"
 arch=('any')
 url="http://www.gust.org.pl/projects/e-foundry/tex-gyre/"
@@ -17,7 +17,7 @@ source=("http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/tg-${pkgver}ot
         41-tex-gyre.conf)
 sha256sums=('6158bdb106e5b017743cb6e9ddb6ad4c7153e82fafadd6eb5d62c9f3064df04e'
             '5752b69cd0a5c1ed27242d672ce3031ac9ed4e3a1ba2265db3676cf2689f67c1'
-            'e0a49b011eac2e51dbb844706825c3b84f4c9a0a1640d2d6f8b462dd29bb2fe7')
+            'd3db533bfdb0e9370593fa4c9eeb212dfef3b7c1873751acfb7455dc855dcea0')
 
 package(){
 	cd "${srcdir}"

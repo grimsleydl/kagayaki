@@ -3,7 +3,7 @@
 
 pkgname=ebgaramond-kagayaki
 pkgver=0.008
-pkgrel=1
+pkgrel=2
 pkgdesc="EB Garamond is a revival by Georg Duffner of the 16th century fonts designed by Claude Garamond"
 arch=('any')
 url="http://www.georgduffner.at/ebgaramond/"
@@ -14,7 +14,7 @@ source=("https://github.com/octaviopardo/EBGaramond12/archive/master.zip"
         42-ebgaramond.conf
         COPYING)
 sha256sums=('a57798af2861cbe366cd70c3778da7c057d0f6a9bd4e92539548912e9171cb52'
-            '31c8d67f4b4d30cc4fb43ed265ce1fff686653cad45e2ed1c2c1a17bccd7f806'
+            '851db38b065eb8349c7fd91d693175a11012879eeee9507098a9aeafdd9fbaf3'
             '4dc912b80d055ec137ee5d1989fb5a49cdc19d857e9e2fb238f233a209f67d01')
 
 package(){

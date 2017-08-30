@@ -3,7 +3,7 @@
 
 pkgname=libre-baskerville-kagayaki
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Libre Baskerville font designed by Pablo Impallari"
 arch=('any')
 url="http://www.impallari.com/"
@@ -14,7 +14,7 @@ groups=('kagayaki-bundle-fonts')
 source=("http://www.impallari.com/media/uploads/prosources/update-86-source.zip"
         42-libre-baskerville.conf)
 sha256sums=('67ee4b67d55a8b9a16f234125bb89bffb9842e2b74f2c0e8f8479dde11f288d4'
-            '79b7f9a9d8afa68dddc116ad0a55f1fe6adf35468069e6058db35ea6beecfdd8')
+            'a2bec51f563349b93dc1229d2010396c6546863989e04f72709a53e52b8d4974')
 
 package(){
 	cd "${srcdir}/Libre Baskerville v1.0"

@@ -3,7 +3,7 @@
 
 pkgname=gelasio-kagayaki
 pkgver=1.00
-pkgrel=1
+pkgrel=2
 pkgdesc="Gelasio serif family by Eben Sorkin"
 arch=('any')
 url="http://code.google.com/p/googlefontdirectory/"
@@ -16,7 +16,7 @@ source=("https://fontlibrary.org/assets/downloads/gelasio/4d610887ff4d445cbc639a
         42-gelasio.conf)
 sha256sums=('6e0d6be4fc1fc2f5ae7694434dd5209fb2d92b12cee687815390da14c09c961d'
             '274ab590e1297b4cdeacc3a0d896468ee3dd5827b6f84c46bf86eed46610f13f'
-            'fc0fb11fe69cbd05c84dd6be445d78bca629d4c303fca793e04501b98ccf8872')
+            '071317277f45b959ac9700d2d3903be3bb6b048a74cfb4148fcd004ea9a44b64')
 
 package(){
 	cd "${srcdir}"

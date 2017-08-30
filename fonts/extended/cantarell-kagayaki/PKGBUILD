@@ -6,7 +6,7 @@ pkgname=cantarell-kagayaki
 _basename=cantarell-fonts
 pkgver=0.024
 _commit=4fc722f
-pkgrel=1
+pkgrel=2
 pkgdesc="Cantarell font family"
 arch=('any')
 url="https://github.com/GNOME/cantarell-fonts"
@@ -18,7 +18,7 @@ groups=('kagayaki-bundle-fonts-extra')
 source=("https://github.com/GNOME/cantarell-fonts/archive/$_commit.zip"
         42-cantarell.conf)
 sha1sums=('c6cc8fe18c43bab159bb663f7e080ebef49b8988'
-          'c2fc52ab73d8b543bdf0d5b178e9e1b0fbdf3503')
+          'c74af297a94a88b22a283d3fcec9a2f328fe467f')
 
 build() {
 	cd "${_basename}"-*

@@ -3,7 +3,7 @@
 
 pkgname=noto-fonts-cjk-kagayaki
 pkgver=1.004
-pkgrel=1
+pkgrel=2
 pkgdesc="Google Noto TTF CJK fonts"
 arch=('any')
 url="https://www.google.com/get/noto/"
@@ -16,7 +16,7 @@ source=("https://noto-website.storage.googleapis.com/pkgs/NotoSansCJK.ttc.zip"
 		43-noto-cjk.conf)
 sha256sums=('52dd6f2780b8e5cc137a0fcaaf45a0143a4261b4b07c165ae4cd1b7878b148ab'
             '87e29a16ddd16c6b4bb83ae8cbd843ca6f757d12eae06f3462149534ce99f284'
-            'e0916701f06cdecefc3589c7fff6013635165ed39bd476332848c6b325aa1ecb')
+            '04a0a0270bd7e8bf44f96f1c6079afb01f7e87eec2de8f954b9961705a39af78')
 
 package() {
 	cd "${srcdir}"

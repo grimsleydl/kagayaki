@@ -5,7 +5,7 @@ pkgname=source-code-pro-kagayaki
 pkgver=2.030ro+1.050it
 _relver=2.030R-ro/1.050R-it
 _tarver=${_relver//\//-}
-pkgrel=1
+pkgrel=2
 pkgdesc="A set of OpenType fonts designed for user interfaces"
 arch=('any')
 url="http://adobe-fonts.github.io/source-code-pro/"
@@ -16,7 +16,7 @@ groups=('kagayaki-bundle-fonts')
 source=("${_tarver}.tar.gz::https://github.com/adobe-fonts/source-code-pro/archive/${_relver}.tar.gz"
 		42-source-code-pro.conf)
 sha256sums=('a4e4dd59b8e0a436b934f0f612c2e91b5932910c6d1c3b7d1a5a9f389c86302b'
-            'b4988173ea26ce89e9501799c8df237ae6eb6fd2ac647657861b5441f6143d49')
+            '5ddb03ff86496081ac5311b217789d9cb1ec738d9610c4c363a15835e75f512d')
 
 package(){
 	cd "${srcdir}/source-code-pro-$_tarver"

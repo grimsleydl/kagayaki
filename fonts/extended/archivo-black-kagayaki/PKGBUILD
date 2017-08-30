@@ -3,7 +3,7 @@
 
 pkgname=archivo-black-kagayaki
 pkgver=1.004
-pkgrel=1
+pkgrel=2
 pkgdesc="Archivo from Omnibus-Type is a grotesque sans-serif typeface family derived from Chivo"
 arch=('any')
 url="http://omnibus-type.com/"
@@ -14,7 +14,7 @@ groups=('kagayaki-bundle-fonts')
 source=("http://omnibus-type.com/download/ArchivoBlack-for-Print.zip"
         42-archivo-black.conf)
 sha256sums=('b2ac07977b5483da0f49cec1a672e87b2d8e2011ca4fcf85137d1093be5517fe'
-            '5672ec16a7bebe6ea0f58a7f80b2c24fe0de54a85c6f967bc68f3873a8a31dcc')
+            '15386a354e06dc211229d849b0b29d3ebd34d2029553e9d2cdc8510d36a4176e')
 
 package(){
 	cd "${srcdir}/ArchivoBlack-for-Print"

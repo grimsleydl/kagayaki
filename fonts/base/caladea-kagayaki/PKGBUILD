@@ -4,7 +4,7 @@
 pkgname=caladea-kagayaki
 _tarname=crosextrafonts
 pkgver=20130214
-pkgrel=1
+pkgrel=2
 pkgdesc="Caladea is a serif font metrically compatible with Cambria"
 arch=('any')
 url="https://code.google.com/p/chromium/issues/detail?id=168879"
@@ -15,7 +15,7 @@ groups=('kagayaki-bundle-fonts')
 source=("http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/${_tarname}-${pkgver}.tar.gz"
         41-caladea.conf)
 sha1sums=('6f8f87cd21c4cd7e72031852eb90453dba3e2473'
-          '90d29666e807c1f7456f4ffa86f4b6ed5b92639b')
+          '55fb602ba762355700515ea7ad5f3d4ee896c7a5')
 
 package(){
 	cd "${srcdir}/${_tarname}-${pkgver}"

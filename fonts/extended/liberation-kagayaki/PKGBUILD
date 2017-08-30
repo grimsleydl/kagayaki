@@ -12,7 +12,7 @@ pkgver=2.00.3
 _narrowver=1.07.2
 _commit=7c0f88d
 _narrowcommit=86fda57
-pkgrel=1
+pkgrel=2
 pkgdesc='Red Hats Liberation fonts'
 arch=('any')
 url="https://github.com/pravins/liberation-fonts"
@@ -27,7 +27,7 @@ source=("https://github.com/pravins/liberation-fonts/archive/$_commit.zip"
         42-liberation.conf)
 md5sums=('59699853aea3ba875620d72747e4573a'
          '4096f88ad5b7037202b17dd4ce12c221'
-         '3ce109822f81f5c44901c138afc7720a')
+         '14f570a5caa6e379b8753534a92c54f1')
 
 package() {
 	cd "${srcdir}/liberation-fonts-7c0f88de84f61ae1d9fe692401d47458fa325dba"

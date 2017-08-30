@@ -3,7 +3,7 @@
 
 pkgname=oswald-kagayaki
 pkgver=3.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Oswald is a reworking of the classic Gothic and Grotesque type styles"
 arch=('any')
 url="https://github.com/vernnobile/OswaldFont"
@@ -14,7 +14,7 @@ groups=('kagayaki-bundle-fonts-extra')
 source=("git+https://github.com/vernnobile/OswaldFont.git"
         42-oswald.conf)
 md5sums=('SKIP'
-         '3abe7ce6d6444a06b49735ac94523666')
+         'af704c702283d7ab7f875081c697c309')
 
 package(){
 	cd "${srcdir}/OswaldFont/3.0"

@@ -3,7 +3,7 @@
 
 pkgname=symbola-kagayaki
 pkgver=9.17
-pkgrel=1
+pkgrel=2
 pkgdesc="Symbola is a free symbol-type font"
 arch=('any')
 url="http://users.teilar.gr/~g1951d/"
@@ -16,7 +16,7 @@ source=("http://users.teilar.gr/~g1951d/Symbola.zip"
         42-symbola.conf)
 sha256sums=('dcb4a8fd44a161f6531a00c4946b40824b17e1732205a422dc141e3f9f47c42b'
             '78691fbb21caea139fd4105ea840c100cc3ce739b7430211d99ab5b15b14642e'
-            '501e956044151e9ab69f3f2a33bb842540d0fcf96a5e6a53de1db44b697f8593')
+            'd5b833369a10a29da40af6458042a51aa9f7f7ca54dfe0c5326ec491d486a8df')
 
 package(){
 	cd "${srcdir}"

@@ -4,7 +4,7 @@
 pkgname=merriweather-kagayaki
 _serif=Merriweather
 pkgver=2.001
-pkgrel=1
+pkgrel=2
 pkgdesc="Merriweather Serif font family by Eben Sorkin"
 arch=('any')
 url="http://sorkintype.com"
@@ -17,7 +17,7 @@ source=("git+https://github.com/EbenSorkin/${_serif}.git"
         42-merriweather.conf)
 sha256sums=('SKIP'
             'af0aa1c23b5f41656d52fb97887f6b3deb27f09a0114ff6cf0b631a6eff29bb3'
-            '1dae15ef13f56dbede5b0997cc5ec05f9d426bd2561cb30d75daac752af8f99e')
+            'd95122825d50132cc26ab9816a5f04eb42198c8a5816e08571a5927e2813b8fd')
 
 package(){
 	cd "${srcdir}"

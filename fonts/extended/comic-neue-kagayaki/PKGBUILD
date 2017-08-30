@@ -2,7 +2,7 @@
 
 pkgname=comic-neue-kagayaki
 pkgver=2.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Comic Neue aspires to be the casual script choice for everyone including the typographically savvy"
 arch=('any')
 url="http://comicneue.com/"
@@ -13,7 +13,7 @@ groups=('kagayaki-bundle-fonts')
 source=("http://comicneue.com/comic-neue-${pkgver}.zip"
         42-comic-neue.conf)
 sha256sums=('f3a7500eb477d03a865249dd3fa5ecff516d12d11d5d8494c8164fd4ee842599'
-            '3e6c412f9e8a4d99d5ea0828e1fda810bc204ca6bcc251d381c5564e676ceed6')
+            '0e6cd311f806bc7f561c3541c909a237c8625018412df81c8d905f690d115cf8')
 
 package() {
 	cd "${srcdir}"

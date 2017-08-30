@@ -10,7 +10,7 @@ _pkguhsa=noto-fonts-sans-unhinted-kagayaki
 _pkgver=2017-05-04
 _commit=1293ec3
 pkgver=${_pkgver//-}
-pkgrel=1
+pkgrel=2
 pkgdesc="Google Noto TTF fonts"
 arch=('any')
 url="http://www.google.com/get/noto/"
@@ -26,11 +26,11 @@ source=("https://github.com/googlei18n/noto-fonts/archive/$_commit.zip"
 	41-noto-serif.conf
 	41-noto-mono.conf)
 sha256sums=('ac2ae8e40d2a604e247a7523909c58976cfd477e68bfab939a621a5a89de979d'
-            '734f20f62e6938601fe874c5af5994cd2e728e80bb121c08e1db8f084888e0ca'
-            '3071752f837bca04c03d29f88a419c4a72682b91559353c7e26588c31a590572'
-            'a151d12f965ee1c9922de574c59f6f31cd7216021d5289d3b4638a239ec0bcf9'
-            'dbbb0f6c0fbaa281094a1348d93d02b5f35b9c6d1b00a96ee72587d71be3f02d'
-            '0a620443b25dc481bdf10b2955ae0a5fdf92982a47e6f8236fb1db92485a6134')
+            '6254dbcd13909b1fb75de5e6ac7a2613ab0bbeafd0cb2f9e3a13b3131f2fdbf8'
+            'a079ddbdcb1b9f2b2bb31f373fa5d135aaff57a06b590faffc1dbb71adf3fc0c'
+            '54dc5855a9f52ab930a5f7c18af635287ad697d5ccce4460c27f518664533d03'
+            'f5c966529865e2540589c57f0ff2194f607f7e29a8c5206cca80e744c76ed263'
+            '384d51eb12d709442ae949c62bbed0d6696a4ce028f854e67c189a5e29969d61')
 
 package() {
 	cd "${srcdir}"/noto-fonts-*

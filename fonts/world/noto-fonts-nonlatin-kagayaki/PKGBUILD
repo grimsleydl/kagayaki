@@ -5,7 +5,7 @@ pkgname=noto-fonts-nonlatin-kagayaki
 _pkgver=2017-08-02
 _commit=93ed31f
 pkgver=${_pkgver//-}
-pkgrel=1
+pkgrel=2
 pkgdesc="Google Noto TTF fonts: non-Latin extension"
 arch=('any')
 url="http://www.google.com/get/noto/"
@@ -16,7 +16,7 @@ groups=('kagayaki-bundle-fonts')
 source=("https://github.com/googlei18n/noto-fonts-alpha/archive/$_commit.zip"
         43-noto-nonlatin.conf)
 sha256sums=('79895de64b2e8bf662dc6c65318fb80d598adb08301b1e76f6cebc2387b1f392'
-            '11cd3fe038c2e6ddb95120067f01dd0764b4ecb9672ed203f2f1b700c8b8c46d')
+            'e513b2af4dca7964c2a69f9937f33a568c884e5a78b112dc9843d68017e8cacb')
 
 package() {
 	cd "${srcdir}"/noto-fonts-alpha-*

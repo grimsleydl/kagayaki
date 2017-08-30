@@ -5,7 +5,7 @@
 
 pkgname=dejavu-kagayaki
 pkgver=2.37
-pkgrel=1
+pkgrel=2
 pkgdesc="Font family based on the Bitstream Vera Fonts with a wider range of characters"
 arch=('any')
 url="http://dejavu-fonts.org"
@@ -17,7 +17,7 @@ groups=('kagayaki-bundle-fonts')
 source=("http://downloads.sourceforge.net/project/dejavu/dejavu/${pkgver}/dejavu-fonts-ttf-${pkgver}.tar.bz2"
         41-dejavu.conf)
 sha256sums=('fa9ca4d13871dd122f61258a80d01751d603b4d3ee14095d65453b4e846e17d7'
-            '8765daf76e75cf23a51c5160f4ff31df3e023138c71df5e8dee26481aad17576')
+            '5d48fae73aa050c47720a1c8d742ff1cf0ce093f2143973dcd1b5e48bfa69ef5')
 
 package() {
 	cd "${srcdir}"/dejavu-fonts-ttf-"${pkgver}"
