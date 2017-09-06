@@ -1,0 +1,39 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=source-serif-pro-kagayaki
+pkgver=1.010
+pkgrel=1
+pkgdesc="Serif typeface for setting text. Designed to complement Source Sans Pro"
+arch=('any')
+url="http://adobe-fonts.github.io/source-serif-pro"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+groups=('kagayaki-bundle-fonts')
+source=("https://github.com/adobe-fonts/source-serif-pro/releases/download/variable-fonts/SourceSerifVariable-Roman.otf"
+        COPYING
+		42-source-serif-pro.conf)
+sha256sums=('1f75a1ac8c4a576742768b19514804c3fb87eb472e138d5bbc8feeaf0944f77c'
+            '653aaf9819e33cf1e2b3523c5d4d6c3dae925d770cb4563030f96655321ca2e9'
+            'c8712af75076e273d373cd9f957ac37a9e39a765fdfc068b38d9d53132901034')
+
+package(){
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "COPYING" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-source-serif-pro.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-source-serif-pro.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-source-serif-pro.conf .
+}

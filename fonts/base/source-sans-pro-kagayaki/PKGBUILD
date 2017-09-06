@@ -1,0 +1,41 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=source-sans-pro-kagayaki
+pkgver=1.015
+pkgrel=1
+pkgdesc="Sans serif font family for user interface environments"
+arch=('any')
+url="http://adobe-fonts.github.io/source-sans-pro"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+groups=('kagayaki-bundle-fonts')
+source=("https://github.com/adobe-fonts/source-sans-pro/releases/download/variable-fonts/SourceSansVariable-Roman.otf"
+        "https://github.com/adobe-fonts/source-sans-pro/releases/download/variable-fonts/SourceSansVariable-Italic.otf"
+        COPYING
+		42-source-sans-pro.conf)
+sha256sums=('afd685a2b43feafbb4c47deaa7a2c0fcd826940d3473abe42e4aaa56d39754af'
+            '62c5d0991d6a9571a89c8e137f2b76e3ff57f671e0d1bce832af98422ce13a6d'
+            '653aaf9819e33cf1e2b3523c5d4d6c3dae925d770cb4563030f96655321ca2e9'
+            'df143b1f57286886a56c217b51d19a256eb6afdc605f758ab68d68381fbbc3bd')
+
+package(){
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "COPYING" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-source-sans-pro.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-source-sans-pro.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-source-sans-pro.conf .
+}

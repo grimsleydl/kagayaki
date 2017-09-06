@@ -3,7 +3,7 @@
 
 pkgname=kagayaki-fonts-base
 pkgver=2
-pkgrel=2
+pkgrel=4
 pkgdesc="kagayaki-bundle-fonts base collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
@@ -14,20 +14,21 @@ depends=('fontconfig'
          'cairo'
          'caladea-kagayaki'
          'carlito-kagayaki'
-         'courier-prime-kagayaki'
          'dejavu-kagayaki'
-         'erewhon-kagayaki'
          'noto-emoji-kagayaki'
          'noto-fonts-kagayaki'
          'roboto-kagayaki'
          'signika-family-kagayaki'
+         'source-code-pro-kagayaki'
+         'source-sans-pro-kagayaki'
+         'source-serif-pro-kagayaki'
          'tex-gyre-kagayaki')
 optdepends=('kagayaki-fonts-extended: Extended font collection'
             'kagayaki-fonts-world: Maximum coverage collection (CJK, etc.)')
 source=('xft-settings.sh'
         'local.conf')
 sha1sums=('c95f6e2c8b89ad8b66ad97cfa4153257c70c271e'
-          'e39b36bb787779248426cf906fb910d3a8a83fac')
+          '920fae8563cebb1187b5ccdfd2feb660940c50bd')
 
 package() {
 	# kagayaki settings

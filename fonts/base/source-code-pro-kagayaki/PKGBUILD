@@ -1,0 +1,43 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=source-code-pro-kagayaki
+pkgver=1.005
+pkgrel=1
+epoch=1
+pkgdesc="Monospaced font family for user interface and coding environments"
+arch=('any')
+url="http://adobe-fonts.github.io/source-code-pro/"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+conflicts=('otf-source-code-pro-kagayaki')
+groups=('kagayaki-bundle-fonts')
+source=("https://github.com/adobe-fonts/source-code-pro/releases/download/variable-fonts/SourceCodeVariable-Roman.otf"
+		"https://github.com/adobe-fonts/source-code-pro/releases/download/variable-fonts/SourceCodeVariable-Italic.otf"
+		COPYING
+		41-source-code-pro.conf)
+sha256sums=('973b75fec889704184dbea0b73b698ef103fc6135a47f5d1a7a7d9815ea0c02b'
+            '5fc05fb9b5a07d7643e4a2db1e6022d67b4774e6f72108206a861b7f7a746b59'
+            '653aaf9819e33cf1e2b3523c5d4d6c3dae925d770cb4563030f96655321ca2e9'
+            'd5c2b69a873fb04c489128adf87d7de3adcaa21d59f9262f828df81cc8583fd6')
+
+package(){
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "COPYING" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 41-source-code-pro.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/41-source-code-pro.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/41-source-code-pro.conf .
+}
