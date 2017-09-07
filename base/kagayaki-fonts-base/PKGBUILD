@@ -27,7 +27,7 @@ optdepends=('kagayaki-fonts-extended: Extended font collection'
 source=('xft-settings.sh'
         'local.conf')
 sha1sums=('c95f6e2c8b89ad8b66ad97cfa4153257c70c271e'
-          '554658beebb7e99691cb367560e5219a7e48ba82')
+          '2bae4b3089c43b534dfc79e24a7a6bb9339addcc')
 
 package() {
 	# kagayaki settings
