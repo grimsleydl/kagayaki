@@ -3,7 +3,7 @@
 
 pkgname=kagayaki-fonts-extended
 pkgver=2
-pkgrel=2
+pkgrel=3
 pkgdesc="kagayaki-bundle-fonts extended collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
@@ -22,12 +22,10 @@ depends=('kagayaki-fonts-base'
          'gelasio-kagayaki'
          'lato-kagayaki'
          'libre-baskerville-kagayaki'
-         'luxi-kagayaki'
          'merriweather-kagayaki'
          'opensans-kagayaki'
          'oswald-kagayaki'
          'quintessential-kagayaki'
-         'source-code-pro-kagayaki'
          'symbola-kagayaki'
          'ubuntu-font-kagayaki'
          'vollkorn-kagayaki')

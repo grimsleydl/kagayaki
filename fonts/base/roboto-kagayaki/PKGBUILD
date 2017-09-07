@@ -3,20 +3,18 @@
 
 pkgname=roboto-kagayaki
 pkgver=2.138
-pkgrel=2
-pkgdesc="Modern sans-serif font family designed by Christian Robertson and introduced with Android Ice Cream Sandwich operating system"
+pkgrel=3
+pkgdesc="Google's signature family of fonts"
 arch=('any')
 url="https://github.com/google/roboto"
 license=('Apache')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-conflicts=('ttf-roboto-kagayaki')
+conflicts=('ttf-roboto-kagayaki' 'ttf-roboto')
 groups=('kagayaki-bundle-fonts')
-source=("https://github.com/google/roboto/releases/download/v${pkgver}/roboto-unhinted.zip"
-		"https://fonts.google.com/download?family=Roboto%20Slab"
+source=("https://github.com/google/roboto/releases/download/v${pkgver}/roboto-android.zip"
         41-roboto.conf)
-sha256sums=('70f64c718510a601fbcf752aafe644314dacaeb85474dc689c89787c4a72a728'
-            '158ef4214c73b0ff7ac17393282aeaf7855fe32759a673fbac42efec34d35114'
-            '6a72a89bda0f4ce6642ba24b952088dc911931d2646929135fb9e237c779b3c0')
+sha256sums=('c825453253f590cfe62557733e7173f9a421fff103b00f57d33c4ad28ae53baf'
+            '338b2302803efa95a00a62300c863ab0d41eef28743e104de86f2a752a4879b0')
 
 package(){
 	cd "${srcdir}"
