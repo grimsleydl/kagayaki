@@ -2,22 +2,22 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=archivo-black-kagayaki
-pkgver=1.004
-pkgrel=2
+pkgver=1.005
+pkgrel=1
 pkgdesc="Archivo from Omnibus-Type is a grotesque sans-serif typeface family derived from Chivo"
 arch=('any')
-url="http://omnibus-type.com/"
+url="http://www.omnibus-type.com/fonts/archivo-black/"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('otf-archivo-black-kagayaki')
 groups=('kagayaki-bundle-fonts')
-source=("http://omnibus-type.com/download/ArchivoBlack-for-Print.zip"
+source=("http://www.omnibus-type.com/wp-content/uploads/Archivo-Black.zip"
         42-archivo-black.conf)
-sha256sums=('b2ac07977b5483da0f49cec1a672e87b2d8e2011ca4fcf85137d1093be5517fe'
+sha256sums=('d2772787e8fceb6d8280640bff7a7c3f65f54a0621a14371f275f7be4d2f2490'
             '15386a354e06dc211229d849b0b29d3ebd34d2029553e9d2cdc8510d36a4176e')
 
 package(){
-	cd "${srcdir}/ArchivoBlack-for-Print"
+	cd "${srcdir}/Archivo-Black"
 
 	# Install license
 	install -Dm644 "OFL.txt" \
@@ -25,7 +25,7 @@ package(){
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 ArchivoBlack.otf \
+	install -m644 ArchivoBlack-Regular.ttf \
 		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf
