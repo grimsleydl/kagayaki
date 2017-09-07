@@ -1,0 +1,38 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=archivo-kagayaki
+pkgver=1.002
+pkgrel=1
+pkgdesc="Archivo from Omnibus-Type is a grotesque sans-serif typeface family derived from Chivo"
+arch=('any')
+url="http://www.omnibus-type.com/fonts/archivo/"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+groups=('kagayaki-bundle-fonts')
+source=("http://www.omnibus-type.com/wp-content/uploads/Archivo.zip"
+        42-archivo.conf)
+sha256sums=('c8bea46ba03d9708f78b13beac0a0a8d375d95a25dd4db114a25c30c08a0f3bb'
+            '245f065cb76f2111bb9168c1ed115bcf583224079d51ce9fb047ad29711f4747')
+
+package(){
+	cd "${srcdir}/Archivo"
+
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 Archivo-*.ttf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-archivo.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-archivo.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-archivo.conf .
+}

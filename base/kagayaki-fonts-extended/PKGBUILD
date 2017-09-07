@@ -3,7 +3,7 @@
 
 pkgname=kagayaki-fonts-extended
 pkgver=2
-pkgrel=1
+pkgrel=2
 pkgdesc="kagayaki-bundle-fonts extended collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
@@ -12,6 +12,8 @@ provides=('xorg-fonts-type1')
 replaces=('xorg-fonts-type1')
 depends=('kagayaki-fonts-base'
          'archivo-black-kagayaki'
+         'archivo-kagayaki'
+         'archivo-narrow-kagayaki'
          'cantarell-kagayaki'
          'cantoraone-kagayaki'
          'comic-neue-kagayaki'
@@ -19,7 +21,6 @@ depends=('kagayaki-fonts-base'
          'ebgaramond-kagayaki'
          'gelasio-kagayaki'
          'lato-kagayaki'
-         'liberation-kagayaki'
          'libre-baskerville-kagayaki'
          'luxi-kagayaki'
          'merriweather-kagayaki'

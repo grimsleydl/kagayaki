@@ -4,7 +4,7 @@
 pkgname=archivo-black-kagayaki
 pkgver=1.005
 pkgrel=1
-pkgdesc="Archivo from Omnibus-Type is a grotesque sans-serif typeface family derived from Chivo"
+pkgdesc="Archivo Black from Omnibus-Type is a grotesque sans-serif typeface family derived from Chivo"
 arch=('any')
 url="http://www.omnibus-type.com/fonts/archivo-black/"
 license=('custom:OFL')

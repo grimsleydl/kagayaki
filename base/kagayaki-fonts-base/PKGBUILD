@@ -3,7 +3,7 @@
 
 pkgname=kagayaki-fonts-base
 pkgver=2
-pkgrel=4
+pkgrel=5
 pkgdesc="kagayaki-bundle-fonts base collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
@@ -28,7 +28,7 @@ optdepends=('kagayaki-fonts-extended: Extended font collection'
 source=('xft-settings.sh'
         'local.conf')
 sha1sums=('c95f6e2c8b89ad8b66ad97cfa4153257c70c271e'
-          '920fae8563cebb1187b5ccdfd2feb660940c50bd')
+          '63b1b79b47c808fc1afb2cc373e305dece3a3e79')
 
 package() {
 	# kagayaki settings

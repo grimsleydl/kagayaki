@@ -1,0 +1,38 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=archivo-narrow-kagayaki
+pkgver=1.009
+pkgrel=1
+pkgdesc="Archivo Narrow from Omnibus-Type is a grotesque sans-serif typeface family derived from Chivo"
+arch=('any')
+url="http://www.omnibus-type.com/fonts/archivo-narrow/"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+groups=('kagayaki-bundle-fonts')
+source=("http://www.omnibus-type.com/wp-content/uploads/Archivo-Narrow.zip"
+        42-archivo-narrow.conf)
+sha256sums=('66d597c6aee1cfe4b253ecae193c70094018d1c16c507889b8d579f45d1b306a'
+            '461dd65b42fd9a28ac62ccc9610ac5d74a121436680438f42d55c6d3d5ec8f57')
+
+package(){
+	cd "${srcdir}/Archivo-Narrow"
+
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 ArchivoNarrow-*.ttf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-archivo-narrow.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-archivo-narrow.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-archivo-narrow.conf .
+}
