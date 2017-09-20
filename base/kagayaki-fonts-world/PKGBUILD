@@ -2,7 +2,7 @@
 
 pkgname=kagayaki-fonts-world
 pkgver=2
-pkgrel=1
+pkgrel=2
 pkgdesc="kagayaki-bundle-fonts world collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
@@ -10,4 +10,4 @@ license=('GPL' 'MIT')
 depends=('kagayaki-fonts-base'
          'hanazono-kagayaki'
          'noto-fonts-cjk-kagayaki'
-         'noto-fonts-nonlatin-kagayaki')
+         'noto-fonts-extras-kagayaki')
