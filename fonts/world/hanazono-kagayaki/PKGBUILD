@@ -4,8 +4,8 @@
 # Contributor: cuihao <cuihao dot leo at gmail dot com>
 
 pkgname=hanazono-kagayaki
-pkgver=20160201
-pkgrel=2
+pkgver=20170904
+pkgrel=1
 pkgdesc="A free Japanese kanji font, which contains about 78,685 characters"
 arch=('any')
 url="http://fonts.jp/hanazono/"
@@ -15,7 +15,7 @@ conflicts=('ttf-hanazono')
 groups=('kagayaki-bundle-fonts')
 source=("hanazono-font-${pkgver}.zip::https://fr.osdn.net/dl/hanazono-font/hanazono-${pkgver}.zip"
          43-hanazono.conf)
-sha256sums=('2b89af892d969edbb47b5adf75663a76c2bec5961467e65557b623f6b2add139'
+sha256sums=('571cd4a09ae7da0c642d640fc2442c050aa450ebb0587a95cdd097d41a9c9572'
             '7b6dcd9592f039accb114049febfada38318bed37a7f415650c6bac02ec5e824')
 
 package() {
