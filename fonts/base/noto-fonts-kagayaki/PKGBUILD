@@ -17,7 +17,7 @@ source=("https://github.com/googlei18n/noto-fonts/archive/${_commit}.zip"
 	41-noto-extras.conf)
 sha256sums=('78189460c8c719f3b6ac1c10780dded5b0c7742eb7c609ce6fa74fc7e8b510ee'
             'a079ddbdcb1b9f2b2bb31f373fa5d135aaff57a06b590faffc1dbb71adf3fc0c'
-            'b99e4a61a3f3256909b83019d615d6b6abf3a7f5cbad1046145a1aed99997547'
+            'de2a440f4b41e413359ebb9e663f4d5078998263ee53ada1ae2df6a6aaecd1e7'
             '8f9a9444e1eb9f98ec213fa497e9d4f3b9c4c20cdc8e813f4cbc24d8ad59d983'
             '5c9fbc67363f4b10a2746f7441811b3db0172b8618a693de247e8556a91edc5c'
             '09b0a1f35cd2d28a37dc1c57785e605525278825ebdf7e666dff447bf4c5f215')
