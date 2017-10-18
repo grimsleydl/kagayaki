@@ -1,7 +1,9 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 
 pkgname=source-code-pro-kagayaki
-pkgver=1.005
+_pkgver=2017-10-13
+_commit=a1377187cae5c15e4db5569b57d25aede5f4a1cd
+pkgver=${_pkgver//-}
 pkgrel=1
 epoch=1
 pkgdesc="Monospaced font family for user interface and coding environments"
@@ -10,26 +12,29 @@ url="http://adobe-fonts.github.io/source-code-pro/"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('otf-source-code-pro-kagayaki')
+makedepends=('afdko')
 groups=('kagayaki-bundle-fonts')
-source=("https://github.com/adobe-fonts/source-code-pro/releases/download/variable-fonts/SourceCodeVariable-Roman.otf"
-		"https://github.com/adobe-fonts/source-code-pro/releases/download/variable-fonts/SourceCodeVariable-Italic.otf"
-		COPYING
+source=("https://github.com/adobe-fonts/source-code-pro/archive/${_commit}.zip"
 		41-source-code-pro.conf)
-sha256sums=('973b75fec889704184dbea0b73b698ef103fc6135a47f5d1a7a7d9815ea0c02b'
-            '5fc05fb9b5a07d7643e4a2db1e6022d67b4774e6f72108206a861b7f7a746b59'
-            '653aaf9819e33cf1e2b3523c5d4d6c3dae925d770cb4563030f96655321ca2e9'
-            'd5c2b69a873fb04c489128adf87d7de3adcaa21d59f9262f828df81cc8583fd6')
+sha256sums=('c51aab030e85374a684a7133d3873df39d82b129c6ea8ae273682084a11eadb5'
+            '5ddb03ff86496081ac5311b217789d9cb1ec738d9610c4c363a15835e75f512d')
+
+build(){
+	cd "${srcdir}/source-code-pro-${_commit}"
+
+	sh build.sh
+}
 
 package(){
-	cd "${srcdir}"
+	cd "${srcdir}/source-code-pro-${_commit}"
 
 	# Install license
-	install -Dm644 "COPYING" \
+	install -Dm644 "LICENSE.md" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 target/OTF/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf
 	cd "${srcdir}"

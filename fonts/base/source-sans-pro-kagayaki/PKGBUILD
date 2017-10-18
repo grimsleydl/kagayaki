@@ -1,33 +1,38 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 
 pkgname=source-sans-pro-kagayaki
-pkgver=1.015
+_pkgver=2017-08-15
+_commit=ff3bdec0a9ed367bfd6b05572f5dabebf030e7bb
+pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Sans serif font family for user interface environments"
 arch=('any')
 url="http://adobe-fonts.github.io/source-sans-pro"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+makedepends=('afdko')
 groups=('kagayaki-bundle-fonts')
-source=("https://github.com/adobe-fonts/source-sans-pro/releases/download/variable-fonts/SourceSansVariable-Roman.otf"
-        "https://github.com/adobe-fonts/source-sans-pro/releases/download/variable-fonts/SourceSansVariable-Italic.otf"
-        COPYING
+source=("https://github.com/adobe-fonts/source-sans-pro/archive/${_commit}.zip"
 		42-source-sans-pro.conf)
-sha256sums=('afd685a2b43feafbb4c47deaa7a2c0fcd826940d3473abe42e4aaa56d39754af'
-            '62c5d0991d6a9571a89c8e137f2b76e3ff57f671e0d1bce832af98422ce13a6d'
-            '653aaf9819e33cf1e2b3523c5d4d6c3dae925d770cb4563030f96655321ca2e9'
-            'df143b1f57286886a56c217b51d19a256eb6afdc605f758ab68d68381fbbc3bd')
+sha256sums=('261b94c1877556913c0071bacc1e59a9a018d5fc1235490b703a5489f45412b4'
+            'ff03ede040aa38d3d5365eb7eefa666ba2bc1e041e168a4d7377a98a349df39d')
+
+build(){
+	cd "${srcdir}/source-sans-pro-${_commit}"
+
+	sh build.sh
+}
 
 package(){
-	cd "${srcdir}"
+	cd "${srcdir}/source-sans-pro-${_commit}"
 
 	# Install license
-	install -Dm644 "COPYING" \
+	install -Dm644 "LICENSE.md" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 target/OTF/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf
 	cd "${srcdir}"

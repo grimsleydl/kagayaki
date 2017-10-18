@@ -1,31 +1,38 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 
 pkgname=source-serif-pro-kagayaki
-pkgver=1.010
+_pkgver=2017-08-15
+_commit=6158260e9edaa839d839316464ce4b9aa9695877
+pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Serif typeface for setting text. Designed to complement Source Sans Pro"
 arch=('any')
 url="http://adobe-fonts.github.io/source-serif-pro"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+makedepends=('afdko')
 groups=('kagayaki-bundle-fonts')
-source=("https://github.com/adobe-fonts/source-serif-pro/releases/download/variable-fonts/SourceSerifVariable-Roman.otf"
-        COPYING
+source=("https://github.com/adobe-fonts/source-serif-pro/archive/${_commit}.zip"
 		42-source-serif-pro.conf)
-sha256sums=('1f75a1ac8c4a576742768b19514804c3fb87eb472e138d5bbc8feeaf0944f77c'
-            '653aaf9819e33cf1e2b3523c5d4d6c3dae925d770cb4563030f96655321ca2e9'
-            'c8712af75076e273d373cd9f957ac37a9e39a765fdfc068b38d9d53132901034')
+sha256sums=('fcbf79bbde77d1bbbdeed7510c0ef14653e0aff5bfe1fc830482785bb567ce0f'
+            '0a235b05e6ece74e7c37c8c55278efcc1b5dfe6d9a189ecbe0cddbe714a219dc')
+
+build(){
+	cd "${srcdir}/source-serif-pro-${_commit}"
+
+	sh build.sh
+}
 
 package(){
-	cd "${srcdir}"
+	cd "${srcdir}/source-serif-pro-${_commit}"
 
 	# Install license
-	install -Dm644 "COPYING" \
+	install -Dm644 "LICENSE.md" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 target/OTF/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf
 	cd "${srcdir}"
