@@ -15,9 +15,9 @@ source=("https://github.com/googlei18n/noto-fonts/archive/${_commit}.zip"
 	41-noto-serif.conf
 	41-noto-mono.conf
 	41-noto-extras.conf)
-sha256sums=('779b4a16e838cb7b8e74ebeac3fc32dda2feaf2003e6f9d7de1fbc7027747b58'
+sha256sums=('f644b1dc97507b7bd6540fe35b9ca714b93e7fa12d6c2ae0dae5f9681174fd28'
             'a079ddbdcb1b9f2b2bb31f373fa5d135aaff57a06b590faffc1dbb71adf3fc0c'
-            'de2a440f4b41e413359ebb9e663f4d5078998263ee53ada1ae2df6a6aaecd1e7'
+            '6b1732b0216d214a41af4dbee4ead2758fa5a5e2e4d7267ecff7d797598c0d9b'
             '8f9a9444e1eb9f98ec213fa497e9d4f3b9c4c20cdc8e813f4cbc24d8ad59d983'
             '5c9fbc67363f4b10a2746f7441811b3db0172b8618a693de247e8556a91edc5c'
             '09b0a1f35cd2d28a37dc1c57785e605525278825ebdf7e666dff447bf4c5f215')

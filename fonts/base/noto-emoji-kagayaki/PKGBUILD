@@ -14,7 +14,7 @@ depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir'
 conflicts=('ttf-noto-emoji-kagayaki' 'noto-fonts-emoji')
 source=("https://github.com/googlei18n/noto-emoji/archive/$_commit.zip"
         41-noto-emoji.conf)
-sha256sums=('e08a1636b235810c3faf3918692cab7288fce5508585edaadc3d992bafad7cfa'
+sha256sums=('2978dcfc4cbd7cebaaa0a926dda380fce816ba27773469ce38d089a244e2b91f'
             'a7885d9bf967dc4c18ec8818d791365f1682ff03732d2dccc19dc8b907fe6543')
 
 package() {
