@@ -3,8 +3,8 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=noto-emoji-kagayaki
-pkgver=2.002
-_commit=a4ddd5b44fe2b78643a05ab396d127823db645f7
+pkgver=2.003
+_commit=a5efe6ca61db2d54c93242f8e370e145703ef571
 pkgrel=1
 pkgdesc="Google Noto emoji fonts"
 arch=('any')
