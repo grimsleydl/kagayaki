@@ -2,8 +2,8 @@
 
 pkgbase=noto-fonts-kagayaki
 pkgname=('noto-fonts-cros-kagayaki' 'noto-fonts-sans-kagayaki' 'noto-fonts-serif-kagayaki' 'noto-fonts-mono-kagayaki' 'noto-fonts-extras-kagayaki')
-_pkgver=2017-10-18
-_commit=02776f0197f22a4c6a8f4ebfe6c8f51ffe6e20a0
+_pkgver=2017-10-27
+_commit=95558bd828a48c17a5cbe7f9d971495afcd16abd
 pkgver=${_pkgver//-}
 pkgrel=1
 arch=('any')
@@ -124,7 +124,6 @@ package_noto-fonts-sans-kagayaki() {
 	install -m644 NotoSans-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansDisplay-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansSymbols-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoSansUI-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# License
 	cd "${srcdir}/noto-fonts-${_commit}"
