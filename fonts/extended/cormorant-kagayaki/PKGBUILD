@@ -2,9 +2,9 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=cormorant-kagayaki
-pkgver=3.502
-_commit=5a38b55
-pkgrel=2
+pkgver=3.504
+_commit=555c831adc3a6797dcd9bce174b716c2dfb68c56
+pkgrel=1
 pkgdesc="The Cormorant Typeface"
 arch=('any')
 license=('custom: OFL')
@@ -13,7 +13,7 @@ depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-font-utils')
 url='https://www.behance.net/gallery/28579883/Cormorant-an-open-source-display-font-family'
 source=("https://github.com/CatharsisFonts/Cormorant/archive/$_commit.zip"
 		42-cormorant.conf)
-sha256sums=('233542cc86e9399747fd057f14b6868103ec7ccc31e7c312eb74cae672c9e071'
+sha256sums=('4b8edbeac691a9e68e9334cb5de225dfced968465df20bb673f7a396ac35f320'
             'feb0f3aa71d2209c7fcd0b16ca8505d925efc7b5824c5c5703f0e0f598815e55')
 
 package() {
