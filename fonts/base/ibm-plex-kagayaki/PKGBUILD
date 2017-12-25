@@ -1,0 +1,50 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=ibm-plex-kagayaki
+pkgdesc="The package of IBM’s new typeface, IBM Plex"
+_pkgver=2017-12-19
+_commit=4aae4cb385b90220d77b1e2396027d0f993099ec
+pkgver=${_pkgver//-}
+pkgrel=1
+arch=('any')
+url="https://ibm.github.io/type/"
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+groups=('kagayaki-bundle-fonts')
+license=('custom:OFL')
+source=("https://github.com/IBM/type/archive/${_commit}.zip"
+	41-ibm-plex.conf)
+sha256sums=('f21d9b0287533c288418feb175c6d9858b88e8a5f45a7a7b18727fd0dabbe1e4'
+            '357fe6842f0209ab2aa9ea8e042e25be460cff47254dff9de7593afefb9d6d14')
+
+package() {
+	# Mono
+	cd "${srcdir}/type-${_commit}/fonts/Mono/desktop/mac"
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Sans
+	cd "${srcdir}/type-${_commit}/fonts/Sans/desktop/mac"
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Serif
+	cd "${srcdir}/type-${_commit}/fonts/Serif/desktop/mac"
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# License
+	cd "${srcdir}/type-${_commit}"
+	install -Dm644 "LICENSE.md" \
+		"${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
+	
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m644 41-ibm-plex.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/41-ibm-plex.conf
+	
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/41-ibm-plex.conf .
+}
+
