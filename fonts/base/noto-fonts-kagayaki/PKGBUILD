@@ -2,8 +2,8 @@
 
 pkgbase=noto-fonts-kagayaki
 pkgname=('noto-fonts-cros-kagayaki' 'noto-fonts-sans-kagayaki' 'noto-fonts-serif-kagayaki' 'noto-fonts-mono-kagayaki' 'noto-fonts-extras-kagayaki')
-_pkgver=2017-12-19
-_commit=8febcaa8d952bc4e649eca69539d299742a8e51d
+_pkgver=2018-01-12
+_commit=73683215d976115b8f0f11f3e4e61bb116709924
 pkgver=${_pkgver//-}
 pkgrel=1
 arch=('any')
@@ -15,7 +15,7 @@ source=("https://github.com/googlei18n/noto-fonts/archive/${_commit}.zip"
 	41-noto-serif.conf
 	41-noto-mono.conf
 	41-noto-extras.conf)
-sha256sums=('080a38f1d5505b9e3179c4263cb1162920473407007188aed2c979b003515ad2'
+sha256sums=('584de9fcb0f95ba8ed9995b277a1d4af302bdd86b41d197d4186758aaf9edfb7'
             'a079ddbdcb1b9f2b2bb31f373fa5d135aaff57a06b590faffc1dbb71adf3fc0c'
             '6b1732b0216d214a41af4dbee4ead2758fa5a5e2e4d7267ecff7d797598c0d9b'
             '8f9a9444e1eb9f98ec213fa497e9d4f3b9c4c20cdc8e813f4cbc24d8ad59d983'
@@ -194,7 +194,6 @@ package_noto-fonts-mono-kagayaki() {
 	# Noto Mono
 	cd "${srcdir}/noto-fonts-${_commit}/hinted"
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoMono-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansMono-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# License
