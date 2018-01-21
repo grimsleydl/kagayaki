@@ -2,8 +2,8 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=symbola-kagayaki
-pkgver=9.17
-pkgrel=2
+pkgver=10.23
+pkgrel=1
 pkgdesc="Symbola is a free symbol-type font"
 arch=('any')
 url="http://users.teilar.gr/~g1951d/"
@@ -14,7 +14,7 @@ groups=('kagayaki-bundle-fonts')
 source=("http://users.teilar.gr/~g1951d/Symbola.zip"
         COPYING
         42-symbola.conf)
-sha256sums=('dcb4a8fd44a161f6531a00c4946b40824b17e1732205a422dc141e3f9f47c42b'
+sha256sums=('ff0706603b93238008ce1b76fdeeb83c23a470bd90fed56c2c64c6a052842c50'
             '78691fbb21caea139fd4105ea840c100cc3ce739b7430211d99ab5b15b14642e'
             'd5b833369a10a29da40af6458042a51aa9f7f7ca54dfe0c5326ec491d486a8df')
 
@@ -27,7 +27,7 @@ package(){
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 Symbola_hint.ttf \
+	install -m644 hintedSymbola.ttf \
 		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"/Symbola.ttf
 
 	# Install infinality conf
