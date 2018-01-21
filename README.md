@@ -1,46 +1,55 @@
 # kagayaki
 
-# Main fonts
-Helvetica || Arial {Nova || Unicode MS} => Roboto
-Helvetica Narrow || Arial Narrow => Roboto Condensed
-Times {New Roman} => Erewhon
-Courier {New} => Courier Prime
-{ITC} Avant Garde {Gothic} || Century Gothic => TeX Gyre Adventor
-ITC Bookman || Bookman Old Style => TeX Gyre Bonum
-{ITC Zapf || Apple} Chancery || Monotype Corsiva => TeX Gyre Chorus
-Palatino {Linotype} || Book Antiqua => TeX Gyre Pagella
-{New} Century {Schoolbook} => TeX Gyre Schola
+# Default fonts
 
-# Microsoft fonts
-Arial Black => Archivo Black
+Serif => Source Serif Pro
+
+Sans-serif => Source Sans Pro
+
+Monospace => Source Code Pro
+
+Emoji => Noto Color Emoji
+
+Fantasy => Oswald
+
+Cursive => TeX Gyre Chorus
+
+# Fonts override
+
+Arial => Noto Sans
+
 Calibri => Carlito
-Calisto MT => ???
-Cambria => Caladea
-Candara => ???
-Comic Sans MS => Signika
-Consolas => Source Code Pro
-Constantia => Merriweather
-Copperplate Gothic => ???
-Gabriola => ???
-Georgia {Pro} => Gelasio
-Gill Sans {MT || Nova} => Lato
-Impact => Oswald
-News Gothic MT => ???
-Rockwell Nova => ???
-Segoe UI => Noto Sans UI
-Segoe UI Symbol => Symbola
-Symbol => Symbola
-Tahoma => Luxi Sans
-Trebuchet {MS} => Ubuntu
-Verdana {Pro} => DejaVu Sans
-Wingdings => Symbola
 
-# Apple fonts
-Andale Mono => Source Code Pro
-Baskerville => Libre Baskerville
-Futura => TeX Gyre Adventor
-Geneva => Noto Sans
-Helvetica Neue => Open Sans
-Zapf Dingbats => Symbola
+Cambria => Caladea
+
+Century Schoolbook => TeX Gyre Schola
+
+Comic Sans MS => Comic Neue
+
+Consolas => Source Code Pro
+
+Courier => TeX Gyre Cursor
+
+Georgia => Gelasio
+
+Helvetica => TeX Gyre Heros
+
+Impact => Oswald
+
+ITC Avant Garde => TeX Gyre Adventor
+
+ITC Bookman => TeX Gyre Bonum
+
+ITC Zapf => TeX Gyre Chorus
+
+Palatino => TeX Gyre Pagella
+
+Symbol => Symbola
+
+Times New Roman => TeX Gyre Termes
+
+Trebuchet => Ubuntu
+
+Wingdings => Symbola
 
 ![Current browser rendering screenshot](https://github.com/julroy67/kagayaki/blob/master/screencapture-zipcon-net-swhite-docs-computers-browsers-fonttest-html-1484395755271.png)
