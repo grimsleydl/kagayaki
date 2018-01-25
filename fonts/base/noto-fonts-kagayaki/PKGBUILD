@@ -5,7 +5,7 @@ pkgname=('noto-fonts-cros-kagayaki' 'noto-fonts-sans-kagayaki' 'noto-fonts-serif
 _pkgver=2018-01-12
 _commit=73683215d976115b8f0f11f3e4e61bb116709924
 pkgver=${_pkgver//-}
-pkgrel=1
+pkgrel=2
 arch=('any')
 url="http://www.google.com/get/noto/"
 license=('custom:OFL')
@@ -17,10 +17,10 @@ source=("https://github.com/googlei18n/noto-fonts/archive/${_commit}.zip"
 	41-noto-extras.conf)
 sha256sums=('584de9fcb0f95ba8ed9995b277a1d4af302bdd86b41d197d4186758aaf9edfb7'
             'a079ddbdcb1b9f2b2bb31f373fa5d135aaff57a06b590faffc1dbb71adf3fc0c'
-            '6b1732b0216d214a41af4dbee4ead2758fa5a5e2e4d7267ecff7d797598c0d9b'
-            '8f9a9444e1eb9f98ec213fa497e9d4f3b9c4c20cdc8e813f4cbc24d8ad59d983'
+            '061fd139319ad4ae7ee83e98a1cfcd0602cfb71b8d4b5266f61d7a2d955ec3f1'
+            'c49d51489a7b3106e98ad679a527a20487bb25fb9b3ac99db51e9c9fc42cf7e1'
             '5c9fbc67363f4b10a2746f7441811b3db0172b8618a693de247e8556a91edc5c'
-            '09b0a1f35cd2d28a37dc1c57785e605525278825ebdf7e666dff447bf4c5f215')
+            'beaef190d862e6f80afd9391bf2880cce5751c61285906e6b561178d3b923a39')
 
 package_noto-fonts-cros-kagayaki() {
 	pkgdesc="Google Noto TTF fonts (CROS)"
@@ -60,8 +60,6 @@ package_noto-fonts-sans-kagayaki() {
 	# Noto Sans
 	cd "${srcdir}/noto-fonts-${_commit}/hinted"
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoNaskhArabic-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoNaskhArabicUI-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansAdlam-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansAdlamUnjoined-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansArabic-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -90,6 +88,7 @@ package_noto-fonts-sans-kagayaki() {
 	install -m644 NotoSansHebrew-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansKannada-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansKannadaUI-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 NotoSansKayahLi-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansKhmer-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansKhmerUI-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansLao-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -149,7 +148,8 @@ package_noto-fonts-serif-kagayaki() {
 	# Noto Serif
 	cd "${srcdir}/noto-fonts-${_commit}/hinted"
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoKufiArabic-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 NotoNaskhArabic-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 NotoNaskhArabicUI-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSerifArmenian-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSerifBengali-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSerifDevanagari-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -239,7 +239,6 @@ package_noto-fonts-extras-kagayaki() {
 	install -m644 NotoSansInscriptionalParthian-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansJavanese-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansKaithi-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoSansKayahLi-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansKharoshthi-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansLepcha-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansLimbu-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
