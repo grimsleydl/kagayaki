@@ -1,0 +1,40 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=alegreya-sans-kagayaki
+pkgver=2.006
+pkgrel=1
+pkgdesc="Alegreya is a typeface originally intended for literature"
+arch=('any')
+url="https://www.huertatipografica.com/en/fonts/alegreya-sans-ht"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+groups=('kagayaki-bundle-fonts')
+source=("https://github.com/huertatipografica/Alegreya-Sans/archive/v${pkgver}.tar.gz"
+        42-alegreya-sans.conf)
+sha256sums=('da5bbacf00f95dcc1031d5a85ce50580b6bee9df2337a9c664400f7b46c54057'
+            'faac8924a48045831b63fdf073e85afb79b83779263cec9173420007612a4bd8')
+
+package(){
+	cd "${srcdir}/Alegreya-Sans-${pkgver}"
+
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	cd "fonts/otf"
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 AlegreyaSans-*.otf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-alegreya-sans.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-alegreya-sans.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-alegreya-sans.conf .
+}
