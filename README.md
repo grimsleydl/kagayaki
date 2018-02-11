@@ -52,4 +52,4 @@ Trebuchet => Ubuntu
 
 Wingdings => Symbola
 
-![Current browser rendering screenshot](https://github.com/julroy67/kagayaki/blob/master/screencapture-zipcon-net-swhite-docs-computers-browsers-fonttest-html-1484395755271.png)
+![Current browser rendering screenshot](https://github.com/julroy67/kagayaki/blob/master/docs_index.html.png)
