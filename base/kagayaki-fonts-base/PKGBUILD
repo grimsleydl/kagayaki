@@ -8,7 +8,7 @@ pkgdesc="kagayaki-bundle-fonts base collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
 license=('GPL' 'MIT')
-provides=('ttf-font' 'xorg-fonts-misc')
+provides=('ttf-font' 'ttf-dejavu' 'xorg-fonts-misc')
 depends=('fontconfig'
          'freetype2'
          'cairo'
