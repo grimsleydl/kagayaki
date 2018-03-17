@@ -1,9 +1,8 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
-# Contributor: bohoomil <@zoho.com>
 
 pkgname=kagayaki-fonts-base
-pkgver=2
-pkgrel=11
+pkgver=3
+pkgrel=1
 pkgdesc="kagayaki-bundle-fonts base collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
@@ -14,7 +13,7 @@ depends=('fontconfig'
          'cairo'
          'caladea-kagayaki'
          'carlito-kagayaki'
-         'dejavu-kagayaki'
+         'ibm-plex-kagayaki'
          'noto-emoji-kagayaki'
          'noto-fonts-cros-kagayaki'
          'noto-fonts-sans-kagayaki'
@@ -30,7 +29,7 @@ optdepends=('kagayaki-fonts-extended: Extended font collection'
 source=('xft-settings.sh'
         'local.conf')
 sha1sums=('c95f6e2c8b89ad8b66ad97cfa4153257c70c271e'
-          '6e145d851c97329e52bd89571495ef16c3a44d2d')
+          '9ca76226d0e38d428cddfeba49ebb216d62dd815')
 
 package() {
 	# kagayaki settings
