@@ -2,8 +2,8 @@
 
 pkgbase=noto-fonts-kagayaki
 pkgname=('noto-fonts-cros-kagayaki' 'noto-fonts-sans-kagayaki' 'noto-fonts-serif-kagayaki' 'noto-fonts-mono-kagayaki' 'noto-fonts-extras-kagayaki')
-_pkgver=2018-03-16
-_commit=4191d2e207055a432dd7cd4c4c52b646a9b7010d
+_pkgver=2018-03-23
+_commit=b207fc31b093948dfc6d77b47042ce2f335bc631
 pkgver=${_pkgver//-}
 pkgrel=1
 arch=('any')
@@ -15,12 +15,12 @@ source=("https://github.com/googlei18n/noto-fonts/archive/${_commit}.zip"
 	41-noto-serif.conf
 	41-noto-mono.conf
 	41-noto-extras.conf)
-sha256sums=('f138e68741ea9ebf76b622d805442ffe73b6e9d85db0c3280e21efa13c813507'
+sha256sums=('1beed214746db7731483651c22bbea92ba63cd466d1b0dfb9c55e9889b4ed67f'
             'a079ddbdcb1b9f2b2bb31f373fa5d135aaff57a06b590faffc1dbb71adf3fc0c'
             '061fd139319ad4ae7ee83e98a1cfcd0602cfb71b8d4b5266f61d7a2d955ec3f1'
             'c49d51489a7b3106e98ad679a527a20487bb25fb9b3ac99db51e9c9fc42cf7e1'
             '2bb46f3f7952401283d6b081630651b2ac137ce0b85e00da7af3b2a86e373fb6'
-            '98e390a43ef0cccc790d9f5e7711cd9a70f232287bc9ac50131a751d287166ba')
+            'ed0759e99925a4f424f04d39a712c91b7c52064e283988c40ab8a8c5d5967378')
 
 package_noto-fonts-cros-kagayaki() {
 	pkgdesc="Google Noto TTF fonts (CROS)"
@@ -224,7 +224,6 @@ package_noto-fonts-extras-kagayaki() {
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoNastaliqUrdu-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansBalinese-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoSansCanadianAboriginal-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansJavanese-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansMongolian-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansSyriacEastern-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -240,6 +239,7 @@ package_noto-fonts-extras-kagayaki() {
 	install -m644 NotoSansBhaiksuki/NotoSansBhaiksuki-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansBrahmi/NotoSansBrahmi-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansBuginese/NotoSansBuginese-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 NotoSansCanadianAboriginal/NotoSansCanadianAboriginal-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansCham/NotoSansCham-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansCoptic/NotoSansCoptic-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansCuneiform/NotoSansCuneiform-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -259,6 +259,7 @@ package_noto-fonts-extras-kagayaki() {
 	install -m644 NotoSansLycian/NotoSansLycian-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansLydian/NotoSansLydian-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansMandaic/NotoSansMandaic-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 NotoSansManichaean/NotoSansManichaean-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansMarchen/NotoSansMarchen-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansMeeteiMayek/NotoSansMeeteiMayek-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansMendeKikakui/NotoSansMendeKikakui-*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
