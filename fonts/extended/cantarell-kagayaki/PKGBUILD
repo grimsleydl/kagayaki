@@ -3,40 +3,34 @@
 # Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgname=cantarell-kagayaki
-_basename=cantarell-fonts
-pkgver=0.024
-_commit=4fc722f
-pkgrel=3
+pkgver=0.101
+pkgrel=1
 pkgdesc="Cantarell font family"
 arch=('any')
 url="https://github.com/GNOME/cantarell-fonts"
 license=('GPL2')
 depends=('fontconfig')
-makedepends=('gnome-common')
 provides=('cantarell-fonts')
 conflicts=('cantarell-fonts' 'otf-cantarell-kagayaki')
 groups=('kagayaki-bundle-fonts-extra')
-source=("https://github.com/GNOME/cantarell-fonts/archive/$_commit.zip"
+source=("https://github.com/GNOME/cantarell-fonts/archive/${pkgver}.tar.gz"
         42-cantarell.conf)
-sha1sums=('c6cc8fe18c43bab159bb663f7e080ebef49b8988'
+sha1sums=('1692e64da6dacf0ccb246ab2ff81e461f4f441d6'
           'c74af297a94a88b22a283d3fcec9a2f328fe467f')
 
-build() {
-	cd "${_basename}"-*
-	./autogen.sh --prefix=/usr \
-		--with-fontdir=/usr/share/fonts/kagayaki/${pkgname} \
-		--with-configdir=/etc/fonts/conf.avail
-	make
-}
-
 package() {
-	cd "${_basename}"-*
+	cd cantarell-fonts-${pkgver}/prebuilt
 	
-	make DESTDIR="${pkgdir}" install
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 Cantarell-*.otf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
+	# Install infinality conf
+	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 ../42-cantarell.conf \
+	install -m644 42-cantarell.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/42-cantarell.conf
 	
 	cd "${pkgdir}"/etc/fonts/conf.d
