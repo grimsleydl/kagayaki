@@ -1,20 +1,20 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 # Contributor: bohoomil <@zoho.com>
 
-pkgname=merriweather-kagayaki
-pkgver=2.002
+pkgname=merriweather-sans-kagayaki
+pkgver=1.006
 pkgrel=1
-pkgdesc="Merriweather Serif font family by Eben Sorkin"
+pkgdesc="Merriweather Sans font family by Eben Sorkin"
 arch=('any')
 url="http://sorkintype.com"
 license=('custom:OFL')
 depends=('fontconfig')
 conflicts=('ttf-merriweather-kagayaki')
 groups=('kagayaki-bundle-fonts')
-source=("https://fonts.google.com/download?family=Merriweather"
-        42-merriweather.conf)
-sha256sums=('5eaf3ba2fe1af3a5db38679e7df946038301a1f2ce18d587d19e2e2f1307c6e8'
-            'd95122825d50132cc26ab9816a5f04eb42198c8a5816e08571a5927e2813b8fd')
+source=("https://fonts.google.com/download?family=Merriweather%20Sans"
+        42-merriweather-sans.conf)
+sha256sums=('af0aa1c23b5f41656d52fb97887f6b3deb27f09a0114ff6cf0b631a6eff29bb3'
+            '97b32a042306b27a6c989242adf98559761799c768b9d79eb735d9bec12d7f8d')
 
 package(){
 	cd "${srcdir}"
@@ -30,9 +30,9 @@ package(){
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
-	install -m644 42-merriweather.conf \
-		"${pkgdir}"/etc/fonts/conf.avail/42-merriweather.conf
+	install -m644 42-merriweather-sans.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-merriweather-sans.conf
 
 	cd "${pkgdir}"/etc/fonts/conf.d
-	ln -s ../conf.avail/42-merriweather.conf .
+	ln -s ../conf.avail/42-merriweather-sans.conf .
 }
