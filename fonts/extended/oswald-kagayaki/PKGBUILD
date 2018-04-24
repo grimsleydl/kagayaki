@@ -2,22 +2,22 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=oswald-kagayaki
-pkgver=3.0
-pkgrel=2
+pkgver=4.100
+pkgrel=1
 pkgdesc="Oswald is a reworking of the classic Gothic and Grotesque type styles"
 arch=('any')
-url="https://github.com/vernnobile/OswaldFont"
+url="https://fonts.google.com/specimen/Oswald"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('otf-oswald-kagayaki')
 groups=('kagayaki-bundle-fonts-extra')
-source=("git+https://github.com/vernnobile/OswaldFont.git"
+source=("https://fonts.google.com/download?family=Oswald"
         42-oswald.conf)
-md5sums=('SKIP'
-         'af704c702283d7ab7f875081c697c309')
+sha256sums=('c5f1eb07d8ec4c1d22ad50f127cfe6b03e122039f3ffb82fede35ca3e88ce7a8'
+            '1683f5e46896b83b0b4cc4970a682f4c262b98d94be6962743b02f991bfc7d5a')
 
 package(){
-	cd "${srcdir}/OswaldFont/3.0"
+	cd "${srcdir}"
 
 	# Install license
 	install -Dm644 "OFL.txt" \
@@ -25,9 +25,7 @@ package(){
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 Italic/[2-8]00/src/*.otf \
-		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 Roman/[2-8]00/src/*.otf \
+	install -m644 Oswald-*.ttf \
 		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf
