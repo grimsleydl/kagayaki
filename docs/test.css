@@ -1,0 +1,124 @@
+div {
+    margin: 15px;
+    margin-bottom: 40px;
+}
+
+p {
+    margin: 2pt;
+    padding: 0pt;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    text-align: center;
+    font-size: 32pt;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #424242;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(200, 200, 200);
+}
+
+tr:hover {
+    background-color: grey;
+}
+
+.reserved {
+    background-color: rgb(200, 200, 200);
+}
+
+#serif, .serif {
+    font-family: serif;
+}
+
+#sans-serif, .sans-serif {
+    font-family: sans-serif;
+}
+
+#monospace, .monospace {
+    font-family: monospace;
+}
+
+#cursive {
+    font-family: cursive;
+}
+
+#fantasy {
+    font-family: fantasy;
+}
+
+#emoji {
+    font-family: emoji;
+}
+
+#helvetica {
+    font-family: 'Helvetica';
+}
+
+#helvetica_narrow {
+    font-family: 'Helvetica Narrow';
+}
+
+#times {
+    font-family: 'Times';
+}
+
+#courier {
+    font-family: 'Courier';
+}
+
+#itc_avant_garde_gothic {
+    font-family: 'ITC Avant Garde Gothic';
+}
+
+#itc_bookman {
+    font-family: 'ITC Bookman';
+}
+
+#itc_zapf_chancery {
+    font-family: 'ITC Zapf Chancery';
+}
+
+#palatino {
+    font-family: 'Palatino';
+}
+
+#new_century_schoolbook {
+    font-family: 'New Century Schoolbook';
+}
+
+#arial {
+    font-family: 'Arial';
+}
+
+#arial_narrow {
+    font-family: 'Arial Narrow';
+}
+
+#times_new_roman {
+    font-family: 'Times New Roman';
+}
+
+#courier_new {
+    font-family: 'Courier New';
+}
+
+#cambria {
+    font-family: 'Cambria';
+}
+
+#calibri {
+    font-family: 'Calibri';
+}
+
+#georgia {
+    font-family: 'Georgia';
+}
