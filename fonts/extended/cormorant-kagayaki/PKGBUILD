@@ -4,17 +4,17 @@
 pkgname=cormorant-kagayaki
 pkgver=3.504
 _commit=555c831adc3a6797dcd9bce174b716c2dfb68c56
-pkgrel=1
-pkgdesc="The Cormorant Typeface"
+pkgrel=2
+pkgdesc="Cormorant is a free display type family developed by Christian Thalmann"
 arch=('any')
 license=('custom: OFL')
 conflicts=('ttf-cormorant-kagayaki' 'ttf-cormorant')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-font-utils')
-url='https://www.behance.net/gallery/28579883/Cormorant-an-open-source-display-font-family'
+url='https://github.com/CatharsisFonts/Cormorant'
 source=("https://github.com/CatharsisFonts/Cormorant/archive/$_commit.zip"
 		42-cormorant.conf)
 sha256sums=('4b8edbeac691a9e68e9334cb5de225dfced968465df20bb673f7a396ac35f320'
-            'feb0f3aa71d2209c7fcd0b16ca8505d925efc7b5824c5c5703f0e0f598815e55')
+            '34c99d0388d7fef0df9acf8739e7c540f9e3fe21a8f89b40f8db8168553ed0c8')
 
 package() {
 	cd "${srcdir}"/Cormorant-*
@@ -25,7 +25,9 @@ package() {
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 "2. OpenType Files/"*.otf \
+	install -m644 "2. OpenType Files/"Cormorant-*.otf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 "2. OpenType Files/"CormorantGaramond-*.otf \
 		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf

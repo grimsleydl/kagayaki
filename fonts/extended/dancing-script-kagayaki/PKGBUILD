@@ -1,0 +1,38 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=dancing-script-kagayaki
+pkgver=2.000
+pkgrel=1
+pkgdesc="Dancing Script is a lively casual script where the letters bounce and change size slightly"
+arch=('any')
+url="https://fonts.google.com/specimen/Dancing+Script"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+groups=('kagayaki-bundle-fonts')
+source=("https://fonts.google.com/download?family=Dancing%20Script"
+        42-dancing-script.conf)
+sha256sums=('aff060ece5661ebbd30b15d63b905975bc7eb425a0dc2b6acf068c3e433b6b10'
+            '91db55d7fa4c503ed507c23cec96afd406f2089d69d32ee736c178e61b60dd52')
+
+package(){
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 DancingScript-*.ttf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-dancing-script.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-dancing-script.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-dancing-script.conf .
+}

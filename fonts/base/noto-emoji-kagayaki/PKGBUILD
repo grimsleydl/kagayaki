@@ -3,8 +3,8 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=noto-emoji-kagayaki
-pkgver=2.004
-_commit=153e1d4c026c124fbac6ee93e559b5df375f24f5
+pkgver=2.011
+_commit=b73feb8bc5b4a98c37883e700d6deb58a497de62
 pkgrel=1
 pkgdesc="Google Noto emoji fonts"
 arch=('any')
@@ -14,7 +14,7 @@ depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir'
 conflicts=('ttf-noto-emoji-kagayaki' 'noto-fonts-emoji')
 source=("https://github.com/googlei18n/noto-emoji/archive/$_commit.zip"
         41-noto-emoji.conf)
-sha256sums=('da62d5c87f80ec41ff83efaa4aca2018fe1fc7d9d3efd718ea63993d75054267'
+sha256sums=('9f7cc22b87be6e8c0ed2c55b3d0f4134ce1b5c1398823b367060ca5a33581ea3'
             'a7885d9bf967dc4c18ec8818d791365f1682ff03732d2dccc19dc8b907fe6543')
 
 package() {

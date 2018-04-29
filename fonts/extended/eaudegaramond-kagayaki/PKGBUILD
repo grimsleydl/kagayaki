@@ -1,0 +1,40 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=eaudegaramond-kagayaki
+pkgver=0.001
+_commit=d4170ff5e7a0d0d93254be98298c3f86aba18169
+pkgrel=1
+pkgdesc="Eau de Garamond is a free display type family developed by Christian Thalmann"
+arch=('any')
+license=('custom: OFL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-font-utils')
+url='https://github.com/CatharsisFonts/EauDeGaramond'
+source=("https://github.com/CatharsisFonts/EauDeGaramond/archive/$_commit.zip"
+		42-eaudegaramond.conf)
+sha256sums=('6c3647ff0ec1005d14c4a3cffd877ae697fa2cc6de38cefdb2e3bd0497953cd5'
+            '6f03ccd23c5bc5aae38a0beb16b2799189a0d55b68bf383765a128841a3be92b')
+
+package() {
+	cd "${srcdir}"/EauDeGaramond-*
+
+	# Install license
+	install -Dm644 "OFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 "2. OpenType Font Files/"EauTest-*.otf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 "2. OpenType Font Files/"EauTestText-*.otf \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m644 42-eaudegaramond.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/42-eaudegaramond.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/42-eaudegaramond.conf .
+}
