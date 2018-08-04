@@ -2,8 +2,8 @@
 
 pkgname=ibm-plex-kagayaki
 pkgdesc="The package of IBM’s new typeface, IBM Plex"
-_pkgver=2018-02-24
-_commit=66de634618fdaf7cf2d0bb3fc4ed52bed2ce30dc
+_pkgver=2018-08-01
+_commit=8c5ccb5463f695341a0c1a3230b1a1cc2042b389
 pkgver=${_pkgver//-}
 pkgrel=1
 arch=('any')
@@ -11,9 +11,9 @@ url="https://ibm.github.io/type/"
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 groups=('kagayaki-bundle-fonts')
 license=('custom:OFL')
-source=("https://github.com/IBM/plex/archive/${_commit}.zip"
-	41-ibm-plex.conf)
-sha256sums=('c866c3e03e6490b270687a29a504d66388738b39c30784e22d7abfde21c60836'
+source=(https://github.com/IBM/plex/archive/${_commit}.zip
+		41-ibm-plex.conf)
+sha256sums=('2f02ce23d4d419366a92a4f1a6a380ac61f899bd5ab3b88e2b5a44d9710abd6e'
             '316bde9fd9b3df984fa014606c5a522a85beb71c9e94e4418aa36f2a19bcdee0')
 
 package() {
@@ -52,4 +52,3 @@ package() {
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/41-ibm-plex.conf .
 }
-
