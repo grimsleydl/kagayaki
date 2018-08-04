@@ -3,8 +3,9 @@
 # Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgname=cantarell-kagayaki
-pkgver=0.101
+pkgver=0.0.25
 pkgrel=1
+epoch=1
 pkgdesc="Cantarell font family"
 arch=('any')
 url="https://github.com/GNOME/cantarell-fonts"
@@ -15,11 +16,11 @@ conflicts=('cantarell-fonts' 'otf-cantarell-kagayaki')
 groups=('kagayaki-bundle-fonts-extra')
 source=("https://github.com/GNOME/cantarell-fonts/archive/${pkgver}.tar.gz"
         42-cantarell.conf)
-sha1sums=('1692e64da6dacf0ccb246ab2ff81e461f4f441d6'
+sha1sums=('9357b0e3bf72c880d4d07295822dcc1129237ec3'
           'c74af297a94a88b22a283d3fcec9a2f328fe467f')
 
 package() {
-	cd cantarell-fonts-${pkgver}/prebuilt
+	cd cantarell-fonts-${pkgver}/otf
 	
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
