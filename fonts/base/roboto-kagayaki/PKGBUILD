@@ -3,13 +3,14 @@
 
 pkgname=roboto-kagayaki
 pkgver=2.138
-pkgrel=3
+pkgrel=4
 pkgdesc="Google's signature family of fonts"
 arch=('any')
 url="https://github.com/google/roboto"
 license=('Apache')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('ttf-roboto-kagayaki' 'ttf-roboto')
+provides=('ttf-roboto')
 groups=('kagayaki-bundle-fonts')
 source=("https://github.com/google/roboto/releases/download/v${pkgver}/roboto-android.zip"
         41-roboto.conf)
