@@ -2,8 +2,8 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=vollkorn-kagayaki
-pkgver=4.015
-pkgrel=2
+pkgver=4.105
+pkgrel=1
 pkgdesc="Vollkorn typeface by Friedrich Althausen"
 arch=('any')
 url="http://vollkorn-typeface.com/"
@@ -13,7 +13,7 @@ conflicts=('otf-vollkorn-kagayaki')
 groups=('kagayaki-bundle-fonts-extra')
 source=("http://vollkorn-typeface.com/download/vollkorn-${pkgver//./-}.zip"
         42-vollkorn.conf)
-sha256sums=('b5cb2bb11e9a9f19f6af09bba84f905f22c5c19619ee4424742dc73caa09dce5'
+sha256sums=('e650ea9d967c2af1e9b8d34e1118721728bcd73ccfd3220da4264661301e8af5'
             '5e40c01faf1ae8984b5e4600064df83f3df97579812a419b8fba14b87ae77619')
 
 package(){
