@@ -2,19 +2,19 @@
 
 pkgname=ibm-plex-kagayaki
 pkgdesc="The package of IBM’s new typeface, IBM Plex"
-_pkgver=2018-08-22
-_commit=f0efc637520860b607892c7ed59d9857f43ea39e
+_pkgver=2018-10-17
+_commit=13fcf5d20efbd75f39a2a449863d668f45343f26
 pkgver=${_pkgver//-}
 pkgrel=1
 arch=('any')
-url="https://ibm.github.io/type/"
+url="https://github.com/IBM/plex"
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 groups=('kagayaki-bundle-fonts')
 license=('custom:OFL')
 source=(https://github.com/IBM/plex/archive/${_commit}.zip
 		41-ibm-plex.conf)
-sha256sums=('73db9eaeb98b96c247279a0f6652e907b07d51759483296eec061f3016946393'
-            '316bde9fd9b3df984fa014606c5a522a85beb71c9e94e4418aa36f2a19bcdee0')
+sha256sums=('6d454e078f70adeb3a581cfed8a597105d983b34c2baa5474b8b23a69311e666'
+            '5fdf3db45d134b268ca31c721cd2879272822ff6d3a04abd4e4ef16ae00da113')
 
 package() {
 	# Mono
@@ -32,8 +32,18 @@ package() {
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
+	# Sans Hebrew
+	cd "${srcdir}/plex-${_commit}/IBM-Plex-Sans-Hebrew/fonts/complete/otf"
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
 	# Serif
 	cd "${srcdir}/plex-${_commit}/IBM-Plex-Serif/fonts/complete/otf"
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Thai
+	cd "${srcdir}/plex-${_commit}/IBM-Plex-Thai/fonts/complete/otf"
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
@@ -41,14 +51,14 @@ package() {
 	cd "${srcdir}/plex-${_commit}"
 	install -Dm644 "LICENSE.txt" \
 		"${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
-	
+
 	# Install infinality conf
 	cd "${srcdir}"
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m644 41-ibm-plex.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/41-ibm-plex.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/41-ibm-plex.conf .
 }
