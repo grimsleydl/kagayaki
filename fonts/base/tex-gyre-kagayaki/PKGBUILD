@@ -2,34 +2,34 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=tex-gyre-kagayaki
-pkgver=2.005
-pkgrel=2
+pkgver=2.501
+_folder=tg2_501otf
+pkgrel=1
 pkgdesc="The TeX Gyre Collection of Fonts"
 arch=('any')
 url="http://www.gust.org.pl/projects/e-foundry/tex-gyre/"
 license=('GFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 provides=('gsfonts')
-replaces=('otf-tex-gyre-kagayaki' 'tex-gyre-fonts')
 groups=('kagayaki-bundle-fonts')
-source=("http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/tg-${pkgver}otf.zip"
+source=("http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/${_folder}.zip"
         GFL.txt
         41-tex-gyre.conf)
-sha256sums=('6158bdb106e5b017743cb6e9ddb6ad4c7153e82fafadd6eb5d62c9f3064df04e'
-            '5752b69cd0a5c1ed27242d672ce3031ac9ed4e3a1ba2265db3676cf2689f67c1'
+sha256sums=('d7f8be5317bec4e644cf16c5abf876abeeb83c43dbec0ccb4eee4516b73b1bbe'
+            'a746108477b2fa685845e7596b7ad8342bc358704b2b7da355f2df0a0cb8ad85'
             'd3db533bfdb0e9370593fa4c9eeb212dfef3b7c1873751acfb7455dc855dcea0')
 
 package(){
-	cd "${srcdir}"
-
-	# Install license
-	install -Dm644 "GFL.txt" \
-		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
-
+	cd "${srcdir}/${_folder}"
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 *.otf \
 		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	cd "${srcdir}"
+	# Install license
+	install -Dm644 "GFL.txt" \
+		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
