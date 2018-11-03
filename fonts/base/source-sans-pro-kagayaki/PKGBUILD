@@ -1,8 +1,7 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 
 pkgname=source-sans-pro-kagayaki
-_pkgver=2017-08-15
-_commit=ff3bdec0a9ed367bfd6b05572f5dabebf030e7bb
+_pkgver=2018-10-24
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Sans serif font family for user interface environments"
@@ -10,29 +9,22 @@ arch=('any')
 url="http://adobe-fonts.github.io/source-sans-pro"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
-makedepends=('afdko')
 groups=('kagayaki-bundle-fonts')
-source=("https://github.com/adobe-fonts/source-sans-pro/archive/${_commit}.zip"
+source=("https://github.com/adobe-fonts/source-sans-pro/releases/download/2.040R-ro%2F1.090R-it/source-sans-pro-2.040R-ro-1.090R-it.zip"
 		42-source-sans-pro.conf)
-sha256sums=('261b94c1877556913c0071bacc1e59a9a018d5fc1235490b703a5489f45412b4'
+sha256sums=('dec6fa04d142762a9051dc36be356291a9cf5864466539e2712879370d88818c'
             'ff03ede040aa38d3d5365eb7eefa666ba2bc1e041e168a4d7377a98a349df39d')
 
-build(){
-	cd "${srcdir}/source-sans-pro-${_commit}"
-
-	sh build.sh
-}
-
 package(){
-	cd "${srcdir}/source-sans-pro-${_commit}"
+	cd "${srcdir}/source-sans-pro-release"
 
 	# Install license
-	install -Dm644 "LICENSE.md" \
+	install -Dm644 "LICENSE.txt" \
 		"${pkgdir}"/usr/share/licenses/"${pkgname}"/COPYING
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 target/OTF/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 OTF/*.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# Install infinality conf
 	cd "${srcdir}"

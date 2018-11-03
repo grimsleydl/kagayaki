@@ -1,7 +1,7 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 
 pkgname=source-serif-pro-kagayaki
-_pkgver=2018-08-17
+_pkgver=2018-08-18
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Serif typeface for setting text. Designed to complement Source Sans Pro"
@@ -10,13 +10,13 @@ url="http://adobe-fonts.github.io/source-serif-pro"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 groups=('kagayaki-bundle-fonts')
-source=("https://github.com/adobe-fonts/source-serif-pro/archive/2.007R-ro/1.007R-it.tar.gz"
+source=("https://github.com/adobe-fonts/source-serif-pro/releases/download/2.007R-ro%2F1.007R-it/source-serif-pro-2.007R-ro-1.007R-it.zip"
 		42-source-serif-pro.conf)
-sha256sums=('8cc3c342fd783096711b7b73d9d4a63d6086f60ff3458dcb1913376ac44c9aeb'
+sha256sums=('8b30f8a7b75e176626287b1cec882bd94863ea2f3ef515881becd93ba6300328'
             '0a235b05e6ece74e7c37c8c55278efcc1b5dfe6d9a189ecbe0cddbe714a219dc')
 
 package(){
-	cd "${srcdir}/source-serif-pro-2.007R-ro-1.007R-it"
+	cd "${srcdir}"
 
 	# Install license
 	install -Dm644 "LICENSE.txt" \
