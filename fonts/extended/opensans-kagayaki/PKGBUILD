@@ -22,13 +22,13 @@ package(){
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 OpenSans-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	
+
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m644 42-opensans.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/42-opensans.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/42-opensans.conf .
 }

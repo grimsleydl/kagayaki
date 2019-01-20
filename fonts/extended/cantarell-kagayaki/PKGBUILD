@@ -3,26 +3,45 @@
 # Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgname=cantarell-kagayaki
-pkgver=0.0.25
+pkgver=0.111
 pkgrel=1
 epoch=1
-pkgdesc="Cantarell font family"
+_commit=974b3ace718856c730c616ea35e61f5ebc082b5e
+pkgdesc="Humanist sans serif font"
 arch=('any')
-url="https://github.com/GNOME/cantarell-fonts"
-license=('GPL2')
+url="https://gitlab.gnome.org/GNOME/cantarell-fonts"
+license=(custom:SIL)
+makedepends=('meson' 'appstream-glib' 'git')
 depends=('fontconfig')
 provides=('cantarell-fonts')
 conflicts=('cantarell-fonts' 'otf-cantarell-kagayaki')
 groups=('kagayaki-bundle-fonts-extra')
-source=("https://github.com/GNOME/cantarell-fonts/archive/${pkgver}.tar.gz"
+source=("git+https://gitlab.gnome.org/GNOME/cantarell-fonts.git#commit=$_commit"
         42-cantarell.conf)
-sha1sums=('9357b0e3bf72c880d4d07295822dcc1129237ec3'
-          'c74af297a94a88b22a283d3fcec9a2f328fe467f')
+sha256sums=('SKIP'
+            'f82eaf17840ad7e71cbfe4ce55ec4d8725adce4174a26cf9be79c48dab95b433')
+
+pkgver() {
+  cd $pkgname
+  git describe --tags | sed 's/^v//;s/-/+/g'
+}
+
+prepare() {
+  python -m venv venv
+  venv/bin/pip install fontmake psautohint
+  cd $pkgname
+}
+
+build() {
+  PATH="$srcdir/venv/bin:$PATH" arch-meson $pkgname build
+  ninja -C build
+}
 
 package() {
 	cd cantarell-fonts-${pkgver}/otf
-	
+
 	# Install font
+	DESTDIR="$pkgdir" meson install -C build
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 Cantarell-*.otf \
 		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -33,7 +52,7 @@ package() {
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m644 42-cantarell.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/42-cantarell.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/42-cantarell.conf .
 }

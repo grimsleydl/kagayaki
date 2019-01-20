@@ -35,7 +35,7 @@ package(){
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m644 42-gelasio.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/42-gelasio.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/42-gelasio.conf .
 }
