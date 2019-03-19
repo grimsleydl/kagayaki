@@ -2,12 +2,12 @@
 
 pkgname=kagayaki-fonts-base
 pkgver=5
-pkgrel=1
+pkgrel=2
 pkgdesc="kagayaki-bundle-fonts base collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
 license=('GPL' 'MIT')
-provides=('ttf-font' 'ttf-dejavu' 'ttf-droid' 'xorg-fonts-misc')
+provides=('ttf-font' 'ttf-dejavu' 'ttf-droid' 'xorg-fonts-misc' 'adobe-source-code-pro-fonts')
 depends=('fontconfig'
          'freetype2'
          'cairo'
