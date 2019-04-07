@@ -2,8 +2,8 @@
 
 pkgname=ibm-plex-kagayaki
 pkgdesc="The package of IBM’s new typeface, IBM Plex"
-_pkgver=2018-12-19
-_commit=f37775bd62470ac0d0d7fc0ac9a8b59cbf26eb01
+_pkgver=2019-04-06
+_commit=c0cfad9f4829acf280ce4d88e31d23373fc3a41a
 pkgver=${_pkgver//-}
 pkgrel=1
 arch=('any')
@@ -13,10 +13,20 @@ groups=('kagayaki-bundle-fonts')
 license=('custom:OFL')
 source=("https://github.com/IBM/plex/archive/${_commit}.zip"
 		41-ibm-plex.conf)
-sha256sums=('aaa9cda670917520fcc6bd331e4a4b0290aee37b98a9d2745a95beca6119b9c6'
-            '5fdf3db45d134b268ca31c721cd2879272822ff6d3a04abd4e4ef16ae00da113')
+sha256sums=('e7589b757fb90a6bba663229b5648bbe44b7788bdb63a7aaa9dd6395cf3c50dd'
+            '40df3875df1240d167b3485e0541c8cbb61950f8f24c09fe63d7d91785a088bf')
 
 package() {
+	# Arabic
+	cd "${srcdir}/plex-${_commit}/IBM-Plex-Arabic/fonts/complete/otf"
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Devanagari
+	cd "${srcdir}/plex-${_commit}/IBM-Plex-Devanagari/fonts/complete/otf"
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
 	# Mono
 	cd "${srcdir}/plex-${_commit}/IBM-Plex-Mono/fonts/complete/otf"
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -47,8 +57,8 @@ package() {
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
-	# Devanagari
-	cd "${srcdir}/plex-${_commit}/IBM-Plex-Devanagari/fonts/complete/otf"
+	# Thai Looped
+	cd "${srcdir}/plex-${_commit}/IBM-Plex-Thai-Looped/fonts/complete/otf"
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
