@@ -1,7 +1,7 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 
 pkgname=source-han-sans-kagayaki
-pkgver=2.000
+pkgver=2.001
 pkgrel=1
 pkgdesc="Source Han Sans, designed by Ryoko Nishizuka, is the companion sans serif–style Pan-CJK typeface family to Source Han Sans"
 arch=('any')
@@ -10,10 +10,10 @@ license=('custom:SIL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 conflicts=('ttf-noto-fonts-cjk-kagayaki')
 groups=('kagayaki-bundle-fonts')
-source=("https://github.com/adobe-fonts/source-han-sans/releases/download/2.000R/SourceHanSans.ttc"
+source=("https://github.com/adobe-fonts/source-han-sans/releases/download/2.001R/SourceHanSans.ttc"
 		43-source-han-sans.conf
 		LICENSE.txt)
-sha256sums=('b26df6801f3c882c5d72aa4510527db4627aeaeee7b6e3bb7062bcee7252705d'
+sha256sums=('9e94fe493685a7c99ce61e4488169007e3b97badb9f1ef43d3c13da501463780'
             '23fdfcc62a1f575a7a3013a9907e5735d6f85431015fb71912c6e45793b06307'
             '9d30aaa9b7278806d2cacbf272b748a84d1bfd97efcc53bba1be4eb0be20c1c4')
 
