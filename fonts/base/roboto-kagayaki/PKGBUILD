@@ -24,13 +24,13 @@ package(){
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 Roboto*.ttf \
 		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	
+
 	# Install infinality conf
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
 	install -D -m644 41-roboto.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/41-roboto.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/41-roboto.conf .
 }

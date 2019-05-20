@@ -11,6 +11,9 @@
 *.log.*
 *.sig
 *.code-workspace
+*.ttf
+*.otf
+*.ttc
 
 pkg/
 src/

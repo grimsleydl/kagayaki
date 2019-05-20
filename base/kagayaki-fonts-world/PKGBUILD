@@ -1,13 +1,14 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 
 pkgname=kagayaki-fonts-world
-pkgver=2
-pkgrel=2
+pkgver=3
+pkgrel=1
 pkgdesc="kagayaki-bundle-fonts world collection package"
 arch=('any')
 url="https://github.com/julroy67/kagayaki"
 license=('GPL' 'MIT')
 depends=('kagayaki-fonts-base'
          'hanazono-kagayaki'
-         'noto-fonts-cjk-kagayaki'
-         'noto-fonts-extras-kagayaki')
+         'noto-fonts-extras-kagayaki'
+         'source-han-sans-kagayaki'
+         'source-han-serif-kagayaki')

@@ -2,8 +2,8 @@
 
 pkgbase=noto-fonts-kagayaki
 pkgname=('noto-fonts-cros-kagayaki' 'noto-fonts-sans-kagayaki' 'noto-fonts-serif-kagayaki' 'noto-fonts-mono-kagayaki' 'noto-fonts-extras-kagayaki')
-_pkgver=2018-10-20
-_commit=dbfc8a1858732279842454cac5da2ea1ff691a24
+_pkgver=2019-03-02
+_commit=c4e94171d04167796d0dd5e7a93e94b54ca29425
 pkgver=${_pkgver//-}
 pkgrel=1
 arch=('any')
@@ -15,12 +15,12 @@ source=("https://github.com/googlei18n/noto-fonts/archive/${_commit}.zip"
 	41-noto-serif.conf
 	41-noto-mono.conf
 	41-noto-extras.conf)
-sha256sums=('54724fb4ea971efcf474cd193c4f45315800c89232dbf5ffd2d4c8ad2e39ee3a'
+sha256sums=('d19752f04dc646e5b34cf447a91e7e9c659031c117c5de0a86021749cda9ffd4'
             'a079ddbdcb1b9f2b2bb31f373fa5d135aaff57a06b590faffc1dbb71adf3fc0c'
-            'ab6ab1c022739c661cd88b76bc85e852d8ed9094cfc1582ffdc534882f16b850'
+            'ef116f9742e71e64be51678b379a3ed26fa953bf499fb111d4c971040e6b5cde'
             '03711172e94c7eade171f0d19a855716f967cb94be7825784619e48dade17c0b'
             '2bb46f3f7952401283d6b081630651b2ac137ce0b85e00da7af3b2a86e373fb6'
-            '56823b04a00d12d682e1872e32c0dfab33ba5fe1dfc232066c659b61eb821aa3')
+            '01cbbb261b4296baf80a20fa9917095fb1618d651c09c479e71b1ddfe4e29ff4')
 
 package_noto-fonts-cros-kagayaki() {
 	pkgdesc="Google Noto TTF fonts (CROS)"
@@ -63,6 +63,7 @@ package_noto-fonts-sans-kagayaki() {
 
 	install -m644 NotoSans-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansDisplay-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 NotoSansMath-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansSymbols-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansSymbols2-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
@@ -145,7 +146,6 @@ package_noto-fonts-extras-kagayaki() {
 	# Extras
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	cd "${srcdir}/noto-fonts-${_commit}/hinted"
-	install -m644 NotoKufiArabic-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoNaskhArabic-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoNaskhArabicUI-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoNastaliqUrdu-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -206,6 +206,7 @@ package_noto-fonts-extras-kagayaki() {
 	install -m644 NotoSansKharoshthi-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansKhmer-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansKhmerUI-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 NotoSansKhojki-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansKhudawadi-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansLao-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansLaoUI-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -267,9 +268,6 @@ package_noto-fonts-extras-kagayaki() {
 	install -m644 NotoSansSundanese-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansSylotiNagri-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansSyriac-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoSansSyriacEastern-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoSansSyriacEstrangela-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 NotoSansSyriacWestern-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansTagalog-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansTagbanwa-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 NotoSansTaiLe-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -315,6 +313,7 @@ package_noto-fonts-extras-kagayaki() {
 
 
 	cd "${srcdir}/noto-fonts-${_commit}/phaseIII_only/unhinted/ttf"
+	install -m644 NotoSansSiddham/NotoSansSiddham-*.ttf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
 	# License
 	cd "${srcdir}/noto-fonts-${_commit}"

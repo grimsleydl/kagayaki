@@ -1,7 +1,7 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 
 pkgname=source-sans-pro-kagayaki
-_pkgver=2018-10-24
+_pkgver=2019-01-12
 pkgver=${_pkgver//-}
 pkgrel=1
 pkgdesc="Sans serif font family for user interface environments"
@@ -10,13 +10,13 @@ url="http://adobe-fonts.github.io/source-sans-pro"
 license=('custom:OFL')
 depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
 groups=('kagayaki-bundle-fonts')
-source=("https://github.com/adobe-fonts/source-sans-pro/releases/download/2.040R-ro%2F1.090R-it/source-sans-pro-2.040R-ro-1.090R-it.zip"
+source=("https://github.com/adobe-fonts/source-sans-pro/releases/download/2.045R-ro%2F1.095R-it/source-sans-pro-2.045R-ro-1.095R-it.zip"
 		42-source-sans-pro.conf)
-sha256sums=('dec6fa04d142762a9051dc36be356291a9cf5864466539e2712879370d88818c'
+sha256sums=('5f090b821e117f452ef399c3c1b8b244c1647728a1e901c4d167cbf7fc298ab6'
             'ff03ede040aa38d3d5365eb7eefa666ba2bc1e041e168a4d7377a98a349df39d')
 
 package(){
-	cd "${srcdir}/source-sans-pro-release"
+	cd "${srcdir}/source-sans-pro-2.045R-ro-1.095R-it"
 
 	# Install license
 	install -Dm644 "LICENSE.txt" \

@@ -1,0 +1,41 @@
+# Maintainer: julroy67 <julroy67@gmail.com>
+
+pkgname=source-han-serif-kagayaki
+pkgver=1.001
+pkgrel=1
+pkgdesc="Source Han Serif, designed by Ryoko Nishizuka, is the companion serif–style Pan-CJK typeface family to Source Han Serif"
+arch=('any')
+url="https://github.com/adobe-fonts/source-han-serif"
+license=('custom:SIL')
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir')
+conflicts=('ttf-noto-fonts-cjk-kagayaki')
+groups=('kagayaki-bundle-fonts')
+source=("https://github.com/adobe-fonts/source-han-serif/releases/download/1.001R/SourceHanSerif.ttc"
+		43-source-han-serif.conf
+		LICENSE.txt)
+sha256sums=('85cc634fa228286ca307803bbb4ca61f61fa821b3ed573f4f07c6f0c064426b5'
+            'c391ee5d0d8fa9074f70221203672c54e4d5b207c7eb654004ea94960bd17610'
+            '9d30aaa9b7278806d2cacbf272b748a84d1bfd97efcc53bba1be4eb0be20c1c4')
+
+package() {
+	cd "${srcdir}"
+
+	# Install license
+	install -Dm644 "LICENSE.txt" \
+		"${pkgdir}"/usr/share/licenses/"$pkgname"/COPYING
+
+	# Install font
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 SourceHanSerif.ttc \
+		"${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
+	# Install infinality conf
+	cd "${srcdir}"
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
+	install -m755 -d "${pkgdir}"/etc/fonts/conf.avail
+	install -m644 43-source-han-serif.conf \
+		"${pkgdir}"/etc/fonts/conf.avail/43-source-han-serif.conf
+
+	cd "${pkgdir}"/etc/fonts/conf.d
+	ln -s ../conf.avail/43-source-han-serif.conf .
+}

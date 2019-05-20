@@ -1,7 +1,7 @@
 # Maintainer: julroy67 <julroy67@gmail.com>
 
 pkgname=alegreya-kagayaki
-pkgver=2.007
+pkgver=2.008
 pkgrel=1
 pkgdesc="Alegreya is a typeface originally intended for literature"
 arch=('any')
@@ -11,7 +11,7 @@ depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir'
 groups=('kagayaki-bundle-fonts')
 source=("https://github.com/huertatipografica/Alegreya/archive/v${pkgver}.tar.gz"
         42-alegreya.conf)
-sha256sums=('f0c4fea8adac2ae43892c2a067c50965db0e6794afb07cd1f1d2ca18de3adeb4'
+sha256sums=('44dacbe3c4b60c203b1d60f0a55ebf6c139823f83fd234f9b078ece7cb15676e'
             '4b0a3af3690ff0e604c4bc24eabf05fec3a2874a500b906d1cd73bc37ac93314')
 
 package(){

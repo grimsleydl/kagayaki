@@ -14,7 +14,7 @@ groups=('kagayaki-bundle-fonts')
 source=("https://fonts.google.com/download?family=Merriweather"
         42-merriweather.conf)
 sha256sums=('5eaf3ba2fe1af3a5db38679e7df946038301a1f2ce18d587d19e2e2f1307c6e8'
-            'd95122825d50132cc26ab9816a5f04eb42198c8a5816e08571a5927e2813b8fd')
+            '56d4ae30289b6807924a4a4ab462f7845d2a68660a23ce2328725170fbf6fd8d')
 
 package(){
 	cd "${srcdir}"

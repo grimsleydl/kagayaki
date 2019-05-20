@@ -32,7 +32,7 @@ package(){
 	install -m755 -d "${pkgdir}"/etc/fonts/conf.d
 	install -m644 42-cantoraone.conf \
 		"${pkgdir}"/etc/fonts/conf.avail/42-cantoraone.conf
-	
+
 	cd "${pkgdir}"/etc/fonts/conf.d
 	ln -s ../conf.avail/42-cantoraone.conf .
 }
