@@ -2,8 +2,8 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=cormorant-kagayaki
-pkgver=3.602
-_commit=60fd408a28c260c6448ac767eaf5c9af41825dcf
+pkgver=3.603
+_commit=83d1fa9b582005f8f913d178fdbe98094698a6c4
 pkgrel=1
 pkgdesc="Cormorant is a free display type family developed by Christian Thalmann"
 arch=('any')
@@ -13,7 +13,7 @@ depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-font-utils')
 url='https://github.com/CatharsisFonts/Cormorant'
 source=("https://github.com/CatharsisFonts/Cormorant/archive/$_commit.zip"
 		42-cormorant.conf)
-sha256sums=('2da8d66c9310d47b2a8fc852093606add005e020682fd257285af757c84bfb23'
+sha256sums=('75c703f63f70e68660c81ce774c2e2e9a3162dcc3bbad34260765c9ac744035c'
             '34c99d0388d7fef0df9acf8739e7c540f9e3fe21a8f89b40f8db8168553ed0c8')
 
 package() {

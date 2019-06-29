@@ -2,8 +2,8 @@
 
 pkgbase=noto-fonts-kagayaki
 pkgname=('noto-fonts-cros-kagayaki' 'noto-fonts-sans-kagayaki' 'noto-fonts-serif-kagayaki' 'noto-fonts-mono-kagayaki' 'noto-fonts-extras-kagayaki')
-_pkgver=2019-03-02
-_commit=c4e94171d04167796d0dd5e7a93e94b54ca29425
+_pkgver=2019-05-24
+_commit=34e98229863e627d0f841e124a8657d5d0348b04
 pkgver=${_pkgver//-}
 pkgrel=1
 arch=('any')
@@ -15,7 +15,7 @@ source=("https://github.com/googlei18n/noto-fonts/archive/${_commit}.zip"
 	41-noto-serif.conf
 	41-noto-mono.conf
 	41-noto-extras.conf)
-sha256sums=('d19752f04dc646e5b34cf447a91e7e9c659031c117c5de0a86021749cda9ffd4'
+sha256sums=('6dc5a8fda45b7cc7b397b4fec66442f7c5b59485de7e9922c92f65aa19921fce'
             'a079ddbdcb1b9f2b2bb31f373fa5d135aaff57a06b590faffc1dbb71adf3fc0c'
             'ef116f9742e71e64be51678b379a3ed26fa953bf499fb111d4c971040e6b5cde'
             '03711172e94c7eade171f0d19a855716f967cb94be7825784619e48dade17c0b'

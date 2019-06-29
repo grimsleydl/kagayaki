@@ -2,8 +2,8 @@
 
 pkgname=ibm-plex-kagayaki
 pkgdesc="The package of IBM’s new typeface, IBM Plex"
-_pkgver=2019-04-06
-_commit=c0cfad9f4829acf280ce4d88e31d23373fc3a41a
+_pkgver=2019-06-05
+_commit=be666280d042fe7c3f18581338a68bc0258d096a
 pkgver=${_pkgver//-}
 pkgrel=1
 arch=('any')
@@ -13,8 +13,8 @@ groups=('kagayaki-bundle-fonts')
 license=('custom:OFL')
 source=("https://github.com/IBM/plex/archive/${_commit}.zip"
 		41-ibm-plex.conf)
-sha256sums=('e7589b757fb90a6bba663229b5648bbe44b7788bdb63a7aaa9dd6395cf3c50dd'
-            '40df3875df1240d167b3485e0541c8cbb61950f8f24c09fe63d7d91785a088bf')
+sha256sums=('14095ee8ced06a00f6ea6db764252e0811676782d26d42469ccd1338a8dab853'
+            '473e848ba53aa41825849361198047e43453d7a3ba8660020ef81704422fa98d')
 
 package() {
 	# Arabic
@@ -47,6 +47,11 @@ package() {
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
+	# Sans Thai Looped
+	cd "${srcdir}/plex-${_commit}/IBM-Plex-Sans-Thai-Looped/fonts/complete/otf"
+	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
+
 	# Serif
 	cd "${srcdir}/plex-${_commit}/IBM-Plex-Serif/fonts/complete/otf"
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
@@ -54,11 +59,6 @@ package() {
 
 	# Thai
 	cd "${srcdir}/plex-${_commit}/IBM-Plex-Thai/fonts/complete/otf"
-	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
-
-	# Thai Looped
-	cd "${srcdir}/plex-${_commit}/IBM-Plex-Thai-Looped/fonts/complete/otf"
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 	install -m644 *.otf "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
 
