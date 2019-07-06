@@ -2,7 +2,7 @@
 
 pkgname=eaudegaramond-kagayaki
 pkgver=0.003
-_commit=7ebbac51e82ddc15fbaad511ef724f27bddd1641
+_commit=17157c3a49974aedb886430c774bb0374168ff65
 pkgrel=1
 pkgdesc="Eau de Garamond is a free display type family developed by Christian Thalmann"
 arch=('any')
