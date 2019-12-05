@@ -3,8 +3,8 @@
 # Contributor: bohoomil <@zoho.com>
 
 pkgname=noto-emoji-kagayaki
-pkgver=2.017
-_commit=3ffd20ec7504657aa17c84f9aa475ad09b20c362
+pkgver=2.018
+_commit=833a43d03246a9325e748a2d783006454d76ff66
 pkgrel=1
 pkgdesc="Google Noto emoji fonts"
 arch=('any')
@@ -14,11 +14,11 @@ depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-mkfontscale' 'xorg-mkfontdir'
 conflicts=('ttf-noto-emoji-kagayaki' 'noto-fonts-emoji')
 source=("https://github.com/googlei18n/noto-emoji/archive/$_commit.zip"
         41-noto-emoji.conf)
-sha256sums=('96d41cee5017eee62546bc589db66d602b771b9cff32add59c2f969c2a62cac9'
+sha256sums=('689908c94c813f52b6b4b5a08088ae12131b1c4cfa546d9b43ee95b73945514b'
             'a7885d9bf967dc4c18ec8818d791365f1682ff03732d2dccc19dc8b907fe6543')
 
 package() {
-	cd "noto-emoji-${_commit}/fonts"
+	cd "noto-emoji-${_commit}"
 
 	# Install font
 	install -m755 -d "${pkgdir}"/usr/share/fonts/kagayaki/"${pkgname}"
